@@ -20,7 +20,7 @@ status = cycle(['Prefix: p.', 'Pão', 'Bread'])
 @bot.event
 async def on_ready():
 	change_status.start()
-	print("{bot.user} está on!!")
+	print('O {bot.user} está on!!')
 
 @tasks.loop(seconds = 20)
 async def change_status():
@@ -33,7 +33,8 @@ async def ping(ctx):
 	global emojis
 	if not emojis:
 		emojis = {e.name:str(e) for e in ctx.bot.emojis}
-		await ctx.send("Pong! :paopula: `{0} ms`!".format(int(bot.latency * 1000)).replace(':paopula:',emojis['paopula']))
+		msg = "Pong! :paopula: `{0} ms`!".format(int(bot.latency * 1000)).replace(':paopula:',emojis['paopula'])
+		await ctx.send(msg)
 		
 
 @bot.command(name='clear', help=': this command will clear msgs')
