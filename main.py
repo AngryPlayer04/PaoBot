@@ -19,8 +19,8 @@ status = cycle(['Prefix: p.', 'Pão', 'Bread'])
 
 @bot.event
 async def on_ready():
-	change_status.start()
 	print("Pão com manteiga")
+	change_status.start()
 
 @tasks.loop(seconds = 20)
 async def change_status():
