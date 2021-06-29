@@ -21,6 +21,10 @@ status = cycle(['Prefix: p.', 'Pão', 'Bread'])
 async def on_ready():
 	print("Pão com manteiga")
 	change_status.start()
+<<<<<<< Updated upstream
+=======
+	print('Tá on!!')
+>>>>>>> Stashed changes
 
 @tasks.loop(seconds = 20)
 async def change_status():
