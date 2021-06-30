@@ -28,7 +28,7 @@ async def change_status():
   await bot.change_presence(activity=discord.Game(next(status)))
       
 
-@bot.command(name='clear', help=': this command will clear msgs')
+@bot.command(name='clear', help=' this command will clear msgs')
 async def clear(ctx, amount = 5):
   await ctx.channel.purge(limit=amount)
 
