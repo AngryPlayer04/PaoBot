@@ -3,7 +3,8 @@ from discord.ext import commands, tasks
 import json
 import os 
 import platform
-import datetime 
+from datetime import datetime 
+import pytz
 from itertools import cycle
 
 # Get configuration.json
@@ -19,13 +20,13 @@ intents = discord.Intents.default()
 bot = commands.Bot(prefix, intents = intents)
 status = cycle(['Prefix: p.', 'Pão', 'Bread'])
 
-current_time = datetime.datetime.now()
+current_time = datetime.now()
 
 @bot.event
 async def on_ready():
-  h = current_time.hour
-  m = current_time.minute
-  print('Acordei pra tomar café às {}:{}'.format(h, m))
+  tz_BR = pytz.timezone('America/Sao_Paulo') 
+  datetime_BR = datetime.now(tz_BR)
+  print('Acordei pra tomar café às {}'.format(datetime_BR.strftime("%H:%M")))
   change_status.start()
 
 
