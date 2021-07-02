@@ -1,7 +1,9 @@
 import discord
 from discord.ext import commands, tasks
 import json
-import os
+import os 
+import platform
+import datetime 
 from itertools import cycle
 
 # Get configuration.json
@@ -17,9 +19,13 @@ intents = discord.Intents.default()
 bot = commands.Bot(prefix, intents = intents)
 status = cycle(['Prefix: p.', 'Pão', 'Bread'])
 
+current_time = datetime.datetime.now()
+
 @bot.event
 async def on_ready():
-  print(f'Pão com manteiga')
+  h = current_time.hour
+  m = current_time.minute
+  print('Acordei pra tomar café às {}:{}'.format(h, m))
   change_status.start()
 
 
