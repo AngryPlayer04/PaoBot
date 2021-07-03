@@ -26,7 +26,9 @@ current_time = datetime.now()
 async def on_ready():
   tz_BR = pytz.timezone('America/Sao_Paulo') 
   datetime_BR = datetime.now(tz_BR)
+  print ('===============================')
   print('Acordei pra tomar café às {}'.format(datetime_BR.strftime("%H:%M")))
+  print ('===============================')
   change_status.start()
 
 
@@ -51,13 +53,13 @@ async def on_message(message):
   bread = 'https://tenor.com/view/falling-bread-bread-gif-19081960'
   if message.content == "Pão":
     await message.reply(bread, mention_author=True)
-  if message.content == "pão":
+  elif message.content == "pão":
     await message.reply(bread, mention_author=True)
-  if message.content == "bread":
+  elif message.content == "bread":
     await message.reply(bread, mention_author=True)
-  if message.content == "Bread":
+  elif message.content == "Bread":
     await message.reply(bread, mention_author=True)
-  if message.content == "Oãp":
+  elif message.content == "Oãp":
     await message.reply(bread, mention_author=True)
   await bot.process_commands(message)
     
