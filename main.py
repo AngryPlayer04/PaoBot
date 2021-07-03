@@ -48,7 +48,7 @@ async def ping(ctx):
 
 @bot.event
 async def on_message(message):
-  bread = 'https://www.encurtador.com.br/dxJR9'
+  bread = 'https://tenor.com/view/falling-bread-bread-gif-19081960'
   if message.content == "Pão":
     await message.reply(bread, mention_author=True)
   if message.content == "pão":
