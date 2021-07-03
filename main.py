@@ -49,15 +49,15 @@ async def ping(ctx):
 @bot.event
 async def on_message(message):
   if message.content == "Pão":
-    await message.channel.send(':bread:')
+    await message.reply(':bread:', mention_author=True)
   if message.content == "pão":
-    await message.channel.send(':bread:')
+    await message.reply(':bread:', mention_author=True)
   if message.content == "bread":
-    await message.channel.send(':bread:')
+    await message.reply(':bread:', mention_author=True)
   if message.content == "Bread":
-    await message.channel.send(':bread:')
+    await message.reply(':bread:', mention_author=True)
   if message.content == "Oãp":
-    await message.channel.send(':bread:')
+    await message.reply(':bread:', mention_author=True)
   await bot.process_commands(message)
     
 
