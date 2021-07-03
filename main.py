@@ -48,7 +48,7 @@ async def ping(ctx):
 
 @bot.event
 async def on_message(message):
-  bread = 'https://imagensemoldes.com.br/wp-content/uploads/2020/06/Figura-P%C3%A3o-PNG.png'
+  bread = 'https://www.encurtador.com.br/dxJR9'
   if message.content == "Pão":
     await message.reply(bread, mention_author=True)
   if message.content == "pão":
