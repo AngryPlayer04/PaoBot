@@ -46,7 +46,7 @@ async def clear(ctx, amount = 5):
 @bot.command()
 async def ping(ctx):
     msg = "Pong <a:paopula:858815343072903178> `{0} ms`!".format(int(bot.latency * 1000))
-    await ctx.send(msg)
+    await ctx.reply(msg)
   
 @bot.command(name= 'receita', help='this command send a random recipe')
 async def receita(ctx):
