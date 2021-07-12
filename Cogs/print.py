@@ -1,6 +1,6 @@
 import discord
 from discord.ext import commands
-from PIL import Image, ImageFont, ImageDraw
+from pillow import Image, ImageFont, ImageDraw
 
 class Print(commands.Cog):
     def __init__(self, bot):
