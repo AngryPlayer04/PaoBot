@@ -43,7 +43,8 @@ async def on_ready():
 
 @bot.event 
 async def on_ready():
-  send('Oi', message.author == 319963626108878848)
+  owner = await bot.get_user_info('319963626108878848')
+  await bot.send_message(owner, 'Ready!', tts=false)
 
 
 @tasks.loop(seconds = 15)
