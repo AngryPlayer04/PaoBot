@@ -1,5 +1,5 @@
 discord.py
 pytz
-pillow
+from PIL import Image, ImageFont, ImageDraw
 
 
