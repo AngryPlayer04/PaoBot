@@ -1,6 +1,6 @@
 import discord
 from discord.ext import commands
-from PIL import Image, ImageFont, ImageDraw
+from PIL import Image, ImageFont, ImageDraw, ImageFile
 
 class Print(commands.Cog):
     def __init__(self, bot):
@@ -13,7 +13,8 @@ class Print(commands.Cog):
         w, h = fonte.getsize(text)
         draw = ImageDraw.Draw(imagem)
         draw.text(((500-w)/2, (500-h)/2), text, font=fonte, fill='white')
-        await ctx.reply(Image.show)
+        ImageFi.save('/Paes/print.png')
+        await ctx.reply(file=discord.File('/Paes/print.png'))
 
 
 def setup(bot):
