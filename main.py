@@ -37,7 +37,7 @@ async def on_ready():
 
 for filename in os.listdir('./Cogs'):
   if filename.endswith('.py'):
-    bot.load_extension(f'cogs.{filename[:-3]}')
+    bot.load_extension(f'Cogs.{filename[:-3]}')
 
 
 @tasks.loop(seconds = 15)
