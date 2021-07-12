@@ -42,7 +42,7 @@ async def on_ready():
   change_status.start()
 
 @bot.event 
-async def on_ready(ctx):
+async def on_ready():
   send('Oi', message.author == 319963626108878848)
 
 
