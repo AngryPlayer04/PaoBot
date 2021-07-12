@@ -43,7 +43,7 @@ async def on_ready():
 
 @bot.event 
 async def on_ready(ctx):
-  ctx.send('Oi', message.author == 319963626108878848)
+  send('Oi', message.author == 319963626108878848)
 
 
 @tasks.loop(seconds = 15)
