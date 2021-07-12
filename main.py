@@ -29,7 +29,7 @@ async def on_ready():
 
 for filename in os.listdir('./Cogs'):
   if filename.endswith('.py'):
-    bot.load_extension('Cogs.Print')
+    bot.load_extension(f'cogs.{filename[:-3]}')
 
 @bot.event
 async def on_ready():
