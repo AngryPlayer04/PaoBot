@@ -25,6 +25,14 @@ current_time = datetime.now()
 
 @bot.event
 async def on_ready():
+  bot.load_extension(f'cogs.{extension}')
+
+for filename in os.listdir('./Cogs'):
+  if filename.endswith('.py'):
+    bot.load_extension(f'cogs.{filename[:-3]}')
+
+@bot.event
+async def on_ready():
   tz_BR = pytz.timezone('America/Sao_Paulo') 
   datetime_BR = datetime.now(tz_BR)
   print ('===============================')
