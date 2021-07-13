@@ -13,7 +13,7 @@ class Print(commands.Cog):
         w, h = fonte.getsize(text)
         draw = ImageDraw.Draw(imagem)
         draw.text(((500-w)/2, (500-h)/2), text, font=fonte, fill='white')
-        Image.save('print.png')
+        Image.save(r'print.png')
         await ctx.send(file=discord.File(r'print.png'))
 
 
