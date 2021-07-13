@@ -44,7 +44,7 @@ async def on_ready():
 @bot.event 
 async def on_ready():
   user = '<@319963626108878848>'
-  await send(user'Ready!',tts=True)
+  await send(user,'Ready!',tts=True)
   
 
 @tasks.loop(seconds = 15)
