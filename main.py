@@ -43,7 +43,8 @@ async def on_ready():
 
 @bot.event 
 async def on_ready():
-  user = 319963626108878848
+  await bot.wait_until_ready()
+  user = '<@319963626108878848>'
   await user.send('Ready!',tts=True)
   
 
