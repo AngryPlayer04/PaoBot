@@ -42,7 +42,8 @@ async def on_ready():
   change_status.start()
 
 @bot.event 
-async def on_ready(ctx):
+async def on_ready():
+  
   user = '<@319963626108878848>'
   await ctx.send(user,'Ready!',tts=True)
   
