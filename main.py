@@ -39,14 +39,7 @@ async def on_ready():
   print ('===============================')
   print('Acordei pra tomar café às {}'.format(datetime_BR.strftime("%H:%M")))
   print ('===============================')
-  change_status.start()
-
-@bot.event 
-async def on_ready():
-  
-  user = '<@319963626108878848>'
-  await ctx.send(user,'Ready!',tts=True)
-  
+  change_status.start()  
 
 @tasks.loop(seconds = 15)
 async def change_status():
