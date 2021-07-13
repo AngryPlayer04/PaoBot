@@ -8,7 +8,7 @@ class Print(commands.Cog):
     @commands.command()
     async def print(self, ctx):
         imagem = Image.new('RGBA', (700, 200), 'grey')
-        fonte = ImageFont.truetype('unisans.ttf', 24)
+        fonte = ImageFont.truetype('arial.ttf', 24)
         text = 'Pão de Açúcar'
         w, h = fonte.getsize(text)
         draw = ImageDraw.Draw(imagem)
