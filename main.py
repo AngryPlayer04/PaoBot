@@ -44,7 +44,7 @@ async def on_ready():
 @bot.event 
 async def on_ready():
   await bot.wait_until_ready()
-  owner = bot.get_userID(319963626108878848)
+  owner = bot.get_user(319963626108878848)
   await owner.send('Ready!',tts=True)
   
 
