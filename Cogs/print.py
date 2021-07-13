@@ -13,8 +13,8 @@ class Print(commands.Cog):
         w, h = fonte.getsize(text)
         draw = ImageDraw.Draw(imagem)
         draw.text(((500-w)/2, (500-h)/2), text, font=fonte, fill='white')
-        ImageFile.save('print.png')
-        await ctx.reply(file=discord.File('print.png'))
+        Image.save('print.png')
+        await ctx.send(file=discord.File('print.png'))
 
 
 def setup(bot):
