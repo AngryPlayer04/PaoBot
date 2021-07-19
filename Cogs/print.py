@@ -7,14 +7,7 @@ class Print(commands.Cog):
         self.bot= bot
     @commands.command()
     async def print(self, ctx):
-        imagem = Image.new('RGBA', (700, 200), 'grey')
-        fonte = ImageFont.truetype('arial.ttf', 24)
-        text = 'Pão de Açúcar'
-        w, h = fonte.getsize(text)
-        draw = ImageDraw.Draw(imagem)
-        draw.text(((500-w)/2, (500-h)/2), text, font=fonte, fill='white')
-        Image.save(r'print.png')
-        await ctx.send(file=discord.File(r'print.png'))
+        await ctx.reply("Print")
 
 
 def setup(bot):
