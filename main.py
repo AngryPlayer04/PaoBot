@@ -17,7 +17,7 @@ with open("configuration.json", "r") as config:
   
 
 # Intents
-intents = discord.Intents.all()
+intents = discord.Intents.default()
 # The bot
 bot = commands.Bot(prefix, intents = intents)
 status = cycle(['Prefix: p.', 'Pão', 'Bread'])
