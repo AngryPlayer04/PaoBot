@@ -8,7 +8,7 @@ class Calc(commands.Cog):
         self.bot = bot 
     @commands.command()
     async def calc(self, ctx, *, expression):
-        c = eval(expression)
+        c = int(eval(expression))
         await ctx.reply(c)
 
 def setup(bot):
