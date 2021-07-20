@@ -5,8 +5,7 @@ import os
 import platform
 from datetime import datetime 
 import pytz
-import random
-import PIL
+import random 
 from itertools import cycle
 
 # Get configuration.json
