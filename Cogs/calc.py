@@ -7,7 +7,7 @@ class Calc(commands.Cog):
     def __init__(self, bot):
         self.bot = bot 
     @commands.command()
-    async def calc(ctx, *, expression):
+    async def calc(ctx, self, *, expression):
         c = eval(expression)
         await ctx.reply(c)
 
