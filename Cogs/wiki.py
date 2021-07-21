@@ -17,7 +17,7 @@ class Wiki(commands.Cog):
         error = None
 
         wikicontent = wikipedia.summary(f'{query}', sentences=5 )
-        action = query
+        query = action
         if not wikicontent:
             wikicontent = "Desculpe, não há resultados para `{}`.".format(request)
             embed = discord.Embed(title = "Resultados da pesquisa no Wikipedia:", color = "#e8cda2", descriptionn = wikicontent)
