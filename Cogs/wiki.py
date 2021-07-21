@@ -15,7 +15,7 @@ class Wiki(commands.Cog):
         request = msg[2:]
         request = "".join(request)
         error = None
-        wikicontent = wikipedia.summary(f'{query}', sentences=5 )
+        wikicontent = wikipedia.search(f'{query}', sentences=5 )
         
         if not wikicontent:
             wikicontent = "Desculpe, não há resultados para `{}`.".format(request)
