@@ -1,7 +1,7 @@
 import discord
 from discord.ext import commands
 import wikipedia
-from wikipedia.wikipedia import suggest 
+import wikipedia
 
 current_language = "pt"
 
@@ -15,7 +15,7 @@ class Wiki(commands.Cog):
         request = msg[2:]
         request = "".join(request)
         error = None
-        wikicontent = wikipedia.search(f'{query}', sentences=5 )
+        wikicontent = wikipedia.search(request, sentences=20 )
         
         if not wikicontent:
             wikicontent = "Desculpe, não há resultados para `{}`.".format(request)
