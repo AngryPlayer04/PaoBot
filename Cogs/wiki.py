@@ -30,13 +30,7 @@ class Wiki(commands.Cog):
             await ctx.reply(embed=embed)
 
 
-@Wiki.error
-async def info_error(ctx, error):
-    if isinstance(error):
-        await ctx.reply("Desculpe, ocorreu um erro aleatório. Por favor tente novamente.")
-        print(error)
-   
-            
+
 
 def setup(bot):
     bot.add_cog(Wiki(bot))
