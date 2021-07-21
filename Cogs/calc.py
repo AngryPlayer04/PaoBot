@@ -9,7 +9,7 @@ class Calc(commands.Cog):
     @commands.command()
     async def calc(self, ctx, *, expression):
         c = float(eval(expression))
-        await ctx.reply(":abacus:  **|**  {} é igual a: {:.3}".format(expression, c))
+        await ctx.reply(":abacus:  **|**  {} é igual a `{:.3}`".format(expression, c))
 
 def setup(bot):
     bot.add_cog(Calc(bot))
