@@ -15,7 +15,13 @@ class Wiki(commands.Cog):
         request = msg[2:]
         request = "".join(request)
         error = None
+        if 'wikipedia' in query:
+            speak("Searching")
+            query = ("wikipedia","")
+            result = wikipedia.summary(f'{query}', sentences=2)
+            print(result)
         wikicontent = wikipedia.search(request, results=20, suggestion = False )
+
         
         if not wikicontent:
             wikicontent = "Desculpe, não há resultados para `{}`.".format(request)
