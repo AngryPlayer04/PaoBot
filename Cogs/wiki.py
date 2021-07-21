@@ -21,7 +21,7 @@ class Wiki(commands.Cog):
         if 'wikipedia' in query:
             speak("Searching")
             query = ("wikipedia","")
-            result = wikipedia.summary(f'{query}', sentences=2)
+            result = wikipedia.summary(f'{search}', sentences=2)
             print(result)
 
         if not wikicontent:
