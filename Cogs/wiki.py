@@ -11,13 +11,13 @@ class Wiki(commands.Cog):
     @commands.command()
     async def wiki(self, ctx):
         global current_language
-        msg = ctx.message.content.split(" ")
+        msg = ctx.message.content.split()
         request = msg[2:]
-        request = " ".join(request)
+        request = .join(request)
         error = None
-
-        wikicontent = wikipedia.summary(f'{query}', sentences=5 )
         query = action
+        wikicontent = wikipedia.summary(f'{query}', sentences=5 )
+        
         if not wikicontent:
             wikicontent = "Desculpe, não há resultados para `{}`.".format(request)
             embed = discord.Embed(title = "Resultados da pesquisa no Wikipedia:", color = "#e8cda2", descriptionn = wikicontent)
