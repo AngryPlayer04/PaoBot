@@ -13,7 +13,7 @@ class Wiki(commands.Cog):
         global current_language
         msg = ctx.message.content.split()
         request = msg[2:]
-        request = .join(request)
+        request = "".join(request)
         error = None
         query = action
         wikicontent = wikipedia.summary(f'{query}', sentences=5 )
