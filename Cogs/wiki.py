@@ -30,6 +30,7 @@ class Wiki(commands.Cog):
             embed.set_thumbnail(url = "https://www.wikipedia.org/static/images/project-logos/{}wiki.png".format(current_language))
             await ctx.reply(embed = embed)
 
+
         elif wikicontent:
             embed = discord.Embed(title = "Resultado da pesquisa no Wikipedia", color = 0, description = "\n".join(wikicontent))
             embed.set_thumbnail(url = "https://www.wikipedia.org/static/images/project-logos/{}wiki.png".format(current_language))
