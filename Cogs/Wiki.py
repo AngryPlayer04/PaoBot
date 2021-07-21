@@ -35,5 +35,8 @@ class Calc(commands.Cog):
              error = str(error)
              await ctx.reply("Desculpe, ocorreu um erro aleatório. Por favor tente novamente")
              print (error)
+             
+def setup(bot):
+  bot.add_cog(Wiki(bot)
             
           
