@@ -6,7 +6,6 @@ current_language = "pt-BR"
 
 class Calc(commands.Cog):
   def __init__(self, bot):
-    |
         self.bot = bot 
     @commands.command()
     async def wiki(self, ctx):
