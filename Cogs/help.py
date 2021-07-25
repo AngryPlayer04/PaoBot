@@ -11,7 +11,7 @@ class HelpCog(commands.Cog, name="help command"):
 					usage="(commandName)",
 					description = "Display the help message.")
 	@commands.cooldown(1, 2, commands.BucketType.member)
-	async def help (self, ctx, commandName:str=None):
+	async def help(self, ctx, commandName:str=None):  
 
 		commandName2 = None
 		stop = False
@@ -20,14 +20,14 @@ class HelpCog(commands.Cog, name="help command"):
 			for i in self.bot.commands:
 				if i.name == commandName.lower():
 					commandName2 = i
-					break 
+					break
 				else:
 					for j in i.aliases:
 						if j == commandName.lower():
 							commandName2 = i
 							stop = True
 							break
-						if stop is True:
+						if stop:
 							break 
 
 			if commandName2 is None:
@@ -48,12 +48,13 @@ class HelpCog(commands.Cog, name="help command"):
 					commandName2.usage = ""
 				embed.add_field(name=f"**USAGE :**", value=f"{self.bot.command_prefix}{commandName2.name} {commandName2.usage}", inline=False)
 				embed.add_field(name=f"**DESCRIPTION :**", value=f"{commandName2.description}", inline=False)
-				await ctx.channel.send(embed=embed)             
+				await ctx.channel.send(embed=embed)
 		else:
 			embed = discord.Embed(title=f"__**Help page of {self.bot.user.name}**__", description=f"**{self.bot.command_prefix}help (command)** : Display the help list or the help data for a specific command.", color=randint(0, 0xffffff))
 			embed.set_thumbnail(url=f'{self.bot.user.avatar_url}')
 			embed.add_field(name=f"__COMMANDS :__", value=f"**{self.bot.command_prefix}command <parameters>** : Command description.", inline=False)
 			await ctx.channel.send(embed=embed)
+			await bot.process_commands(help)
 
 def setup(bot:commands.Bot):
 	bot.remove_command("help")
