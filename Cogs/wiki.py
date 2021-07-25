@@ -9,9 +9,7 @@ class Wiki(commands.Cog):
                       aliases=['wikipedia', 'buscar', 'search'],
                       help='Pesquisa no Wikipedia.')
     async def wiki(self, ctx, *, args):
-
         wikipedia.set_lang('pt')
-
         wiki_logo = """
         https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Wikipedia_svg_logo.svg/1200px-Wikipedia_svg_logo.svg.png
         """
