@@ -1,7 +1,6 @@
 import discord 
 from discord.ext import commands
 import wikipedia
-import wikipediaapi
 
 class Wiki(commands.Cog):
     def __init__(self, bot):
@@ -12,8 +11,6 @@ class Wiki(commands.Cog):
     async def wiki(self, ctx, *, args):
 
         wikipedia.set_lang('pt')
-
-        wiki = wikipediaapi.Wikipedia('pt')
 
         wiki_logo = """
         https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Wikipedia_svg_logo.svg/1200px-Wikipedia_svg_logo.svg.png
