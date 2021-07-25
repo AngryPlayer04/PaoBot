@@ -6,7 +6,7 @@ import wikipedia
 class Wiki(commands.Cog):
     def __init__(self, bot):
         self.bot=bot
-    @bot.command()
+    @commands.command()
     async def wiki(ctx, userInput):
         try: 
             await ctx.reply(format(wikipedia.summary(userInput, sentences = 5)))
