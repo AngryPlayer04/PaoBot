@@ -9,9 +9,9 @@ class Wiki(commands.Cog):
     @commands.command()
     async def wiki(ctx, userInput):
         try: 
-            await ctx.reply(format(wikipedia.summary(userInput, sentences = 5)))
+            await ctx.send(format(wikipedia.summary(userInput, sentences = 5)))
         except wikipedia.exceptions.DisambiguationError as e:
-            await ctx.reply(format("Erro: {0}".format(e)))
+            await ctx.send(format("Erro: {0}".format(e)))
             await ctx.send ("Erro: muitos resultados, tente novamente com mais detalhes.")
 
 
