@@ -13,4 +13,4 @@ class Cal(commands.Cog):
 
 
 def setup(bot):
-    bot.add_cog(Cal(bot))
+    pass
