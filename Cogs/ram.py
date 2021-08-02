@@ -18,7 +18,7 @@ class Owneronly(commands.Cog, name = "owneronly"):
 
 
         try:
-            ctx.message.author.id == 319963626108878848:
+            
             r = discloud.ram()
             # 100/1024MB
             # dados do uso de RAM
@@ -26,7 +26,8 @@ class Owneronly(commands.Cog, name = "owneronly"):
             # 100MB
             # dados do total de RAM disponÃ­vel
             tr = discloud.total_ram()
-            await ctx.reply("Usando {} de ram".format(r)) # 1GB
+            # 1GB
+            await ctx.reply("Usando {} de ram".format(r)) 
 
         except:
             await ctx.reply("Desculpe, mas você não é o meu dono.")
