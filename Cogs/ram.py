@@ -15,7 +15,7 @@ class Owneronly(commands.Cog, name = "owneronly"):
     @commands.command()
     @commands.is_owner()
     async def ram(self, ctx):
-        if ctx.message.author.id == "owner_id":
+        if ctx.message.author.id == 319963626108878848:
             r = discloud.ram()
             # 100/1024MB
             # dados do uso de RAM
