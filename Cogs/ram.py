@@ -1,8 +1,13 @@
 import discord
 from discord.ext import commands
 import discloud
+import json
 
-bot = commands.Bot(owner_id = 319963626108878848)
+with open("configuration.json", "r") as config: 
+	data = json.load(config)
+	prefix = data["prefix"]
+
+bot = commands.Bot(prefix, owner_id = 319963626108878848)
 
 class Owneronly(commands.Cog, name = "owner only commands"):
     def __init__(self, ctx,):
