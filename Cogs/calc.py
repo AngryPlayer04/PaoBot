@@ -6,7 +6,7 @@ class Calculators(commands.Cog, name = "calculator"):
     def __init__(self, bot:commands.Bot):
         self.bot = bot
     @commands.command()
-    async def calc(ctx, *, express):
+    async def calc(self, ctx, *, express):
         soma = eval(express)
         await ctx.reply(soma)
 
