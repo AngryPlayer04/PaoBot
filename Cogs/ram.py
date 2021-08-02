@@ -25,7 +25,7 @@ class Owneronly(commands.Cog, name = "owneronly"):
             tr = discloud.total_ram()
             await ctx.reply("Usando {} de ram".format(r)) # 1GB
 
-        else:
+        if not:
             await ctx.reply("Desculpe, mas você não é o meu dono.")
 
 def setup(bot):
