@@ -7,8 +7,13 @@ class Calculators(commands.Cog, name = "calculator"):
         self.bot = bot
     @commands.command()
     async def calc(self, ctx, *, express):
-        soma = eval(express)
-        await ctx.reply(":abacus: **|** O resultado é: {:.4f}".format(soma))
+        try:
+            soma = eval(express)
+            await ctx.reply(":abacus: **|** O resultado é: {:.4f}".format(soma))
+            
+        except (ValueError, SyntaxError, NameError, TypeError, ZeroDivisionError):
+            await ctx.reply("Desculpe, eu não posso fazer isso ou ocorreu um erro desconhecido")
+
 
 def setup(bot):
     bot.add_cog(Calculators(bot))
