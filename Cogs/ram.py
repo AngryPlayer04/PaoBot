@@ -7,7 +7,8 @@ with open("configuration.json", "r") as config:
 	data = json.load(config)
 	prefix = data["prefix"]
 owner_id = 319963626108878848
-bot = commands.Bot(prefix, owner_id)
+oid = owner_id
+bot = commands.Bot(prefix, oid)
 
 class Owneronly(commands.Cog, name = "owneronly"):
     def __init__(self, ctx,):
@@ -27,10 +28,6 @@ class Owneronly(commands.Cog, name = "owneronly"):
 
         else:
             await ctx.reply("Desculpe, mas você não é o meu dono.")
-
-    #@owneronly.error
-    #async def owneronly_error(error, ctx):
-        i#f isinstance(error, isnot)
         
 
 def setup(bot):
