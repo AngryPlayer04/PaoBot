@@ -27,7 +27,7 @@ class OnCommandErrorCog(commands.Cog, name="on command error"):
 		elif isinstance(error, MissingPermissions):
  			await ctx.send(error.text)
 		elif isinstance(error, CheckFailure):
-		  error = getattr(error, 'original', error)
+		  NotOwner = getattr(error, 'original', error)
 		  await ctx.send(error.original.text)
 		else:
 			print(error) 
