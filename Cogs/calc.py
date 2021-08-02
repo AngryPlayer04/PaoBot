@@ -12,7 +12,7 @@ class Calculators(commands.Cog, name = "calculator"):
             await ctx.reply(":abacus: **|** O resultado é: {:3}".format(soma))
 
         except (ValueError, SyntaxError, NameError, TypeError, ZeroDivisionError):
-            await ctx.reply("Desculpe, eu não posso fazer isso ou ocorreu um erro desconhecido")
+            await ctx.reply("Desculpe, eu não posso fazer isso ou ocorreu um erro desconhecido.")
 
 
 def setup(bot):
