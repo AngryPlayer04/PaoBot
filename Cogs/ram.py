@@ -6,9 +6,8 @@ import json
 with open("configuration.json", "r") as config: 
 	data = json.load(config)
 	prefix = data["prefix"]
-owner_id = 319963626108878848
-oid = owner_id
-bot = commands.Bot(prefix, oid)
+
+bot = commands.Bot(prefix, owner_id = 319963626108878848)
 
 class Owneronly(commands.Cog, name = "owneronly"):
     def __init__(self, ctx,):
@@ -16,7 +15,7 @@ class Owneronly(commands.Cog, name = "owneronly"):
     @commands.command()
     @commands.is_owner()
     async def ram(self, ctx):
-        if ctx.message.author.id == owner_id:
+        if ctx.message.author.id == "owner_id":
             r = discloud.ram()
             # 100/1024MB
             # dados do uso de RAM
@@ -28,7 +27,6 @@ class Owneronly(commands.Cog, name = "owneronly"):
 
         else:
             await ctx.reply("Desculpe, mas você não é o meu dono.")
-        
 
 def setup(bot):
     bot.add_cog(Owneronly(bot))
