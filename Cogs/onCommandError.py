@@ -28,6 +28,8 @@ class OnCommandErrorCog(commands.Cog, name="on command error"):
  			await ctx.send(error.text)
 		elif isinstance(error, CheckFailure):
 		  await ctx.send(error.text)
+		elif isinstance(error, commands.NotOwner):
+			await ctx.send(error.text)
 		else:
 			print(error) 
 
