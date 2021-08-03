@@ -15,21 +15,15 @@ class Owneronly(commands.Cog, name = "owneronly"):
     @commands.command()
     @commands.is_owner()
     async def ram(self, ctx):
+        r = disclo
+        # 10
+        # dados do us
+        ur = discloud.usi
+        # dados do total de RAM dis
+        tr = discloud.tot
+        await ctx.reply("Usando {} de ram".format(r)) 
 
-
-        try:
-            
-            r = discloud.ram()
-            # 100/1024MB
-            # dados do uso de RAM
-            ur = discloud.using_ram()
-            # 100MB
-            # dados do total de RAM disponÃ­vel
-            tr = discloud.total_ram()
-            # 1GB
-            await ctx.reply("Usando {} de ram".format(r)) 
-
-        except(NotOwner):
+       if isinstance(error, CheckFailure):
             await ctx.reply("Desculpe, mas você não é o meu dono.")
 
 def setup(bot):
