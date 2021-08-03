@@ -26,7 +26,7 @@ class Owneronly(commands.Cog, name = "owneronly"):
             await ctx.reply("Usando {} de ram".format(r)) 
 
         if isinstance(error, CheckFailure):
-            await ctx.reply("Desculpe, mas você não é o meu dono.")
+            await ctx.reply("Desculpe,  mas você não é o meu dono.")
 
 def setup(bot):
     bot.add_cog(Owneronly(bot))
