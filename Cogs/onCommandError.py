@@ -28,7 +28,7 @@ class OnCommandErrorCog(commands.Cog, name="on command error"):
 			await ctx.send(error.text)
 		elif(CheckFailure, commands.NotOwner):
 			
-			await ctx.reply("Desculpe, mas você não é o meu dono.")
+			await ctx.reply("Desculpe, mas você não tem as permissões necessárias para usar esse comando.")
 		else:
 			print(error) 
 
