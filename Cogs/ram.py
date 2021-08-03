@@ -29,7 +29,7 @@ class Owneronly(commands.Cog, name = "owneronly"):
             # 1GB
             await ctx.reply("Usando {} de ram".format(r)) 
 
-        except(error, CheckFailure):
+        except:
             await ctx.reply("Desculpe, mas você não é o meu dono.")
 
 def setup(bot):
