@@ -1,5 +1,6 @@
 import discord
-from discord.ext.commands import commands, MissingPermissions, CheckFailure, CommandNotFound
+from discord.ext import commands
+from discord.ext.commands import MissingPermissions, CheckFailure, CommandNotFound
 import discloud
 import json
 
@@ -27,6 +28,5 @@ class Owneronly(commands.Cog, name = "owneronly"):
 
         if isinstance(error, CheckFailure):
             await ctx.reply("Desculpe,  mas você não é o meu dono.")
-
 def setup(bot):
     bot.add_cog(Owneronly(bot))
