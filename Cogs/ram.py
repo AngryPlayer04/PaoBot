@@ -23,6 +23,5 @@ class Owneronly(commands.Cog, name = "owneronly"):
             # dados do total de RAM dis
             tr = discloud.total_ram()
             await ctx.reply("Usando {} de ram".format(r)) 
-            await ctx.reply("Desculpe, mas você não é o meu dono.")
 def setup(bot):
     bot.add_cog(Owneronly(bot))
