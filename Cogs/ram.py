@@ -1,5 +1,5 @@
 import discord
-from discord.ext import commands
+from discord.ext.commands import commands, MissingPermissions, CheckFailure, CommandNotFound
 import discloud
 import json
 
@@ -8,23 +8,25 @@ with open("configuration.json", "r") as config:
 	prefix = data["prefix"]
 
 bot = commands.Bot(prefix, owner_id = 319963626108878848)
+error = commands.CommandError
 
 class Owneronly(commands.Cog, name = "owneronly"):
     def __init__(self, ctx,):
         self.bot = bot 
     @commands.command()
     @commands.is_owner()
-    async def ram(self, ctx):
-        r = disclo
-        # 10
-        # dados do us
-        ur = discloud.usi
-        # dados do total de RAM dis
-        tr = discloud.tot
-        await ctx.reply("Usando {} de ram".format(r)) 
+    async def ram(self, ctx):        
+        if ctx.message.author.id == 319963626108878848:
+            r = discloud.ram
+            # 10
+            # dados do us
+            ur = discloud.usi
+            # dados do total de RAM dis
+            tr = discloud.tot
+            await ctx.reply("Usando {} de ram".format(r)) 
 
-       if isinstance(error, CheckFailure):
-            await ctx.reply("Desculpe, mas você não é o meu dono.")
+        if isinstance(error, CheckFailure):
+            await ctx.reply("Desculpe,  mas você não é o meu dono.")
 
 def setup(bot):
     bot.add_cog(Owneronly(bot))
