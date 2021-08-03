@@ -26,7 +26,7 @@ class OnCommandErrorCog(commands.Cog, name="on command error"):
 			return
 		elif isinstance(error, MissingPermissions):
 			await ctx.send(error.text)
-		elif isisntance(error, NotOwner):
+		elif(NotOwner):
 			await ctx.reply("Desculpe, mas você não é o meu dono.")
 		else:
 			print(error) 
