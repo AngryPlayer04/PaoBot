@@ -17,11 +17,8 @@ class Owneronly(commands.Cog, name = "owneronly"):
     @commands.is_owner()
     async def ram(self, ctx):        
             r = discloud.ram()
-            # 10
-            # dados do us
             ur = discloud.using_ram()
-            # dados do total de RAM dis
             tr = discloud.total_ram()
-            await ctx.reply("Usando {} de ram".format(r)) 
+            await ctx.reply("Usando {} de ram.".format(r)) 
 def setup(bot):
     bot.add_cog(Owneronly(bot))
