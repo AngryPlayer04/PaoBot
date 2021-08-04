@@ -9,7 +9,7 @@ class Calculators(commands.Cog, name = "calculator"):
     async def calc(self, ctx, *, express):
         try:
             soma = eval(express)
-            await ctx.reply(":abacus: **|** O resultado é:{:4f}".format(soma))
+            await ctx.reply(":abacus: **|** O resultado é:{:.2f}".format(soma))
 
         except (ValueError, SyntaxError, NameError, TypeError, ZeroDivisionError):
             await ctx.reply("Desculpe, eu não posso fazer isso ou ocorreu um erro desconhecido.")
