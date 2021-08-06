@@ -65,7 +65,7 @@ async def receita(ctx):
 
 @bot.event
 async def on_message(message):
-  if message.content in ["Pão", "pão", "bread", "Bread", "Oãp"]:
+  if message.content in ["Pãop", "pão", "bread", "Bread", "Oãp"]:
     bread = 'https://tenor.com/view/falling-bread-bread-gif-19081960'
     await message.reply(bread, mention_author=True)
   await bot.process_commands(message)
