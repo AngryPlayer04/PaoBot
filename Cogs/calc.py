@@ -1,6 +1,6 @@
 import discord
 from discord.ext import commands
-import math
+import numexpr as ne
 
 class Calculators(commands.Cog, name = "calculator"):
     def __init__(self, bot:commands.Bot):
@@ -8,7 +8,7 @@ class Calculators(commands.Cog, name = "calculator"):
     @commands.command()
     async def calc(self, ctx, *, express):
         try:
-            soma = eval(express)
+            soma = ne.evaluate(express)
             await ctx.reply(":abacus: **|** O resultado é:`{:2}`".format(soma))
 
         except (ValueError, SyntaxError, NameError, TypeError, ZeroDivisionError):
