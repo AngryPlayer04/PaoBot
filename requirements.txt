@@ -4,4 +4,3 @@ discloud
 numexpr
 PyCurrency-Converter
 BeautifulSoup
-urllib
