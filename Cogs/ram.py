@@ -1,5 +1,6 @@
 import discord
-from discord.ext.commands import commands, MissingPermissions, CheckFailure, CommandNotFound
+from discord.ext.commands import MissingPermissions, CheckFailure, CommandNotFound
+from discord.ext import commands
 import discloud
 import json
 
