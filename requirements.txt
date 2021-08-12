@@ -3,4 +3,4 @@ pytz
 discloud
 numexpr
 PyCurrency-Converter
-
+BeautifulSoup
