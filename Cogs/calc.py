@@ -11,7 +11,7 @@ class Calculators(commands.Cog, name = "calculator"):
             soma = ne.evaluate(express)
             await ctx.reply(":abacus: **|** O resultado é:`{:2}`".format(soma))
 
-        except (ValueError, SyntaxError, NameError, TypeError, ZeroDivisionError):
+        except (RuntimeError, ValueError, SyntaxError, NameError, TypeError, ZeroDivisionError):
             await ctx.reply("Desculpe, eu não posso fazer isso ou ocorreu um erro desconhecido.")
 
 
