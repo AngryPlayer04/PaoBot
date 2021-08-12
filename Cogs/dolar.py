@@ -1,6 +1,8 @@
 import discord
 from discord.ext import commands
 import PyCurrency_Converter as pcc
+import BeautifulSoup
+import urllib
 
 class Economy(commands.Cog, name="Economia"):
     def __init__(self, bot:commands.Bot):
