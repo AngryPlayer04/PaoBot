@@ -28,6 +28,8 @@ class OnCommandErrorCog(commands.Cog, name="on command error"):
 			await ctx.send(error.text)
 		elif isinstance(error, CheckFailure):
 			await ctx.send(error)
+		elif(CheckFailure, commands.NotOwner):
+			await ctx.reply("Desculpe, mas você não tem as permissões necessárias para usar esse comando.")
 		else:
 			print(error) 
 
