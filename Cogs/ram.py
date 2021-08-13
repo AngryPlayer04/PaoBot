@@ -17,7 +17,7 @@ class Owneronly(commands.Cog, name = "owneronly"):
     @commands.command()
     @commands.is_owner()
     async def ram(self, ctx):        
-            r = discloud.ram
+            r = discloud.ram()
             await ctx.reply("Usando {} de ram".format(r)) 
 
         
