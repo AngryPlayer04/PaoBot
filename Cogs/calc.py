@@ -8,8 +8,8 @@ class Calculators(commands.Cog, name = "calculator"):
     @commands.command()
     async def calc(self, ctx, *, express):
         try:
-            soma = ne.evaluate(express)
-            await ctx.reply(":abacus: **|** O resultado é:`{:2}`".format(soma))
+             = ne.evaluate(express)
+            await ctx.reply(":abacus: **|** O resultado é:`{}`".format(soma))
 
         except (RuntimeError, OverflowError, ValueError, SyntaxError, NameError, TypeError, ZeroDivisionError):
             await ctx.reply("Desculpe, eu não posso calcular `{}` ou ocorreu um erro desconhecido.".format(express))
