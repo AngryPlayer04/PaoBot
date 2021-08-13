@@ -17,13 +17,7 @@ class Owneronly(commands.Cog, name = "owneronly"):
     @commands.command()
     @commands.is_owner()
     async def ram(self, ctx):        
-            ctx.message.author.id == 319963626108878848:
             r = discloud.ram
-            # 10
-            # dados do us
-            ur = discloud.usi
-            # dados do total de RAM dis
-            tr = discloud.tot
             await ctx.reply("Usando {} de ram".format(r)) 
 
         
