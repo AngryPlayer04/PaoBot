@@ -17,7 +17,7 @@ class Owneronly(commands.Cog, name = "owneronly"):
     @commands.command()
     @commands.is_owner()
     async def ram(self, ctx):        
-        if ctx.message.author.id == 319963626108878848:
+            ctx.message.author.id == 319963626108878848:
             r = discloud.ram
             # 10
             # dados do us
@@ -25,15 +25,6 @@ class Owneronly(commands.Cog, name = "owneronly"):
             # dados do total de RAM dis
             tr = discloud.tot
             await ctx.reply("Usando {} de ram".format(r)) 
-
-        try:
-            r = discloud.ram()
-            ur = discloud.using_ram()
-            tr = discloud.total_ram()
-            await ctx.reply("Usando {} de ram.".format(r)) 
-
-        except(error, CheckFailure):
-            await ctx.reply("Desculpe,  mas você não é o meu dono.")
 
         
         
