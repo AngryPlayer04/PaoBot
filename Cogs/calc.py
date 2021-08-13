@@ -8,7 +8,7 @@ class Calculators(commands.Cog, name = "calculator"):
     @commands.command()
     async def calc(self, ctx, *, express):
         try:
-             = ne.evaluate(express)
+            soma = ne.evaluate(express)
             await ctx.reply(":abacus: **|** O resultado é:`{}`".format(soma))
 
         except (RuntimeError, OverflowError, ValueError, SyntaxError, NameError, TypeError, ZeroDivisionError):
