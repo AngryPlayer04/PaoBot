@@ -1,7 +1,6 @@
 import discord
 from discord.ext import commands
 import numexpr as ne
-import converter
 
 class Calculators(commands.Cog, name = "calculator"):
     def __init__(self, bot:commands.Bot):
