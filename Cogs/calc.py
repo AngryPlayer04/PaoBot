@@ -17,9 +17,10 @@ class Calculators(commands.Cog, name = "calculator"):
 
     @commands.command()
     async def dolar(self, ctx):
-        url = 'https://v6.exchangerate-api.com/v6/b494474cf241a1dcfcabf191/latest/USD/BRL/1'
+        url = 'https://v6.exchangerate-api.com/v6/b494474cf241a1dcfcabf191/latest/USD/BRL/1.0'
         response = requests.get(url)
         data = response.json()
+        print (data)
         await ctx.reply("O dólar atualmente equivale a {} do real.".format(data))
 
 
