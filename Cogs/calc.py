@@ -14,12 +14,6 @@ class Calculators(commands.Cog, name = "calculator"):
             await ctx.reply(":abacus: **|** O resultado é:`{}`".format(soma))
         except (RuntimeError, OverflowError, ValueError, SyntaxError, NameError, TypeError, ZeroDivisionError):
             await ctx.reply("Desculpe, eu não posso calcular `{}` ou ocorreu um erro desconhecido.".format(express))
-    
-    @commands.command()
-    async def dolar(self,ctx):
-        cambio = converter.convert(1, 'usd', 'brl')
-        await ctx.reply ("O dólar está {} do Real.".format(cambio))
-
 
 
 def setup(bot):
