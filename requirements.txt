@@ -2,3 +2,4 @@ discord.py
 pytz
 discloud
 numexpr
+currency_converter
