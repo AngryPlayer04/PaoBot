@@ -2,4 +2,4 @@ discord.py
 pytz
 discloud
 numexpr
-converter
+converter @ git+https://github.com/snifhex/currencyConverter.git
