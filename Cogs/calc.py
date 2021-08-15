@@ -17,8 +17,10 @@ class Calculators(commands.Cog, name = "calculator"):
     
     @commands.command()
     async def dolar(self, ctx):
+        currencies = c.currencies
         cambio = c.convert(1, 'USD', 'BRL')
         await ctx.reply ("O dólar está {} do Real.".format(cambio))
+        await ctx.send (currencies)
 
 
 
