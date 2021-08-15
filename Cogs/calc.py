@@ -16,7 +16,7 @@ class Calculators(commands.Cog, name = "calculator"):
             await ctx.reply("Desculpe, eu não posso calcular `{}` ou ocorreu um erro desconhecido.".format(express))
     
     @commands.command()
-    async def dolar(self, ctx, currencies):
+    async def dolar(self, ctx, currencies:c.currencies):
         cambio = c.convert(1, 'USD', 'BRL')
         await ctx.reply ("O dólar está {} do Real.".format(cambio))
 
