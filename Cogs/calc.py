@@ -1,6 +1,7 @@
 import discord
 from discord.ext import commands
 import numexpr as ne
+import requests
 
 class Calculators(commands.Cog, name = "calculator"):
     def __init__(self, bot:commands.Bot):
@@ -13,6 +14,13 @@ class Calculators(commands.Cog, name = "calculator"):
             await ctx.reply(":abacus: **|** O resultado é:`{}`".format(soma))
         except (RuntimeError, OverflowError, ValueError, SyntaxError, NameError, TypeError, ZeroDivisionError):
             await ctx.reply("Desculpe, eu não posso calcular `{}` ou ocorreu um erro desconhecido.".format(express))
+
+    @commands.command()
+    async def dolar(self, ctx):
+        url = 'https://v6.exchangerate-api.com/v6/b494474cf241a1dcfcabf191/latest/USD/BRL/1'
+        response = requests.get(url)
+        data = response.json()
+        await ctx.reply("O dólar atualmente equivale a {} do real.".format(data))
 
 
 def setup(bot):
