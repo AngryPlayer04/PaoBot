@@ -1,11 +1,7 @@
 import discord
 from discord.ext import commands
 import numexpr as ne
-import requests
-from tkinter import *
-import tkinter as tk
-from tkinter import ttk
-from currency_converter import CurrencyConverter
+import converter
 
 class Calculators(commands.Cog, name = "calculator"):
     def __init__(self, bot:commands.Bot):
@@ -20,12 +16,8 @@ class Calculators(commands.Cog, name = "calculator"):
             await ctx.reply("Desculpe, eu não posso calcular `{}` ou ocorreu um erro desconhecido.".format(express))
     
     @commands.command()
-    async def dolar(self,url, ctx, from_currency, to_currency, amount = 1):
-        url = 'https://api.exchangerate-api.com/v4/latest/USD'
-        converter = CurrencyConverter(url)
-        self.data = requests.get(url).json()
-        self.currencies = self.data['rates']
-        cambio = round(amount * self.currencies[to_currency], 4)
+    async def dolar(self,ctx):
+        cambio = converter.convert(1, 'usd', 'brl')
         await ctx.reply ("O dólar está {} do Real.".format(cambio))
 
 
