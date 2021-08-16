@@ -4,6 +4,7 @@ import json
 import numexpr as ne
 import requests
 
+
 class Calculators(commands.Cog, name = "calculator"):
     def __init__(self, bot:commands.Bot):
         self.bot = bot
@@ -17,12 +18,13 @@ class Calculators(commands.Cog, name = "calculator"):
             await ctx.reply("Desculpe, eu não posso calcular `{}` ou ocorreu um erro desconhecido.".format(express))
 
     @commands.command()
-    async def dolar(self, ctx):
-        url = 'https://v6.exchangerate-api.com/v6/b494474cf241a1dcfcabf191/latest/USD/BRL'
-        response = requests.get(url)
-        data = response.json()
-        print (data)
-        await ctx.reply("O dólar atualmente equivale a {:.2} do real.".format(data))
+    async def dolar(ctx):
+        apiKey = 'czd1bJ0ZcKoIOKAyaiL5LxuJ1uIdvncQQDH8'
+        baseCurrency = 'USD'
+        url = 'https://currencyapi.net/api/v1/rates?key='+apiKey+'&base='+baseCurrency
+        r = requests.get(url)
+        response = r.json()
+        await ctx.reply('Um dólar equivale atualmente a R$'+'%.2f' % response ['rates']['BRL'])
 
 
 def setup(bot):
