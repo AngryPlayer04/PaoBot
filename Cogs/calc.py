@@ -18,7 +18,7 @@ class Calculators(commands.Cog, name = "calculator"):
             await ctx.reply("Desculpe, eu não posso calcular `{}` ou ocorreu um erro desconhecido.".format(express))
 
     @commands.command()
-    async def dolar(ctx):
+    async def dolar(self, ctx):
         apiKey = 'czd1bJ0ZcKoIOKAyaiL5LxuJ1uIdvncQQDH8'
         baseCurrency = 'USD'
         url = 'https://currencyapi.net/api/v1/rates?key='+apiKey+'&base='+baseCurrency
