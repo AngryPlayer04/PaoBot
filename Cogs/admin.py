@@ -35,10 +35,9 @@ class AdminOnly(commands.Cog, name = "adminonly"):
     @commands.command()
     async def ping(self, ctx):
         start_time = time.time()
-        message = ctx.reply('Ping:')
         end_time = time.time()
         apiping = round((end_time - start_time) * 1000)
-        await message.edit('Ping: {}'.format(apiping))
+        await ctx.reply('Ping: {}'.format(apiping))
         print(apiping)
 
 
