@@ -2,7 +2,7 @@ import discord
 from discord.ext import commands 
 import random 
 
-bot = commands.Bot()
+
 
 class Funny(commands.Cog, name = "Funny Commands"):
     def __init__(self, bot:commands.Bot):
