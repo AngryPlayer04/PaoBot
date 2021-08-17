@@ -29,7 +29,7 @@ class AdminOnly(commands.Cog, name = "adminonly"):
 
     @commands.command()
     async def ping(self, ctx):
-        msg = "Pong <a:paopula:858815343072903178> `{0} ms`!".format(int(numpy.nan(bot.latency) * 1000))
+        msg = "Pong <a:paopula:858815343072903178> `{0} ms`!".format(numpy.nan_to_num(bot.latency) * 1000)
         await ctx.reply(msg)
 
     @commands.command()
