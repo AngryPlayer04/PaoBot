@@ -4,6 +4,7 @@ from discord.ext import commands
 import discloud
 import json
 import platform
+import numpy
 
 with open("configuration.json", "r") as config: 
 	data = json.load(config)
@@ -28,7 +29,8 @@ class AdminOnly(commands.Cog, name = "adminonly"):
 
     @commands.command()
     async def ping(self, ctx):
-        msg = "Pong <a:paopula:858815343072903178> `{0} ms`!".format(int(bot.latency * 1000))
+        lat = numpy.nan(bot.latency)
+        msg = "Pong <a:paopula:858815343072903178> `{0} ms`!".format(int(lat * 1000))
         await ctx.reply(msg)
 
     @commands.command()
