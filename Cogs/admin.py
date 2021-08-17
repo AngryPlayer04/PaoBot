@@ -33,7 +33,7 @@ class AdminOnly(commands.Cog, name = "adminonly"):
         await ctx.reply("Usando {} de ram".format(r)) 
 
     @commands.command()
-    async def ping(ctx):
+    async def ping(self, ctx):
         start_time = time.time()
         message = ctx.reply('Ping:')
         end_time = time.time()
