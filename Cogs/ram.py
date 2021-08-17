@@ -17,7 +17,7 @@ class AdminOnly(commands.Cog, name = "adminonly"):
 
     @commands.command()
     async def clear(self, ctx, amount = 5):
-        await ctx.channel.purge(limit=amount)
+        await ctx.channel.purge(limit = amount)
         
     @commands.Cog.listener()
     async def on_message(self, message):
@@ -28,7 +28,7 @@ class AdminOnly(commands.Cog, name = "adminonly"):
 
     @commands.command()
     async def ping(self, ctx):
-        msg = "Pong <a:paopula:858815343072903178> `{0} ms`!".format(int(bot.latency * 1000))
+        msg = "Pong <a:paopula:858815343072903178> `{0} ms`!".format(float(bot.latency * 1000))
         await ctx.reply(msg)
 
     @commands.command()
