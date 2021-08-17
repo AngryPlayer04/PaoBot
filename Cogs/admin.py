@@ -39,6 +39,7 @@ async def ping(ctx):
     end_time = time.time()
     apiping = round((end_time - start_time) * 1000)
     await message.edit('Ping: {}'.format(apiping))
+    print(apiping)
 
 
 def setup(bot):
