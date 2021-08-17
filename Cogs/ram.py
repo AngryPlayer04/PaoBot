@@ -3,6 +3,7 @@ from discord.ext.commands import MissingPermissions, CheckFailure, CommandNotFou
 from discord.ext import commands
 import discloud
 import json
+import platform
 
 with open("configuration.json", "r") as config: 
 	data = json.load(config)
