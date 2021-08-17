@@ -4,6 +4,7 @@ from discord.ext import commands
 import discloud
 import json
 import time
+import speedtest
 
 with open("configuration.json", "r") as config: 
 	data = json.load(config)
@@ -19,12 +20,19 @@ class AdminOnly(commands.Cog, name = "adminonly"):
     async def clear(self, ctx, amount = 5):
         await ctx.channel.purge(limit = amount)
         
-    @commands.Cog.listener()
-    async def on_message(self, message):
-        if message.content in ["Pão", "pão", "bread", "Bread", "Oãp"]:
-            bread = 'https://tenor.com/view/falling-bread-bread-gif-19081960'
-            await message.reply(bread)
-            await bot.process_commands(message)
+    @commands.command()
+    async def speedtest(self,ctx):
+        servers = []
+        threads = None
+        s = speedtest.Speedtest()
+        s.get_servers(servers)
+        s.get_best_server()
+        s.download(threads=threads)
+        s.upload(threads=threads)
+        s.results.share()
+        results_dict = s.results.dict()
+        await ctx.reply(results_dict)
+
 
     @commands.command()
     @commands.is_owner()
@@ -34,11 +42,10 @@ class AdminOnly(commands.Cog, name = "adminonly"):
 
     @commands.command()
     async def ping(self, ctx):
-        start_time = time.time()
-        tt = ctx.send("Ping: ")
-        end_time = time.time()
+        start_time = time.perf_counter()
+        end_time = time.perf_counter()
         apiping = round((end_time - start_time) * 1000)
-        await tt.edit('Ping: {}'.format(apiping))
+        await ctx.reply('Ping: {}'.format(apiping))
         print(apiping)
 
 

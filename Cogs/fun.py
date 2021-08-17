@@ -2,6 +2,8 @@ import discord
 from discord.ext import commands 
 import random 
 
+bot = commands.Bot()
+
 class Funny(commands.Cog, name = "Funny Commands"):
     def __init__(self, bot:commands.Bot):
         self.bot = bot 
@@ -21,6 +23,12 @@ class Funny(commands.Cog, name = "Funny Commands"):
         "https://www.tudogostoso.com.br/receita/105067-pao-recheado.html"
         await ctx.reply(random.choice(lin))
 
+    @commands.Cog.listener()
+    async def on_message(self, message):
+        if message.content in ["Pão", "pão", "bread", "Bread", "Oãp"]:
+            bread = 'https://tenor.com/view/falling-bread-bread-gif-19081960'
+            await message.reply(bread)
+            await bot.process_commands(message)
 
 def setup(bot):
     bot.add_cog(Funny(bot))
