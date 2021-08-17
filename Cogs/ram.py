@@ -10,16 +10,10 @@ with open("configuration.json", "r") as config:
 	prefix = data["prefix"]
 
 bot = commands.Bot(prefix, owner_id = 319963626108878848)
-error = commands.CommandError
 
 class AdminOnly(commands.Cog, name = "adminonly"):
     def __init__(self, ctx,):
         self.bot = bot 
-    @commands.command()
-    @commands.is_owner()
-    async def ram(self, ctx):        
-            r = discloud.ram()
-            await ctx.reply("Usando {} de ram".format(r)) 
 
     @commands.command()
     async def clear(ctx, amount = 5):
@@ -29,13 +23,21 @@ class AdminOnly(commands.Cog, name = "adminonly"):
     async def on_message(message):
         if message.content in ["Pão", "pão", "bread", "Bread", "Oãp"]:
             bread = 'https://tenor.com/view/falling-bread-bread-gif-19081960'
-            await message.reply(bread, mention_author=True)
+            await message.reply(bread)
             await bot.process_commands(message)
-    
+
     @commands.command()
-    async def ping(self,ctx):
-        msg = "Pong <a:paopula:858815343072903178> `{0} ms`!".format(bot.latency * 1000)
+    async def ping(ctx):
+        msg = "Pong <a:paopula:858815343072903178> `{0} ms`!".format(int(bot.latency * 1000))
         await ctx.reply(msg)
+
+    @commands.command()
+    @commands.is_owner()
+    async def ram(self, ctx):
+        r = discloud.ram()
+        await ctx.reply("Usando {} de ram".format(r)) 
+
+
 
 def setup(bot):
     bot.add_cog(AdminOnly(bot))

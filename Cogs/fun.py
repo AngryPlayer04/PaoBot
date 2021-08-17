@@ -14,7 +14,7 @@ class Funny(commands.Cog, name = "Funny Commands"):
             await ctx.reply(":crown: Coroa!")
 
     @commands.command()
-    async def receita(ctx):
+    async def receita(self, ctx):
         lin = "https://www.tudogostoso.com.br/receita/72313-pao-caseiro-facil.html",\
         "https://www.tudogostoso.com.br/receita/79996-pao-de-queijo-3-ingredientes.html", \
         "https://www.tudogostoso.com.br/receita/83-pao-de-batata.html", \
