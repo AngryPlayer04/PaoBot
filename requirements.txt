@@ -4,3 +4,4 @@ discloud
 numexpr
 numpy
 requests 
+speedtest
