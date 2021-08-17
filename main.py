@@ -43,13 +43,6 @@ async def ping(ctx):
   msg = "Pong <a:paopula:858815343072903178> `{0} ms`!".format(int(bot.latency * 1000))
   await ctx.reply(msg) 
 
-@bot.command
-async def ping(ctx):
-  ping = ctx.message
-  pong = await ctx.send('**:ping_pong:** Pong!')
-  delta = pong.created_at - ping.created_at
-  delta = int(delta.total_seconds() * 1000)
-  await pong.edit(content=f':ping_pong: Pong! ({delta} ms)\n*Discord WebSocket Latência: `{round(bot.latency, 5)}` ms*')
 
 @tasks.loop(seconds = 15)
 async def change_status():
