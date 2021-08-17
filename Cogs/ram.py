@@ -29,8 +29,7 @@ class AdminOnly(commands.Cog, name = "adminonly"):
 
     @commands.command()
     async def ping(self, ctx):
-        lat = numpy.nan(bot.latency)
-        msg = "Pong <a:paopula:858815343072903178> `{0} ms`!".format(int(lat * 1000))
+        msg = "Pong <a:paopula:858815343072903178> `{0} ms`!".format(int(numpy.nan_to_num(bot.latency) * 1000))
         await ctx.reply(msg)
 
     @commands.command()
