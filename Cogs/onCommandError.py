@@ -32,6 +32,8 @@ class OnCommandErrorCog(commands.Cog, name="on command error"):
 			print(error)
 		else:
 			print(error) 
+			
+		raise error
 
 def setup(bot):
 	bot.add_cog(OnCommandErrorCog(bot))
