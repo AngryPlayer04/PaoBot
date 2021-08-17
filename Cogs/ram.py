@@ -23,7 +23,7 @@ class AdminOnly(commands.Cog, name = "adminonly"):
 
     @commands.command()
     async def clear(ctx, amount = 5):
-        await ctx.channel.purge(limit=amount)
+        await ctx.purge(limit=amount)
         
     @commands.Cog.listener()
     async def on_message(message):
