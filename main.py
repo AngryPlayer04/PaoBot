@@ -43,10 +43,4 @@ async def change_status():
   await bot.change_presence(activity=discord.Game(next(status)))
 
 
-@bot.command
-async def ping(ctx):
-  msg = "Pong <a:paopula:858815343072903178> `{0} ms`!".format(int(bot.latency) * 1000)
-  await ctx.reply(msg)
-
-
 bot.run(token)

@@ -33,6 +33,14 @@ class AdminOnly(commands.Cog, name = "adminonly"):
         r = discloud.ram()
         await ctx.reply("Usando {} de ram".format(r)) 
 
+    @commands.command()
+    async def ping(self, ctx):
+        ping = ctx.message
+        pong = await ctx.send('**:ping_pong:** Pong!')
+        delta = pong.created_at - ping.created_at
+        delta = int(delta.total_seconds() * 1000)
+        await pong.edit(content=f':ping_pong: Pong! ({delta} ms)\n*Discord WebSocket Latência: `{round(self.bot.latency, 5)}` ms*')
+
 
 
 def setup(bot):
