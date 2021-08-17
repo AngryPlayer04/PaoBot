@@ -32,14 +32,14 @@ class AdminOnly(commands.Cog, name = "adminonly"):
         r = discloud.ram()
         await ctx.reply("Usando {} de ram".format(r)) 
 
-@commands.command()
-async def ping(ctx):
-    start_time = time.time()
-    message = ctx.reply('Ping:')
-    end_time = time.time()
-    apiping = round((end_time - start_time) * 1000)
-    await message.edit('Ping: {}'.format(apiping))
-    print(apiping)
+    @commands.command()
+    async def ping(ctx):
+        start_time = time.time()
+        message = ctx.reply('Ping:')
+        end_time = time.time()
+        apiping = round((end_time - start_time) * 1000)
+        await message.edit('Ping: {}'.format(apiping))
+        print(apiping)
 
 
 def setup(bot):
