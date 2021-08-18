@@ -28,7 +28,7 @@ class Funny(commands.Cog, name = "Funny Commands"):
         if message.content in ["Pão", "pão", "bread", "Bread", "Oãp"]:
             bread = 'https://tenor.com/view/falling-bread-bread-gif-19081960'
             await message.reply(bread)
-            await process_commands(message)
+            
 
 def setup(bot):
     bot.add_cog(Funny(bot))
