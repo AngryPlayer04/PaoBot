@@ -4,4 +4,4 @@ discloud
 numexpr
 numpy
 requests 
-speedtest
+speedtest-cli

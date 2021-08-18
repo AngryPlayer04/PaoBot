@@ -19,20 +19,6 @@ class AdminOnly(commands.Cog, name = "adminonly"):
     @commands.command()
     async def clear(self, ctx, amount = 5):
         await ctx.channel.purge(limit = amount)
-        
-    @commands.command()
-    async def speedtest(self,ctx):
-        servers = []
-        threads = None
-        s = speedtest.Speedtest()
-        s.get_servers(servers)
-        s.get_best_server()
-        s.download(threads=threads)
-        s.upload(threads=threads)
-        s.results.share()
-        results_dict = s.results.dict()
-        await ctx.reply(results_dict)
-
 
     @commands.command()
     @commands.is_owner()
@@ -42,11 +28,12 @@ class AdminOnly(commands.Cog, name = "adminonly"):
 
     @commands.command()
     async def ping(self, ctx):
-        start_time = time.perf_counter()
-        end_time = time.perf_counter()
-        apiping = round((end_time - start_time) * 1000)
-        await ctx.reply('Ping: {}'.format(apiping))
-        print(apiping)
+        #start_time = time.perf_counter()
+        #end_time = time.perf_counter()
+        #apiping = round((end_time - start_time) * 1000)
+        #await ctx.reply('Ping: {}'.format(apiping))
+        #print(apiping)
+        await ctx.reply("Comando em manutenção!")
 
 
 def setup(bot):
