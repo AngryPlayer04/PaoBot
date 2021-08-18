@@ -28,6 +28,7 @@ class Calculators(commands.Cog, name = "calculator"):
 
     @commands.command()
     async def speed(self, ctx):
+        msg = await ctx.reply(Calculando...)
         servers = [4569621]
         threads = None
         s = speedtest.Speedtest()
@@ -35,7 +36,7 @@ class Calculators(commands.Cog, name = "calculator"):
         s.download(threads=threads)
         s.upload(threads=threads)
         im = s.results.share()
-        await ctx.reply(im)
+        await msg.edit(im)
 
 def setup(bot):
     bot.add_cog(Calculators(bot))
