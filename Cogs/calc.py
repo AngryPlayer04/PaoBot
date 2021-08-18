@@ -29,9 +29,10 @@ class Calculators(commands.Cog, name = "calculator"):
     @commands.command()
     async def speed(self, ctx):
         msg = await ctx.send('Calculando...')
-        servers = [4569621]
+        servers = []
         threads = None
         s = speedtest.Speedtest()
+        s.get_servers(servers)
         s.get_best_server()
         s.download(threads=threads)
         s.upload(threads=threads)
