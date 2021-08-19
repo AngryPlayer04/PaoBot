@@ -32,7 +32,6 @@ class Calculators(commands.Cog, name = "calculator"):
         servers = [ser]
         threads = None
         s = speedtest.Speedtest()
-        s.get_servers(servers)
         await msg.edit(content='Calculando..')
         s.get_best_server()
         await msg.edit(content='Calculando...')
