@@ -18,7 +18,7 @@ class AdminOnly(commands.Cog, name = "adminonly"):
 
     @commands.command()
     async def clear(self, ctx, amount = 5):
-        await ctx.channel.purge(limit = amount)
+        await ctx.channel.purge(limit = amount + 1)
 
     @commands.command()
     @commands.is_owner()
