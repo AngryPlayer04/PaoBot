@@ -4,7 +4,7 @@ from discord.ext import commands
 import discloud
 import json
 import time
-import speedtest
+
 
 with open("configuration.json", "r") as config: 
 	data = json.load(config)
