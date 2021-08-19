@@ -27,11 +27,12 @@ class Calculators(commands.Cog, name = "calculator"):
         await ctx.reply('Um dólar equivale atualmente a R$'+'%.2f' % response ['rates']['BRL'])
 
     @commands.command()
-    async def speed(self, ctx, *, ser):
+    async def speed(self, ctx):
         msg = await ctx.send('Calculando.')
-        servers = [ser]
+        servers = []
         threads = None
         s = speedtest.Speedtest()
+        s.get_servers(servers)
         await msg.edit(content='Calculando..')
         s.get_best_server()
         await msg.edit(content='Calculando...')
