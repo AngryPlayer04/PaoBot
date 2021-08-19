@@ -32,15 +32,15 @@ class Calculators(commands.Cog, name = "calculator"):
         servers = []
         threads = None
         s = speedtest.Speedtest()
-        sp = msg.edit('Calculando..')
+        sp = await msg.edit('Calculando..')
         s.get_servers(servers)
-        pe = sp.edit('Calculando...')
+        pe = await sp.edit('Calculando...')
         s.get_best_server()
-        po = pe.edit('Calculando.')
+        po = await pe.edit('Calculando.')
         s.download(threads=threads)
-        er = po.edit('Calculando..')
+        er = await po.edit('Calculando..')
         s.upload(threads=threads)
-        ye = er.edit('Calculando...')
+        ye = await er.edit('Calculando...')
         pi = int(s.results.ping)
         await ye.edit(pi)
 
