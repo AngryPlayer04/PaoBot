@@ -13,9 +13,11 @@ class OnCommandErrorCog(commands.Cog, name="on command error"):
 		if isinstance(error, CommandNotFound):
 			return
 
-		if isinstance(error, CheckFailure, MissingPermissions):
+		if isinstance(error, CheckFailure):
 			await ctx.reply("Desculpe, mas você não tem as permissões necessárias para usar esse comando.")
 			print (error)
+		if isinstance(error, MissingPermissions):
+			print(error)
 		raise error
 
 def setup(bot):
