@@ -40,7 +40,7 @@ class Calculators(commands.Cog, name = "calculator"):
         await msg.edit(content='Calculando....')
         s.upload(threads=threads)
         await msg.edit(content='Calculando.....')
-        pi = int(s.results.share())
+        pi = s.results.share()
         await msg.edit(content=pi)
 
 def setup(bot):
