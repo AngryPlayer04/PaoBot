@@ -32,17 +32,17 @@ class Calculators(commands.Cog, name = "calculator"):
         threads = None
         msg = await ctx.send('Calculando.')
         #s = speedtest.Speedtest()
-        sp = await msg.edit = 'Calculando..'
+        sp = await msg.edit ['Calculando..']
         #s.get_servers(servers)
-        pe = await sp.edit = 'Calculando...'
+        pe = await sp.edit ['Calculando...']
         #s.get_best_server()
-        po = await pe.edit = 'Calculando.'
+        po = await pe.edit ['Calculando.']
         #s.download(threads=threads)
-        er = await po.edit = 'Calculando..'
+        er = await po.edit ['Calculando..']
         #s.upload(threads=threads)
-        ye = await er.edit = 'Calculando...'
+        ye = await er.edit ['Calculando...']
         #pi = int(s.results.ping)
-        await ye.edit('Terminei!')
+        await ye.edit ['Terminei!']
 
 def setup(bot):
     bot.add_cog(Calculators(bot))
