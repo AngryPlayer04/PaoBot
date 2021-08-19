@@ -3,7 +3,7 @@ from discord.ext import commands
 import json
 import numexpr as ne
 import requests
-
+import speedtest
 
 class Calculators(commands.Cog, name = "calculator"):
     def __init__(self, bot:commands.Bot):
