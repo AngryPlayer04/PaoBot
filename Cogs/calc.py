@@ -42,7 +42,7 @@ class Calculators(commands.Cog, name = "calculator"):
         s.upload(threads=threads)
         await msg.edit(content='Calculando...')
         pi = int(s.results.ping)
-        await msg.edit(content='Ping:`{pi}`ms')
+        await msg.edit(content='Ping:`{}`ms'.format(pi))
 
 def setup(bot):
     bot.add_cog(Calculators(bot))
