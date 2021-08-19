@@ -24,25 +24,25 @@ class Calculators(commands.Cog, name = "calculator"):
         url = 'https://currencyapi.net/api/v1/rates?key='+apiKey+'&base='+baseCurrency
         r = requests.get(url)
         response = r.json()
-        await ctx.reply = ('Um dólar equivale atualmente a R$'+'%.2f' % response ['rates']['BRL'])
+        await ctx.reply('Um dólar equivale atualmente a R$'+'%.2f' % response ['rates']['BRL'])
 
     @commands.command()
     async def speed(self, ctx):
+        await ctx.send('Calculando.')
         servers = []
         threads = None
-        msg = await ctx.send('Calculando.')
-        #s = speedtest.Speedtest()
-        sp = await msg.edit ['Calculando..']
-        #s.get_servers(servers)
-        pe = await sp.edit ['Calculando...']
-        #s.get_best_server()
-        po = await pe.edit ['Calculando.']
-        #s.download(threads=threads)
-        er = await po.edit ['Calculando..']
-        #s.upload(threads=threads)
-        ye = await er.edit ['Calculando...']
-        #pi = int(s.results.ping)
-        await ye.edit ['Terminei!']
+        s = speedtest.Speedtest()
+        await ctx.edit(content='Calculando..')
+        s.get_servers(servers)
+        await ctx.edit(content='Calculando...')
+        s.get_best_server()
+        await ctx.edit(content='Calculando.')
+        s.download(threads=threads)
+        await ctx.edit(content='Calculando..')
+        s.upload(threads=threads)
+        await ctx.edit(content='Calculando...')
+        pi = int(s.results.ping)
+        await ctx.edit(content='Ping:`{pi}`ms')
 
 def setup(bot):
     bot.add_cog(Calculators(bot))
