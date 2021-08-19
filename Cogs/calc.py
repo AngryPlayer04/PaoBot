@@ -28,21 +28,21 @@ class Calculators(commands.Cog, name = "calculator"):
 
     @commands.command()
     async def speed(self, ctx):
-        await ctx.send('Calculando.')
+        msg = await ctx.send('Calculando.')
         servers = []
         threads = None
         s = speedtest.Speedtest()
-        await ctx.edit(content='Calculando..')
+        await msg.edit(content='Calculando..')
         s.get_servers(servers)
-        await ctx.edit(content='Calculando...')
+        await msg.edit(content='Calculando...')
         s.get_best_server()
-        await ctx.edit(content='Calculando.')
+        await msg.edit(content='Calculando.')
         s.download(threads=threads)
-        await ctx.edit(content='Calculando..')
+        await msg.edit(content='Calculando..')
         s.upload(threads=threads)
-        await ctx.edit(content='Calculando...')
+        await msg.edit(content='Calculando...')
         pi = int(s.results.ping)
-        await ctx.edit(content='Ping:`{pi}`ms')
+        await msg.edit(content='Ping:`{pi}`ms')
 
 def setup(bot):
     bot.add_cog(Calculators(bot))
