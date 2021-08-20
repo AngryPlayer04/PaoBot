@@ -32,7 +32,7 @@ class AdminOnly(commands.Cog, name = "adminonly"):
         before = time.monotonic()
         await msg.edit(content = "Pong!")
         ping = (time.monotonic() - before) * 1000
-        await msg.edit(content = f"Pong!  `{int(ping)}ms`")
+        await msg.edit(content = f"Pong! <a:paopula:858815343072903178>  `{int(ping)}ms`")
 
 def setup(bot):
     bot.add_cog(AdminOnly(bot))
