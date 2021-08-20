@@ -28,11 +28,15 @@ class AdminOnly(commands.Cog, name = "adminonly"):
 
     @commands.command()
     async def ping(self, ctx):
-        msg = await ctx.reply('Calculando...')
-        before = time.monotonic()
-        await msg.edit(content = "Pong!")
-        ping = (time.monotonic() - before) * 1000
-        await msg.edit(content = f"Pong!  `{int(ping)}ms`")
+        start_time = time.time()
+        message = await ctx.reply("Testing Ping...")
+        end_time = time.time()
+        await message.edit(content=f"Pong! {round(self.bot.latency * 1000)}ms\nAPI: {round((end_time - start_time) * 1000)}ms")
+        #msg = await ctx.reply('Calculando...')
+        #before = time.monotonic()
+        #await msg.edit(content = "Pong!")
+        #ping = (time.monotonic() - before) * 1000
+        #await msg.edit(content = f"Pong!  `{int(ping)}ms`")
         #await ctx.reply("Comando em manutenção!")
 
 
