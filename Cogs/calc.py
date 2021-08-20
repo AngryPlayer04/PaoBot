@@ -8,7 +8,7 @@ import speedtest
 class Calculators(commands.Cog, name = "calculator"):
     def __init__(self, bot:commands.Bot):
         self.bot = bot
-        
+
     @commands.command()
     async def calc(self, ctx, *, express):
         try:
@@ -33,13 +33,12 @@ class Calculators(commands.Cog, name = "calculator"):
         threads = None
         s = speedtest.Speedtest()
         s.get_servers(servers)
-        await msg.edit(content='Calculando..')
         s.get_best_server()
-        await msg.edit(content='Calculando...')
+        await msg.edit(content='Calculando..')
         s.download(threads=threads)
-        await msg.edit(content='Calculando....')
+        await msg.edit(content='Calculando...')
         s.upload(threads=threads)
-        await msg.edit(content='Calculando.....')
+        await msg.edit(content='Calculando....')
         pi = s.results.share()
         await msg.edit(content=pi)
 

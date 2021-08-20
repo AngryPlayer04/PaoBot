@@ -33,7 +33,8 @@ class AdminOnly(commands.Cog, name = "adminonly"):
         #apiping = round((end_time - start_time) * 1000)
         #await ctx.reply('Ping: {}'.format(apiping))
         #print(apiping)
-        await ctx.reply("Comando em manutenção!")
+        #await ctx.reply("Comando em manutenção!")
+        await ctx.reply('Pong:{0} ms'.format(round(self.bot.latency * 1000)))
 
 
 def setup(bot):
