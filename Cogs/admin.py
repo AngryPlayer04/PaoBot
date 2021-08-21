@@ -23,8 +23,9 @@ class AdminOnly(commands.Cog, name = "adminonly"):
     @commands.command()
     @commands.is_owner()
     async def ram(self, ctx):
-        r = discloud.ram()
-        await ctx.reply("Usando {} de ram".format(r)) 
+        tr = discloud.total_ram()
+        ur = discloud.using_ram()
+        await ctx.reply("Usando {}/{} de ram".format(ur, tr)) 
 
     @commands.command()
     async def ping(self, ctx):
