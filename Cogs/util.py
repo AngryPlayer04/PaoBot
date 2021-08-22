@@ -20,5 +20,5 @@ class Utiliies(commands.Cog, name = "Utilities"):
 
 
 
-def seup(bot):
+def setup(bot):
     bot.add_cog(Utiliies(bot))
