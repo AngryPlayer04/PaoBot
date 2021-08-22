@@ -5,4 +5,5 @@ numexpr
 numpy
 requests 
 speedtest-cli
-lyricsgenius
+from lyricsgenius import Genius 
+
