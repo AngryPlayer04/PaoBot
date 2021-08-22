@@ -5,5 +5,4 @@ numexpr
 numpy
 requests 
 speedtest-cli
-lyricsfinder
 
