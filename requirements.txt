@@ -4,6 +4,6 @@ discloud
 numexpr
 numpy
 requests 
-speedtest-cli
-from lyricsgenius import Genius 
+speedtest-cli 
+
 
