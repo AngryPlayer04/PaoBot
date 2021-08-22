@@ -7,7 +7,7 @@ class Utiliies(commands.Cog, name = "Utilities"):
         self.bot = bot
     
     @commands.command()
-    async def lyrics(self, ctx, *, artist, name):
+    async def lyrics(self, ctx, *, name, artist):
         TOKEN = 'e-jVTE4L7DSjxhi2r8K4hbEw88c0m_BOBLp-6kMozrfWyVyuxdp4mBbbUUzu24l9'
         genius = Genius(TOKEN)
         song = genius.search_song(name, artist)
