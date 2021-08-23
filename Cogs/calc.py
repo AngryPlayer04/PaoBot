@@ -26,21 +26,6 @@ class Calculators(commands.Cog, name = "calculator"):
         response = r.json()
         await ctx.reply('Um dólar equivale atualmente a R$'+'%.2f' % response ['rates']['BRL'])
 
-    @commands.command()
-    async def speed(self, ctx):
-        msg = await ctx.send('Calculando.')
-        servers = []
-        threads = None
-        s = speedtest.Speedtest()
-        s.get_servers(servers)
-        s.get_best_server()
-        await msg.edit(content='Calculando..')
-        s.download(threads=threads)
-        await msg.edit(content='Calculando...')
-        s.upload(threads=threads)
-        await msg.edit(content='Calculando....')
-        pi = s.results.share()
-        await msg.edit(content=pi)
 
 def setup(bot):
     bot.add_cog(Calculators(bot))
