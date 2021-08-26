@@ -11,7 +11,7 @@ class Utiliies(commands.Cog, name = "Utilities"):
         TOKEN = 'e-jVTE4L7DSjxhi2r8K4hbEw88c0m_BOBLp-6kMozrfWyVyuxdp4mBbbUUzu24l9'
         genius = Genius(TOKEN)
         song = genius.search_song(title, artist)
-        await ctx.reply(song.lyrics)
+        await ctx.reply(song.lyrics['lyrics'])
 
 
 
