@@ -1,6 +1,6 @@
 import discord 
 from discord.ext import commands 
-import random 
+from random import choice, randrange
 
 
 
@@ -9,7 +9,7 @@ class Funny(commands.Cog, name = "Funny Commands"):
         self.bot = bot 
     @commands.command()
     async def flip(self, ctx):
-        moeda = random.randrange(1,3)
+        moeda = randrange(1,3)
         if moeda == 1:
             await ctx.reply(":slight_smile: Cara!")
         else:
@@ -21,7 +21,7 @@ class Funny(commands.Cog, name = "Funny Commands"):
         "https://www.tudogostoso.com.br/receita/79996-pao-de-queijo-3-ingredientes.html", \
         "https://www.tudogostoso.com.br/receita/83-pao-de-batata.html", \
         "https://www.tudogostoso.com.br/receita/105067-pao-recheado.html"
-        await ctx.reply(random.choice(lin))
+        await ctx.reply(choice(lin))
 
     @commands.Cog.listener()
     async def on_message(self, message):
@@ -30,7 +30,7 @@ class Funny(commands.Cog, name = "Funny Commands"):
                 'https://tenor.com/view/white-bread-gif-8596116',\
                 'https://tenor.com/view/toasty-the-walking-toast-bread-gif-7333840',\
                 'https://tenor.com/view/dogebred-bread-dog-spin-gif-14407769'
-            await message.reply(random.choice(bread))
+            await message.reply(choice(bread))
             
 
 def setup(bot):
