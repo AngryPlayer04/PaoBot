@@ -19,7 +19,7 @@ class Calculators(commands.Cog, name = "calculator"):
 
     @commands.command()
     async def dolar(self, ctx):
-        apiKey = 'czd1bJ0ZcKoIOKAyaiL5LxuJ1uIdvncQQDH8'
+        apiKey = 'czd1bJ0ZcKoIOKAyaiL5sfqghTsDaIdvncQQDH8'
         baseCurrency = 'USD'
         url = 'https://currencyapi.net/api/v1/rates?key='+apiKey+'&base='+baseCurrency
         r = requests.get(url)
