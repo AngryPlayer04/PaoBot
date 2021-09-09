@@ -8,9 +8,12 @@ O prefixo do bot é `p.`.
 ![Perfil do bot](https://user-images.githubusercontent.com/60411891/132714283-2396eaef-11f8-4dff-b708-27b7bec71efd.png)
 
 
-Comandos de [dolar e ram](https://github.com/AngryPlayer04/PaoBot/blob/main/Cogs/calc.py):
+Comandos de [dolar e calculadora](https://github.com/AngryPlayer04/PaoBot/blob/main/Cogs/calc.py):
 
-![Comandos](https://user-images.githubusercontent.com/60411891/132714514-13ef8816-fbf4-4673-b746-b876f184497d.png)
+
+
+![Calc](https://user-images.githubusercontent.com/60411891/132715394-717580b7-c472-46cc-8095-3c326f03ba6e.png)
+
 
 [Listener e comando de receita](https://github.com/AngryPlayer04/PaoBot/blob/main/Cogs/fun.py):
 
@@ -18,8 +21,8 @@ Comandos de [dolar e ram](https://github.com/AngryPlayer04/PaoBot/blob/main/Cogs
 ![Bread](https://user-images.githubusercontent.com/60411891/132714650-f5f004f3-75df-4e40-b3e6-aed527e2c7d0.png)
 ![Receita](https://user-images.githubusercontent.com/60411891/132715261-9e42d312-6aab-4327-9d3e-ef1ac2480267.png)
 
-[Calculadora](:
-![Calc](https://user-images.githubusercontent.com/60411891/132715394-717580b7-c472-46cc-8095-3c326f03ba6e.png)
+
+
 ![Flip](https://user-images.githubusercontent.com/60411891/132715118-aef37031-6ab6-4348-9006-46e5a1b11d49.png)
 
 
