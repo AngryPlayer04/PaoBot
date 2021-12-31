@@ -27,7 +27,7 @@ class Funny(commands.Cog, name = "Funny Commands"):
     async def on_message(self, message):
         if message.content in ["Pão", "pão", "bread", "Bread", "Oãp"]:
             bread = 'https://tenor.com/view/falling-bread-bread-gif-19081960',\
-                'https://tenor.com/view/white-bread-gif-8596116',\
+                'https://tenor.com/view/cat-bread-gif-9824952',\
                 'https://tenor.com/view/toasty-the-walking-toast-bread-gif-7333840',\
                 'https://tenor.com/view/dogebred-bread-dog-spin-gif-14407769'
             await message.reply(choice(bread))
