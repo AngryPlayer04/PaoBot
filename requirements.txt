@@ -1,4 +1,5 @@
 py-cord
+forex_python
 pytz
 discloud
 numexpr

@@ -2,7 +2,6 @@ import discord
 from discord.ext import commands
 import json
 import numexpr as ne
-import requests
 from forex_python.converter import CurrencyRates
 
 class Calculators(commands.Cog, name = "calculator"):
