@@ -19,11 +19,11 @@ class Calculators(commands.Cog, name = "calculator"):
     @commands.command()
     async def dolar(self, ctx):
         c = CurrencyRates(force_decimal = True)
-        result = c.convert ('USD', 'BRL', 1)
         wait = await ctx.reply('.')
-        w = wait.edit('..')
-        e = w.edit('...')
-        await e.edit(f'Um dólar equivale atualmente a R${result:.3}')
+        result = c.convert ('USD', 'BRL', 1)
+        await wait.edit('..')
+        await wait.edit('...')
+        await wait.edit(f'Um dólar equivale atualmente a R${result:.3}')
 
 
 def setup(bot):
