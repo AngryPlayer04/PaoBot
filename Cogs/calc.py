@@ -3,7 +3,7 @@ from discord.ext import commands
 import json
 import numexpr as ne
 import requests
-import speedtest
+from forex_python.converter import CurrencyRates
 
 class Calculators(commands.Cog, name = "calculator"):
     def __init__(self, bot:commands.Bot):
@@ -19,12 +19,9 @@ class Calculators(commands.Cog, name = "calculator"):
 
     @commands.command()
     async def dolar(self, ctx):
-        apiKey = 'czd1bJ0ZcKoIOKAyaiL5sfqghTsDaIdvncQQDH8'
-        baseCurrency = 'USD'
-        url = 'https://currencyapi.net/api/v1/rates?key='+apiKey+'&base='+baseCurrency
-        r = requests.get(url)
-        response = r.json()
-        await ctx.reply('Um dólar equivale atualmente a R$'+'%.2f' % response ['rates']['BRL'])
+        c = CurrencyRates(force_decimal = True)
+        result = c.convert ('USD', 'BRL', 1)
+        await ctx.reply('Um dólar equivale atualmente a R${result:.3}')
 
 
 def setup(bot):
