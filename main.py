@@ -32,7 +32,7 @@ for filename in os.listdir('Cogs'):
 async def on_ready():
   tz_BR = pytz.timezone('America/Sao_Paulo') 
   datetime_BR = datetime.now(tz_BR)
-  print ('===============================')
+  print ('============================================')
   print('Acordei pra tomar café às {}'.format(datetime_BR.strftime("%H:%M")))
   print ('===============================')
 
