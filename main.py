@@ -18,7 +18,7 @@ intents = discord.Intents.default()
 # The bot
 bot = commands.Bot(prefix, intents = intents)
 serv = (f'{len(bot.guilds)}')
-status = cycle(['p.help', 'Pão', 'Bread', 'Estou em ' + serv + ' servidores'])
+status = cycle(['p.help', 'Pão', 'Bread', f'Estou em {len(bot.guilds)} servidores'])
 
 current_time = datetime.now()
 
