@@ -17,8 +17,8 @@ with open("configuration.json", "r") as config:
 intents = discord.Intents.default()
 # The bot
 bot = commands.Bot(prefix, intents = intents)
-serv = len(bot.servers)
-status = cycle(['p.help', 'Pão', 'Bread', serv])
+serv = str(len(bot.guilds))
+status = cycle(['p.help', 'Pão', 'Bread', 'Estou em' + serv + 'servidores'])
 
 current_time = datetime.now()
 
