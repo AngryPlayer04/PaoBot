@@ -46,7 +46,7 @@ async def ping(ctx):
 
 @tasks.loop(seconds = 15)
 async def change_status():
-  serv = await bot.fetch_guilds(limit=None).flatten()
+  serv = bot.fetch_guilds(limit=None)
   status= cycle(['p.help', 'Pão', 'Bread', f'Estou em {serv} servidores'])
   await bot.change_presence(activity=discord.Game(next(status)))
 
