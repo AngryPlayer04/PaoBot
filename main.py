@@ -1,3 +1,4 @@
+from re import L
 import discord
 from discord.ext import commands, tasks
 import json
@@ -17,7 +18,8 @@ with open("configuration.json", "r") as config:
 intents = discord.Intents.default()
 # The bot
 bot = commands.Bot(prefix, intents = intents)
-status= cycle(['p.help', 'Pão', 'Bread', f'Estou em {len(bot.fetch_guilds(limit=None))} servidores'])
+serv = bot.fetch_guilds(limit=None)
+status= cycle(['p.help', 'Pão', 'Bread', f'Estou em {serv} servidores'])
 current_time = datetime.now()
 
 @bot.event
