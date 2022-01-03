@@ -18,7 +18,7 @@ with open("configuration.json", "r") as config:
 intents = discord.Intents.default()
 # The bot
 bot = commands.Bot(prefix, intents = intents)
-print ('_______________________'+ len(bot.guilds))
+
 status= cycle(['p.help', 'Pão', 'Bread', f'Estou em {int(len(bot.guilds))} servidores'])
 current_time = datetime.now()
 
@@ -36,6 +36,7 @@ async def on_ready():
   datetime_BR = datetime.now(tz_BR)
   print ('============================================')
   print(f'Acordei pra tomar café às {(datetime_BR.strftime("%H:%M"))}')
+  print (len(bot.guilds))
   print ('===============================')
   
   change_status.start()  
