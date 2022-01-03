@@ -17,9 +17,6 @@ with open("configuration.json", "r") as config:
 intents = discord.Intents.default()
 # The bot
 bot = commands.Bot(prefix, intents = intents)
-serv = bot.fetch_guilds(limit=None)
-#serv = (f'{len(bot.guilds)}')
-status = cycle(['p.help', 'Pão', 'Bread', f'Estou em {len(bot.guilds)} servidores'])
 
 current_time = datetime.now()
 
@@ -38,6 +35,7 @@ async def on_ready():
   print ('===============================')
   print('Acordei pra tomar café às {}'.format(datetime_BR.strftime("%H:%M")))
   print ('===============================')
+
   change_status.start()  
 
 @bot.command
@@ -48,7 +46,11 @@ async def ping(ctx):
 
 @tasks.loop(seconds = 15)
 async def change_status():
+  serv = await bot.fetch_guilds(limit=None)
+  status= cycle(['p.help', 'Pão', 'Bread', f'Estou em {serv} servidores'])
   await bot.change_presence(activity=discord.Game(next(status)))
+
+
 
 
 bot.run(token)
