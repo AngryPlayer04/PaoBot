@@ -17,7 +17,7 @@ with open("configuration.json", "r") as config:
 intents = discord.Intents.default()
 # The bot
 bot = commands.Bot(prefix, intents = intents)
-status= cycle(['p.help', 'Pão', 'Bread', f'Estou em {bot.fetch_guilds(limit=None)} servidores'])
+status= cycle(['p.help', 'Pão', 'Bread', f'Estou em {len(bot.fetch_guilds(limit=None))} servidores'])
 current_time = datetime.now()
 
 @bot.event
