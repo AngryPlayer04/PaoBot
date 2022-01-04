@@ -35,11 +35,18 @@ async def on_ready():
   tz_BR = pytz.timezone('America/Sao_Paulo') 
   datetime_BR = datetime.now(tz_BR)
   print ('============================================')
-  print(f'Acordei pra tomar café às {(datetime_BR.strftime("%H:%M"))}')
+  print (f'Acordei pra tomar café às {(datetime_BR.strftime("%H:%M"))}')
   print (len(bot.guilds))
   print ('===============================')
   
-  change_status.start()  
+    
+
+@bot.event
+async def on_ready():
+  servers = len(bot.guilds)
+  status= cycle(['p.help', 'Pão', 'Bread', f'Estou em {servers} servidores'])
+  await bot.change_presence(activity=discord.Game(next(status)))
+
 
 @bot.command
 async def ping(ctx):
@@ -47,10 +54,10 @@ async def ping(ctx):
   await ctx.reply(msg) 
 
 
-@tasks.loop(seconds = 15)
-async def change_status():
+#@tasks.loop(seconds = 15)
+#async def change_status():
   
-  await bot.change_presence(activity=discord.Game(next(status)))
+  #await bot.change_presence(activity=discord.Game(next(status)))
 
 
 
