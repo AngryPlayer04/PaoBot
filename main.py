@@ -19,7 +19,7 @@ intents = discord.Intents.default()
 # The bot
 bot = commands.Bot(prefix, intents = intents)
 
-status= cycle(['p.help', 'Pão', 'Bread', f'Estou em {int(len(bot.guilds))} servidores'])
+#status= cycle(['p.help', 'Pão', 'Bread', f'Estou em {int(len(bot.guilds))} servidores'])
 current_time = datetime.now()
 
 @bot.event
@@ -38,14 +38,14 @@ async def on_ready():
   print (f'Acordei pra tomar café às {(datetime_BR.strftime("%H:%M"))}')
   print (len(bot.guilds))
   print ('===============================')
-  
+  bot.loop.create_task(status_task())
     
 
-@bot.event
-async def on_ready():
-  servers = len(bot.guilds)
-  status= cycle(['p.help', 'Pão', 'Bread', f'Estou em {servers} servidores'])
-  await bot.change_presence(activity=discord.Game(next(status)))
+async def status_task():
+    while True:
+        await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.watching,
+                name=f'Prefix: {prefix} | {len(bot.guilds)} server'),status=discord.Status.online)
+        await asyncio.sleep(1800)
 
 
 @bot.command
