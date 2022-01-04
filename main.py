@@ -46,11 +46,7 @@ async def on_ready():
 
   change_status.start() 
 
-@tasks.loop(seconds=15)
-async def change_status():
-  status= cycle(['p.help', 'Pão', 'Bread', f'Estou em {len(bot.guilds)} servidores'])
 
-  await bot.change_presence(activity=discord.Game(next(status)))
 
 
 
