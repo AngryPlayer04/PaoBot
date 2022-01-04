@@ -1,4 +1,3 @@
-from re import L
 import discord
 from discord.ext import commands, tasks
 import json
@@ -40,7 +39,6 @@ async def on_ready():
   #print (len(bot.guilds))
   print ('===============================')
   change_status.start() 
-
 
 @tasks.loop(seconds=15)
 async def change_status():
