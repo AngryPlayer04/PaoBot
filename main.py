@@ -41,23 +41,8 @@ async def on_ready():
   print ('===============================')
   change_status.start() 
 
-  #bot.loop.create_task(status_task())
-    
 
-#async def status_task():
-    #while True:
-        #await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.watching,
-                #name=f'Prefix: {prefix} | {len(bot.guilds)} server'),status=discord.Status.online)
-        #await asyncio.sleep(1800)
-
-
-@bot.command
-async def ping(ctx):
-  msg = "Pong <a:paopula:858815343072903178> `{0} ms`!".format(int(bot.latency * 1000))
-  await ctx.reply(msg) 
-
-
-@tasks.loop(seconds = 15)
+@tasks.loop(seconds=15)
 async def change_status():
   status= cycle(['p.help', 'Pão', 'Bread', f'Estou em {len(bot.guilds)} servidores'])
 
