@@ -37,16 +37,18 @@ async def on_ready():
   datetime_BR = datetime.now(tz_BR)
   print ('============================================')
   print (f'Acordei pra tomar café às {(datetime_BR.strftime("%H:%M"))}')
-  print (len(bot.guilds))
+  #print (len(bot.guilds))
   print ('===============================')
-  bot.loop.create_task(status_task())
+  change_status.start() 
+
+  #bot.loop.create_task(status_task())
     
 
-async def status_task():
-    while True:
-        await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.watching,
-                name=f'Prefix: {prefix} | {len(bot.guilds)} server'),status=discord.Status.online)
-        await asyncio.sleep(1800)
+#async def status_task():
+    #while True:
+        #await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.watching,
+                #name=f'Prefix: {prefix} | {len(bot.guilds)} server'),status=discord.Status.online)
+        #await asyncio.sleep(1800)
 
 
 @bot.command
@@ -55,11 +57,11 @@ async def ping(ctx):
   await ctx.reply(msg) 
 
 
-#@tasks.loop(seconds = 15)
-#async def change_status():
-  
-  #await bot.change_presence(activity=discord.Game(next(status)))
+@tasks.loop(seconds = 15)
+async def change_status():
+  status= cycle(['p.help', 'Pão', 'Bread', f'Estou em {len(bot.guilds)} servidores'])
 
+  await bot.change_presence(activity=discord.Game(next(status)))
 
 
 
