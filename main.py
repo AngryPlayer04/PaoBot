@@ -47,7 +47,7 @@ async def on_ready():
 async def status_task():
     while True:
         await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.watching,
-                name=f'Prefix: {prefix}help | {len(bot.guilds)} server'),status=discord.Status.online)
+                name=f'Digite {prefix}help caso precise de ajuda | Estou em {len(bot.guilds)} servidores'),status=discord.Status.online)
         await asyncio.sleep(1800)
 
 
