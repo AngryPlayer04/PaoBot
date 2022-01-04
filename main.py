@@ -40,12 +40,15 @@ async def on_ready():
   print (f'Acordei pra tomar café às {(datetime_BR.strftime("%H:%M"))}')
   #print (len(bot.guilds))
   print ('===============================')
+  
+  bot.loop.create_task(status_task())
+    
 
-  async def change_status():
-    await bot.change_presence(activity=discord.Game(next(status)))
-
-  change_status.start() 
-
+async def status_task():
+    while True:
+        await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.watching,
+                name=f'Prefix: {prefix}help | {len(bot.guilds)} server'),status=discord.Status.online)
+        await asyncio.sleep(1800)
 
 
 
