@@ -24,7 +24,7 @@ current_time = datetime.now()
 
 @bot.event
 async def on_ready():
-  bot.load_extension(f'cogs.{extension}')
+  bot.load_extension('cogs.')
 
 for filename in os.listdir('Cogs'):
   if filename.endswith('.py'):
