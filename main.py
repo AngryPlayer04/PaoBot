@@ -1,4 +1,5 @@
 import discord
+from discord import channel
 from discord.ext import commands, tasks
 import json
 import os 
@@ -6,12 +7,14 @@ from datetime import datetime
 import pytz
 from itertools import cycle
 import asyncio
+import requests
 
 # Get configuration.json
 with open("configuration.json", "r") as config: 
   data = json.load(config)
   token = data["token"]
   prefix = data["prefix"]
+  
 
 
 # Intents
@@ -40,8 +43,12 @@ async def on_ready():
   print (f'Acordei pra tomar café às {(datetime_BR.strftime("%H:%M"))}')
   #print (len(bot.guilds))
   print ('===============================')
-  
+
   bot.loop.create_task(status_task())
+  
+  cas = bot.get_user(319963626108878848)
+  await cas.send(f'Acordei pra tomar café às {(datetime_BR.strftime("%H:%M"))}')
+
     
 
 async def status_task():
@@ -49,6 +56,8 @@ async def status_task():
         await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.watching,
                 name=f'Digite {prefix}help caso precise de ajuda | Estou em {len(bot.guilds)} servidores'),status=discord.Status.online)
         await asyncio.sleep(1800)
+
+
 
 
 
