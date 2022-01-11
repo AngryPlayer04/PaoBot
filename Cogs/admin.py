@@ -24,7 +24,7 @@ class AdminOnly(commands.Cog, name = "adminonly"):
     async def ram(self, ctx):
         tr = discloud.total_ram()
         ur = discloud.using_ram()
-        await ctx.reply("Usando {}/{} de ram".format(ur, tr)) 
+        await ctx.reply(f'Usando {ur}/{tr} de ram')
 
     @commands.command()
     async def ping(self, ctx):

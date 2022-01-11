@@ -26,7 +26,7 @@ bot = commands.Bot(prefix, intents = intents)
 current_time = datetime.now()
 
 @bot.event
-async def on_ready():
+async def on_ready(self, ctx):
   bot.load_extension('cogs.')
 
 for filename in os.listdir('Cogs'):
