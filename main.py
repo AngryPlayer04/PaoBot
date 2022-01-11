@@ -26,7 +26,7 @@ bot = commands.Bot(prefix, intents = intents)
 current_time = datetime.now()
 
 @bot.event
-async def on_ready(self, ctx):
+async def on_ready():
   bot.load_extension('cogs.')
 
 for filename in os.listdir('Cogs'):
@@ -34,7 +34,7 @@ for filename in os.listdir('Cogs'):
     bot.load_extension(f'Cogs.{filename[:-3]}')
 
 @bot.event
-async def on_ready(self, ctx):
+async def on_ready():
   status= cycle(['p.help', 'Pão', 'Bread', f'Estou em {len(bot.guilds)} servidores'])
 
   tz_BR = pytz.timezone('America/Sao_Paulo') 
