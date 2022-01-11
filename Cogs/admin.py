@@ -29,11 +29,8 @@ class AdminOnly(commands.Cog, name = "adminonly"):
 
     @commands.command()
     async def ping(self, ctx):
-        msg = await ctx.reply('Calculando...')
-        before = time.monotonic()
-        await msg.edit(content = "Pong!")
-        ping = (time.monotonic() - before) * 1000
-        await msg.edit(content = f"Pong! <a:paopula:858815343072903178> \n Bot:`{int(ping)}ms`\n API: `{int(self.bot.latency * 1000)}`")
+        latency = round(bot.latency * 1000, 1)
+        await ctx.reply(f'Pong! :paopula: `{latency}ms`')
 
 def setup(bot):
     bot.add_cog(AdminOnly(bot))
