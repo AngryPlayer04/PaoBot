@@ -14,7 +14,7 @@ bot = commands.Bot(prefix, owner_id = "mydiscordID")
 
 class AdminOnly(commands.Cog, name = "adminonly"):
     def __init__(self, ctx,):
-        self.bot = bot 
+        self.bot = self.bot 
 
     @commands.command()
     async def clear(self, ctx, amount = 5):
@@ -29,7 +29,7 @@ class AdminOnly(commands.Cog, name = "adminonly"):
 
     @commands.command()
     async def ping(self, ctx):
-        latency = round(bot.latency * 1000)
+        latency = round(self.bot.latency * 1000)
         await ctx.send(f'Pong! :paopula: `{latency}ms` ')
 
 def setup(bot):
