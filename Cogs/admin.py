@@ -30,7 +30,7 @@ class AdminOnly(commands.Cog, name = "adminonly"):
     @commands.command()
     async def ping(self, ctx):
         latency = round(bot.latency * 1000)
-        await ctx.reply(f'Pong! :paopula: `{latency}ms` ')
+        await ctx.send(f'Pong! :paopula: `{latency}ms` ')
 
 def setup(bot):
     bot.add_cog(AdminOnly(bot))
