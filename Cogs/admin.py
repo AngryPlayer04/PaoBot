@@ -14,7 +14,7 @@ bot = commands.Bot(prefix, owner_id = "mydiscordID")
 
 class AdminOnly(commands.Cog, name = "adminonly"):
     def __init__(self, ctx,):
-        self.bot = self.bot 
+        self.bot = bot 
 
     @commands.command()
     async def clear(self, ctx, amount = 5):
