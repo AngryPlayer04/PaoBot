@@ -34,7 +34,7 @@ for filename in os.listdir('Cogs'):
     bot.load_extension(f'Cogs.{filename[:-3]}')
 
 @bot.event
-async def on_ready():
+async def on_ready(self, ctx):
   status= cycle(['p.help', 'Pão', 'Bread', f'Estou em {len(bot.guilds)} servidores'])
 
   tz_BR = pytz.timezone('America/Sao_Paulo') 
@@ -45,7 +45,9 @@ async def on_ready():
   print ('===============================')
 
   bot.loop.create_task(status_task())
+
   
+async def on_ready(self, ctx):
   cas = bot.get_user(319963626108878848)
   await cas.send(f'Acordei pra tomar café às {(datetime_BR.strftime("%H:%M"))}')
 
