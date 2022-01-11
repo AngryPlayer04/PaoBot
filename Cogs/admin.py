@@ -10,10 +10,9 @@ with open("configuration.json", "r") as config:
 	data = json.load(config)
 	prefix = data["prefix"]
 
-bot = commands.Bot(prefix, owner_id = "mydiscordID")
 
 class AdminOnly(commands.Cog, name = "adminonly"):
-    def __init__(self, ctx,):
+    def __init__(self, bot,):
         self.bot = bot 
 
     @commands.command()
