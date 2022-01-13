@@ -34,11 +34,12 @@ class PermOnly(commands.Cog, name = "Permonly"):
     @commands.command()
     @commands.is_owner()
     async def restart(self,ctx):
-        result = requests.post("https://discloud.app/status/bot/850123093077917716/restart", headers={"api-token": "disctoken"}).json()
+        await ctx.reply('Reiniciando...')
+        result = requests.post("https://discloud.app/status/bot/850123093077917716/restart", headers={"api-token": "5UdvclE49xDuQXVhZ3rLJLRtPWkEB7vU7TrPNRPAukiUFdw9VKoAfB8THRcV9IM"}).json()
 
     async def get_data():
         async with aiohttp.ClientSession() as ses:
-            async with ses.post("https://discloud.app/status/bot/850123093077917716/restart", headers={"api-token": "disctoken"}) as res:
+            async with ses.post("https://discloud.app/status/bot/850123093077917716/restart", headers={"api-token": "5UdvclE49xDuQXVhZ3rLJLRtPWkEB7vU7TrPNRPAukiUFdw9VKoAfB8THRcV9IM"}) as res:
                 return await res.json()
 
     @commands.command()
