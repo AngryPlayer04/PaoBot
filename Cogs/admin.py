@@ -7,6 +7,7 @@ import discloud
 import json
 import time
 import requests
+import aiohttp
 
 with open("configuration.json", "r") as config: 
 	data = json.load(config)
