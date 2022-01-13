@@ -17,7 +17,7 @@ class PermOnly(commands.Cog, name = "Permonly"):
 
     @commands.command()
     @commands.has_guild_permissions(manage_messages = True)
-    async def clear(self, ctx, amount = 5):
+    async def clear(self, ctx, amount = 5, name = "Clear"):
         await ctx.channel.purge(limit = amount + 1)
 
     @commands.command()
