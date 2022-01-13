@@ -55,7 +55,7 @@ async def ligado():
   for id in user:
     member = await bot.fetch_user(id)
     try:
-      member.send(f'Acordei pra tomar café às {(datetime_BR.strftime("%H:%M"))}')
+      await member.send(f'Acordei pra tomar café às {(datetime_BR.strftime("%H:%M"))}')
     except:
       pass
 
