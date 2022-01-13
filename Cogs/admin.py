@@ -16,6 +16,7 @@ class AdminOnly(commands.Cog, name = "adminonly"):
         self.bot = bot 
 
     @commands.command()
+    @commands.has_guild_permissions(manage_messages = True)
     async def clear(self, ctx, amount = 5):
         await ctx.channel.purge(limit = amount + 1)
 
