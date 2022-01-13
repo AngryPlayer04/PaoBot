@@ -5,13 +5,13 @@ import discloud
 import json
 import time
 
-
 with open("configuration.json", "r") as config: 
 	data = json.load(config)
 	prefix = data["prefix"]
+    
 
 
-class AdminOnly(commands.Cog, name = "adminonly"):
+class PermOnly(commands.Cog, name = "Permonly"):
     def __init__(self, bot,):
         self.bot = bot 
 
@@ -32,5 +32,6 @@ class AdminOnly(commands.Cog, name = "adminonly"):
         latency = round(self.bot.latency * 1000)
         await ctx.reply(f'Pong! <a:paopula:858815343072903178> `{latency}ms` ')
 
+
 def setup(bot):
-    bot.add_cog(AdminOnly(bot))
+    bot.add_cog(PermOnly(bot))
