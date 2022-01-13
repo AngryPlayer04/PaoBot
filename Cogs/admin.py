@@ -1,9 +1,12 @@
+from asyncio import tasks
+from unittest import result
 import discord
 from discord.ext.commands import MissingPermissions, CheckFailure, CommandNotFound
 from discord.ext import commands
 import discloud
 import json
 import time
+import requests
 
 with open("configuration.json", "r") as config: 
 	data = json.load(config)
@@ -32,6 +35,7 @@ class PermOnly(commands.Cog, name = "Permonly"):
         latency = round(self.bot.latency * 1000)
         await ctx.reply(f'Pong! <a:paopula:858815343072903178> `{latency}ms` ')
 
+    
 
 def setup(bot):
     bot.add_cog(PermOnly(bot))

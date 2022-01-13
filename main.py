@@ -67,6 +67,18 @@ async def status_task():
         await asyncio.sleep(1800)
 
 
+@tasks.loop(hours = 8)
+async def verifydays(self,ctx):
+  channel = bot.get_channel(319963626108878848)
+  result = requests.get('https://discloud.app/status/user', headers = {'api-token': '5UdvclE49xDuQXVhZ3rLJLRtPWkEB7vU7TrPNRPAukiUFdw9VKoAfB8THRcV9IM'}).json()
+  r = result['lastDataLeft']['days']
+  if r <= 1:
+    cas = self.bot.get_user(319963626108878848)
+    await cas.send('**O PLANO TA ACABANDO, FAZ BACKUP!!**')
+
+@verifydays.before_loop
+async def before_my_task():
+    await bot.wait_until_ready()
 
 
 
