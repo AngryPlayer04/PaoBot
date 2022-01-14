@@ -1,4 +1,4 @@
-py-cord
+disnake
 forex_python
 pytz
 discloud
