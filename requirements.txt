@@ -1,5 +1,4 @@
 disnake
-discord
 forex_python
 pytz
 discloud

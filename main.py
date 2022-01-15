@@ -1,4 +1,4 @@
-import discord
+import disnake as  discord
 from discord import channel
 from discord.ext import commands, tasks
 import json
