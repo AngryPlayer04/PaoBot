@@ -1,6 +1,6 @@
 from asyncio import tasks
 from unittest import result
-import disnake as discord
+import discord
 from discord.ext.commands import MissingPermissions, CheckFailure, CommandNotFound
 from discord.ext import commands
 import discloud

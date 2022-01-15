@@ -1,4 +1,4 @@
-import disnake as discord
+import discord
 from discord.ext import commands
 
 
