@@ -19,7 +19,7 @@ class Utiliies(commands.Cog, name = "Utilities"):
                 if lyrics is None:
                     await ctx.send("Song not found! Please enter correct Artist and Song title")
                 if len(lyrics) > 2048:
-                    lyrics = lyrics[:2048]
+                    lyrics = lyrics[:4000]
                 emb = discord.Embed(title = f"{title}", description = f"{lyrics}", color = 0xa3a3ff)
                 await ctx.send(embed=emb)
         await session.close()
