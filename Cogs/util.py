@@ -10,17 +10,17 @@ class Utiliies(commands.Cog, name = "Utilities"):
         self.bot = bot
 
     @commands.command()
-    async def lyrics(self, name="Lyrics", alias="letras"):
+    async def lyrics(self,ctx, name="Lyrics", alias="letras"):
         try:
-            a = input(self.bot.reply('Diga o nome do artista'))
+            a = input(ctx.reply('Diga o nome do artista'))
             a
-            s = input(self.bot.send('Qual o nome da música?'))
+            s = input(ctx.send('Qual o nome da música?'))
             s 
             lyrics = api.search_song(s, a).lyrics
-            await self.bot.send(lyrics)
+            await ctx.send(lyrics)
 
         except:
-            await self.bot.send('Não encontrei a música solicitada, verifque se digitou corretamente.')
+            await ctx.send('Não encontrei a música solicitada, verifque se digitou corretamente.')
 
 
     
