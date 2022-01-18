@@ -15,8 +15,8 @@ class Utiliies(commands.Cog, name = "Utilities"):
             await ctx.reply("Diga o nome do artista")
             a = await self.bot.wait_for('message', check=lambda message: message.author==ctx.author)
             await ctx.send('Qual o nome da música?')
-            s = await self.bot.wait_for('message', check=lambda message: message.author==ctx.author)
-            lyrics = api.search_song(s, a).lyrics
+            s = await self.bot.wait_for('message',cehck= lambda message: message.author==ctx.author)
+            lyrics = api.search_song(a , s).lyrics
             await ctx.send(lyrics)
 
         except:
