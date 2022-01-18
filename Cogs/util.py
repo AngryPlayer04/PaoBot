@@ -1,6 +1,7 @@
 import discord
 from discord.ext import commands
 import lyricsgenius as genius
+import aiohttp
 
 api = genius.Genius("Us6gcFcURe9Y85HL6hPY7TRJWQBdVq8WXYiGnJEKokQFobG0v5bzO8MM2Kjy04xU")
 
@@ -10,17 +11,18 @@ class Utiliies(commands.Cog, name = "Utilities"):
         self.bot = bot
 
     @commands.command()
-    async def lyrics(self,ctx, name="Lyrics", aliases=["letras"]):
-        try:
-            await ctx.reply("Diga o nome do artista")
-            a = await self.bot.wait_for('message', check=lambda message: message.author==ctx.author)
-            await ctx.send('Qual o nome da música?')
-            s = await self.bot.wait_for('message',cehck= lambda message: message.author==ctx.author)
-            lyrics = api.search_song(s, a).lyrics
-            await ctx.send(lyrics)
-
-        except:
-            await ctx.send('Não encontrei a música solicitada, verifque se digitou corretamente.')
+    async def lyrics(self, ctx, artist,*, title):
+        async with aiohttp.ClientSession() as session:
+            async with session.get(f"https://api.lyrics.ovh/v1/{artist}/{title}") as response:
+                data = await response.json()
+                lyrics = data['lyrics']
+                if lyrics is None:
+                    await ctx.send("Song not found! Please enter correct Artist and Song title")
+                if len(lyrics) > 2048:
+                    lyrics = lyrics[:2048]
+                emb = discord.Embed(title = f"{title}", description = f"{lyrics}", color = 0xa3a3ff)
+                await ctx.send(embed=emb)
+        await session.close()
 
 
     
