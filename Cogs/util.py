@@ -16,7 +16,7 @@ class Utiliies(commands.Cog, name = "Utilities"):
             a = await self.bot.wait_for('message', check=lambda message: message.author==ctx.author)
             await ctx.send('Qual o nome da música?')
             s = await self.bot.wait_for('message',cehck= lambda message: message.author==ctx.author)
-            lyrics = api.search_song(a , s).lyrics
+            lyrics = api.search_song(s, a).lyrics
             await ctx.send(lyrics)
 
         except:
