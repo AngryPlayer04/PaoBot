@@ -12,9 +12,9 @@ class Utiliies(commands.Cog, name = "Utilities"):
     @commands.command()
     async def lyrics(self,ctx, name="Lyrics", alias="letras"):
         try:
-            a = input(ctx.reply('Diga o nome do artista'))
+            a = input(await ctx.reply('Diga o nome do artista'))
             a
-            s = input(ctx.send('Qual o nome da música?'))
+            s = input(await ctx.send('Qual o nome da música?'))
             s 
             lyrics = api.search_song(s, a).lyrics
             await ctx.send(lyrics)
