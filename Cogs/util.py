@@ -1,3 +1,5 @@
+from email import message
+from tabnanny import check
 import discord
 from discord.ext import commands
 import lyricsgenius as genius
@@ -14,14 +16,19 @@ class Utiliies(commands.Cog, name = "Utilities"):
     async def lyrics(self, ctx, artist,*, title):
         async with aiohttp.ClientSession() as session:
             async with session.get(f"https://api.lyrics.ovh/v1/{artist}/{title}") as response:
-                data = await response.json()
-                lyrics = data['lyrics']
-                if lyrics is None:
-                    await ctx.send("Song not found! Please enter correct Artist and Song title")
-                if len(lyrics) > 2048:
-                    lyrics = lyrics[:4000]
-                emb = discord.Embed(title = f"{title}", description = f"{lyrics}", color = 0xa3a3ff)
-                await ctx.send(embed=emb)
+                try:
+                    await ctx.reply('Digite o nome do artista')
+                    artist = await self.bot.wait_for('message', check=check)
+                    await ctx.send('Qual o nome da música?')
+                    title = await self.bot.wait_for('message', check=check) 
+                    data = await response.json()
+                    lyrics = data['lyrics']
+                    emb = discord.Embed(title = f"{title}", description = f"{lyrics}", color = 0xa3a3ff)
+                    await ctx.send(embed=emb)
+                    
+                except:
+                    await ctx.send(f'{message.author.mention} Música não encontrada, verifique se digitou corretamente')
+
         await session.close()
 
 
