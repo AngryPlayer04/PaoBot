@@ -15,19 +15,19 @@ class Utiliies(commands.Cog, name = "Utilities"):
     @commands.command()
     async def lyrics(self, ctx, artist,*, title):
         async with aiohttp.ClientSession() as session:
-            async with session.get(f"https://api.lyrics.ovh/v1/{artist}/{title}") as response:
-                try:
-                    await ctx.reply('Digite o nome do artista')
-                    artist = await self.bot.wait_for('message', check=check)
-                    await ctx.send('Qual o nome da música?')
-                    title = await self.bot.wait_for('message', check=check) 
+            try:
+                await ctx.reply('Digite o nome do artista')
+                artist = await self.bot.wait_for('message', check=check)
+                await ctx.send('Qual o nome da música?')
+                title = await self.bot.wait_for('message', check=check) 
+                async with session.get(f"https://api.lyrics.ovh/v1/{artist}/{title}") as response:
                     data = await response.json()
                     lyrics = data['lyrics']
                     emb = discord.Embed(title = f"{title}", description = f"{lyrics}", color = 0xa3a3ff)
                     await ctx.send(embed=emb)
-                    
-                except:
-                    await ctx.send(f'{message.author.mention} Música não encontrada, verifique se digitou corretamente')
+
+            except:
+                await ctx.send(f'{message.author.mention} Música não encontrada, verifique se digitou corretamente')
 
         await session.close()
 
