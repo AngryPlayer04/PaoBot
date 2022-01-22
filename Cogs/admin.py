@@ -28,7 +28,7 @@ class PermOnly(commands.Cog, name = "Permonly"):
     
     @commands.command()
     @commands.is_owner()
-    async def restart(sself ctx):
+    async def restart(self, ctx):
         await ctx.reply('Reiniciando <a:digitando:931267989033082901>')
         result = requests.post("https://discloud.app/status/bot/850123093077917716/restart", headers={"api-token": "5UdvclE49xDuQXVhZ3rLJLRtPWkEB7vU7TrPNRPAukiUFdw9VKoAfB8THRcV9IM"}).json()
 
