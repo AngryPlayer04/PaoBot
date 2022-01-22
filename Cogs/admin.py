@@ -3,7 +3,7 @@ from unittest import result
 import discord
 from discord.ext.commands import MissingPermissions, CheckFailure, CommandNotFound
 from discord.ext import commands
-import discloud
+import discloudapi
 import json
 import time
 import requests
@@ -24,26 +24,21 @@ class PermOnly(commands.Cog, name = "Permonly"):
     async def clear(self, ctx, amount = 5, name = "Clear"):
         await ctx.channel.purge(limit = amount + 1)
 
-    @commands.command()
-    @commands.is_owner()
-    async def ram(self, ctx):
-        tr = discloud.total_ram()
-        ur = discloud.using_ram()
-        await ctx.reply(f'Usando {ur}/{tr} de ram')
+  
     
     @commands.command()
     @commands.is_owner()
-    async def restart(self,ctx):
+    async def restart(sself ctx):
         await ctx.reply('Reiniciando <a:digitando:931267989033082901>')
         result = requests.post("https://discloud.app/status/bot/850123093077917716/restart", headers={"api-token": "5UdvclE49xDuQXVhZ3rLJLRtPWkEB7vU7TrPNRPAukiUFdw9VKoAfB8THRcV9IM"}).json()
-        
 
-                
     @commands.command()
     @commands.is_owner()
-    async def status(self,ctx):
-        r = discloud.status
-        await ctx.reply(r)
+    async def status(self, ctx):
+        resultado = discloud_api.BotStatus(bot_id = 850123093077917716, api_token = "5UdvclE49xDuQXVhZ3rLJLRtPWkEB7vU7TrPNRPAukiUFdw9VKoAfB8THRcV9IM")
+await ctx.reply(f"Uso de CPU: {resultado.cpu}\nUso de memória: {resultado.memory}")
+await ctx.send(f"{resultado.ratelimit_remaining}/{resultado.ratelimit}")
+
 
 
     @commands.command()
