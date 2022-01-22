@@ -36,17 +36,14 @@ class PermOnly(commands.Cog, name = "Permonly"):
     async def restart(self,ctx):
         await ctx.reply('Reiniciando <a:digitando:931267989033082901>')
         result = requests.post("https://discloud.app/status/bot/850123093077917716/restart", headers={"api-token": "5UdvclE49xDuQXVhZ3rLJLRtPWkEB7vU7TrPNRPAukiUFdw9VKoAfB8THRcV9IM"}).json()
+        
 
-    async def get_data():
-        async with aiohttp.ClientSession() as ses:
-            async with ses.post("https://discloud.app/status/bot/850123093077917716/restart", headers={"api-token": "5UdvclE49xDuQXVhZ3rLJLRtPWkEB7vU7TrPNRPAukiUFdw9VKoAfB8THRcV9IM"}) as res:
-                return await res.json()
                 
     @commands.command()
     @commands.is_owner()
     async def status(self,ctx):
-        result = requests.get("https://discloud.app/status/bot/850123093077917716", headers={"api-token": "5UdvclE49xDuQXVhZ3rLJLRtPWkEB7vU7TrPNRPAukiUFdw9VKoAfB8THRcV9IM"}).json()
-        await ctx.reply (result)
+        r = discloud.status()
+        await ctx.reply(r)
 
 
     @commands.command()
@@ -54,9 +51,6 @@ class PermOnly(commands.Cog, name = "Permonly"):
         latency = round(self.bot.latency * 1000)
         await ctx.reply(f'Pong! <a:paopula:858815343072903178> `{latency}ms` ')
 
-
-
-    
 
 def setup(bot):
     bot.add_cog(PermOnly(bot))
