@@ -3,7 +3,7 @@ from unittest import result
 import discord
 from discord.ext.commands import MissingPermissions, CheckFailure, CommandNotFound
 from discord.ext import commands
-import discloud
+import discloud==1.0.0b
 import json
 import time
 import requests
