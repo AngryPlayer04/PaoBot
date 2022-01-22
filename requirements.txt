@@ -2,7 +2,7 @@ discord
 disnake
 forex_python
 pytz
-discloudapi=1.0.0
+discloudapi==1.0.0
 numexpr
 requests 
 lyricsgenius
