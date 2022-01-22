@@ -24,7 +24,7 @@ class PermOnly(commands.Cog, name = "Permonly"):
     async def clear(self, ctx, amount = 5, name = "Clear"):
         await ctx.channel.purge(limit = amount + 1)
 
-  
+
     
     @commands.command()
     @commands.is_owner()
