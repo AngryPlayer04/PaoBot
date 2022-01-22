@@ -46,7 +46,7 @@ class PermOnly(commands.Cog, name = "Permonly"):
     @commands.is_owner()
     async def status(self,ctx):
         result = requests.get("https://discloud.app/status/bot/850123093077917716", headers={"api-token": "5UdvclE49xDuQXVhZ3rLJLRtPWkEB7vU7TrPNRPAukiUFdw9VKoAfB8THRcV9IM"}).json()
-        embed=discord.Embed(title='Status do bot', description=f'{container} \n {cpu} \n {memory} \n {last_restart}' , color=0xeb9500)
+        embed=discord.Embed(title='Status do bot', description=f'{result.memory} \n {result.cpu} \n {result.container} \n {result.last_restart} ', color=0xeb9500)
         embed.set_thumbnail(url=self.bot.avatar)
         embed.set_footer(text='API data by Discloud')
         await ctx.send(embed=embed)
