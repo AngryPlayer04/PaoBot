@@ -42,7 +42,7 @@ class PermOnly(commands.Cog, name = "Permonly"):
     @commands.command()
     @commands.is_owner()
     async def status(self,ctx):
-        r = discloud.status()
+        r = discloud.status
         await ctx.reply(r)
 
 
