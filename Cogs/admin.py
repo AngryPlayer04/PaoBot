@@ -45,13 +45,9 @@ class PermOnly(commands.Cog, name = "Permonly"):
     @commands.command()
     @commands.is_owner()
     async def status(self,ctx):
-        result = requests.get("https://discloud.app/status/bot/850123093077917716/status", headers={"api-token": "5UdvclE49xDuQXVhZ3rLJLRtPWkEB7vU7TrPNRPAukiUFdw9VKoAfB8THRcV9IM"}).json()
+        result = requests.get("discloud.app/status/bot/850123093077917716", headers={"api-token": "5UdvclE49xDuQXVhZ3rLJLRtPWkEB7vU7TrPNRPAukiUFdw9VKoAfB8THRcV9IM"}).json()
         await ctx.reply (result)
 
-    async def get_data():
-        async with aiohttp.ClientSession() as ses:
-            async with ses.get("https://discloud.app/status/bot/850123093077917716/status", headers={"api-token": "5UdvclE49xDuQXVhZ3rLJLRtPWkEB7vU7TrPNRPAukiUFdw9VKoAfB8THRcV9IM"}) as res:
-                return await res.json()
 
     @commands.command()
     async def ping(self, ctx):
