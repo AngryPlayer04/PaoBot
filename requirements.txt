@@ -4,8 +4,6 @@ forex_python
 pytz
 discloud
 numexpr
-numpy
 requests 
-speedtest-cli 
 lyricsgenius
 beautifulsoup4
