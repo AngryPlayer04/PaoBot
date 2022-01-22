@@ -2,7 +2,7 @@ discord
 disnake
 forex_python
 pytz
-discloud
+discloud==1.0.0b
 numexpr
 requests 
 lyricsgenius
