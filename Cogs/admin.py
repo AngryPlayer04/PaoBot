@@ -55,6 +55,9 @@ class PermOnly(commands.Cog, name = "Permonly"):
         latency = round(self.bot.latency * 1000)
         await ctx.reply(f'Pong! <a:paopula:858815343072903178> `{latency}ms` ')
 
+class Events(commands.Cog):
+    def __init__(self, bot):
+        self.bot = bot
 
     @commands.Cog.listener()
     async def on_ready():
@@ -78,4 +81,4 @@ class PermOnly(commands.Cog, name = "Permonly"):
 
 
 def setup(bot):
-    bot.add_cog(PermOnly(bot))
+    bot.add_cog(PermOnly,Events(bot))
