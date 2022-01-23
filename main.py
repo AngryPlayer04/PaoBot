@@ -2,7 +2,10 @@ import discord
 from disnake import channel
 from discord.ext import commands, tasks
 import json
-import os 
+import sys
+import os
+sys.path.append(os.path.abspath("Mod"))
+from discloudapi import *
 from datetime import datetime 
 import pytz
 from itertools import cycle
@@ -44,7 +47,21 @@ async def on_ready():
   #print (len(bot.guilds))
   print ('===============================')
 
+  ligado.start()
+  
   bot.loop.create_task(status_task())
+  ligado.stop()
+
+@tasks.loop(seconds=11)
+async def ligado():
+  user = [319963626108878848]
+  resultado = BotStatus(bot_id = 850123093077917716, api_token = "5UdvclE49xDuQXVhZ3rLJLRtPWkEB7vU7TrPNRPAukiUFdw9VKoAfB8THRcV9IM")
+  for id in user:
+    member = await bot.fetch_user(id)
+    try:
+      await member.send(f"Logs completas: {resultado.link}\nÚltimos 1800 caracteres: {resultado.logs}\n Rate Limit:{resultado.ratelimit_remaining}/{resultado.ratelimit}")
+    except:
+      pass
 
 
 async def status_task():
