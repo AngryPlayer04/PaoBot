@@ -55,7 +55,7 @@ async def on_ready():
 @tasks.loop(seconds=11)
 async def ligado():
   user = [319963626108878848]
-  resultado = BotStatus(bot_id = 850123093077917716, api_token = "5UdvclE49xDuQXVhZ3rLJLRtPWkEB7vU7TrPNRPAukiUFdw9VKoAfB8THRcV9IM")
+  resultado = BotRestart(bot_id = 850123093077917716, api_token = "5UdvclE49xDuQXVhZ3rLJLRtPWkEB7vU7TrPNRPAukiUFdw9VKoAfB8THRcV9IM")
   for id in user:
     member = await bot.fetch_user(id)
     try:
