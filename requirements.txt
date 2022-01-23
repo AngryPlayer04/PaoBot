@@ -2,7 +2,6 @@ discord
 disnake
 forex_python
 pytz
-discloudapi
 numexpr
 requests 
 lyricsgenius
