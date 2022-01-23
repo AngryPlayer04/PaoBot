@@ -62,7 +62,6 @@ class Events(commands.Cog):
     @commands.Cog.listener()
     async def on_ready():
         ligado.start()
-        time.sleep(11)
         ligado.stop()
 
 
