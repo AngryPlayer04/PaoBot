@@ -81,4 +81,6 @@ class Events(commands.Cog):
 
 
 def setup(bot):
-    bot.add_cog(PermOnly,Events(bot))
+    bot.add_cog(PermOnly(bot))
+def setup(bot):
+    bot.add_cog(Events(bot))
