@@ -1,8 +1,11 @@
+from ast import Mod
 from asyncio import tasks
 from unittest import result
 import discord
 from discord.ext.commands import MissingPermissions, CheckFailure, CommandNotFound
 from discord.ext import commands
+import sys
+exec('Mod/discloudapi.py')
 import discloudapi
 import json
 import time
