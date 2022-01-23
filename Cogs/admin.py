@@ -6,7 +6,7 @@ from discord.ext.commands import MissingPermissions, CheckFailure, CommandNotFou
 from discord.ext import commands
 import sys
 import os
-sys.path.append(os.path.abspath('/Mod'))
+sys.path.append(os.path.abspath("Mod"))
 from discloudapi import *
 import json
 import time
