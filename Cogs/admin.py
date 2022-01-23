@@ -5,8 +5,9 @@ import discord
 from discord.ext.commands import MissingPermissions, CheckFailure, CommandNotFound
 from discord.ext import commands
 import sys
-exec('Mod/discloudapi.py')
-import discloudapi
+import os
+sys.path.append(os.path.abspath('/Mod'))
+from discloudapi import *
 import json
 import time
 import requests
