@@ -47,8 +47,11 @@ class PermOnly(commands.Cog, name = "Permonly"):
     async def status(self, ctx):
         async with ctx.typing():
             resultado = BotStatus(bot_id = 850123093077917716, api_token = "5UdvclE49xDuQXVhZ3rLJLRtPWkEB7vU7TrPNRPAukiUFdw9VKoAfB8THRcV9IM")
-            await ctx.reply(f"Uso de CPU: {resultado.cpu}\nUso de memória: {resultado.memory}")
-            
+            #await ctx.reply(f"Uso de CPU: {resultado.cpu}\nUso de memória: {resultado.memory}")
+            embed=disnake.Embed(title='Status', description=(f"Uso de CPU: {resultado.cpu}\nUso de memória: {resultado.memory}"), color=0x00ff33)
+            embed.set_author(name='Pão Bot', icon_url = disnake.ClientUser.avatar )
+            embed.set_footer(text='Data by Discloud.com')
+            await ctx.reply(embed=embed)
 
 
     @commands.command()
