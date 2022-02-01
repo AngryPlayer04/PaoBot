@@ -39,7 +39,7 @@ for filename in os.listdir('Cogs'):
 async def on_ready():
 
 
-  print ('============================================')
+  print ('===============================')
   print (f'Acordei pra tomar café às {(datetime_BR.strftime("%H:%M"))}')
   #print (len(bot.guilds))
   print ('===============================')
