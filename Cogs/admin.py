@@ -48,8 +48,8 @@ class PermOnly(commands.Cog, name = "Permonly"):
         async with ctx.typing():
             resultado = BotStatus(bot_id = 850123093077917716, api_token = "5UdvclE49xDuQXVhZ3rLJLRtPWkEB7vU7TrPNRPAukiUFdw9VKoAfB8THRcV9IM")
             #await ctx.reply(f"Uso de CPU: {resultado.cpu}\nUso de memória: {resultado.memory}")
-            embed=disnake.Embed(title='Status', description=(f"Uso de CPU: {resultado.cpu}\nUso de memória: {resultado.memory}"), color=0x00ff33)
-            embed.set_author(name='Pão Bot')
+            embed=disnake.Embed(title='Status', description=(f"Uso de CPU: **{resultado.cpu}**\n Uso de memória: **{resultado.memory}**"), color=0x00ff33)
+            embed.set_author(name='Pão Bot', icon_url= 'https://cdn-icons.flaticon.com/png/512/3226/premium/3226045.png?token=exp=1643694397~hmac=71f7bb1fb6214ecd11e6d2239a6f27f0')
             embed.set_footer(text='Data by Discloud.com')
             await ctx.reply(embed=embed)
 
