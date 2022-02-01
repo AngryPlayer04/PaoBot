@@ -1,7 +1,7 @@
 from email import message
 from tabnanny import check
-import discord
-from discord.ext import commands
+import disnake
+from disnake.ext import commands
 import lyricsgenius as genius
 import aiohttp
 

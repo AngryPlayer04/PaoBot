@@ -1,9 +1,9 @@
 from ast import Mod
 from asyncio import tasks
 from unittest import result
-import discord
-from discord.ext.commands import MissingPermissions, CheckFailure, CommandNotFound
-from discord.ext import commands, tasks
+import disnake
+from disnake.ext.commands import MissingPermissions, CheckFailure, CommandNotFound
+from disnake.ext import commands, tasks
 import sys
 import os
 sys.path.append(os.path.abspath("Mod"))
@@ -45,9 +45,10 @@ class PermOnly(commands.Cog, name = "Permonly"):
     @commands.command()
     @commands.is_owner()
     async def status(self, ctx):
-        resultado = BotStatus(bot_id = 850123093077917716, api_token = "5UdvclE49xDuQXVhZ3rLJLRtPWkEB7vU7TrPNRPAukiUFdw9VKoAfB8THRcV9IM")
-        await ctx.reply(f"Uso de CPU: {resultado.cpu}\nUso de memória: {resultado.memory}")
-        await ctx.send(f"{resultado.ratelimit_remaining}/{resultado.ratelimit}")
+        async with ctx.typing():
+            resultado = BotStatus(bot_id = 850123093077917716, api_token = "5UdvclE49xDuQXVhZ3rLJLRtPWkEB7vU7TrPNRPAukiUFdw9VKoAfB8THRcV9IM")
+            await ctx.reply(f"Uso de CPU: {resultado.cpu}\nUso de memória: {resultado.memory}")
+            
 
 
     @commands.command()

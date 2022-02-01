@@ -1,5 +1,5 @@
-import discord
-from discord.ext import commands
+import disnake
+from disnake.ext import commands
 import json
 import numexpr as ne
 from forex_python.converter import CurrencyRates
