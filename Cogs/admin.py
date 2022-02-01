@@ -59,7 +59,7 @@ class PermOnly(commands.Cog, name = "Permonly"):
             resultado = BotLogs(bot_id = 850123093077917716, api_token = "5UdvclE49xDuQXVhZ3rLJLRtPWkEB7vU7TrPNRPAukiUFdw9VKoAfB8THRcV9IM")
             embed=disnake.Embed(title='Log:', url = resultado.link, description=(f" \n {resultado.logs} "), color= 0xffb43b)
             embed.set_author(name='Pão Bot', icon_url= 'https://cdn-icons.flaticon.com/png/512/3226/premium/3226045.png?token=exp=1643694397~hmac=71f7bb1fb6214ecd11e6d2239a6f27f0')
-            embed.set_footer(text=['Data by Discloud.com']('https://discloudbot.com'))
+            embed.set_footer(text= '[Data by Discloud.com](https://discloudbot.com)')
             await ctx.reply(embed=embed)
 
 
