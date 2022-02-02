@@ -20,8 +20,8 @@ with open("configuration.json", "r") as config:
 
 
 class PermOnly(commands.Cog, name = "Permonly"):
-    def __init__(self, bot):
-        self.bot = bot 
+    def __init__(self, bot:commands.Bot):
+        self.bot = bot
 
     @commands.command(help = 'Limpa a quantidade indicada de mensagens do canal, sendo 5 por padrão', aliases = ['limpar', 'clean'])
     @commands.has_guild_permissions(manage_messages = True)
