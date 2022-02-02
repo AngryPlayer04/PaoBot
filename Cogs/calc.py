@@ -8,7 +8,7 @@ class Calculators(commands.Cog, name = "calculator"):
     def __init__(self, bot:commands.Bot):
         self.bot = bot
 
-    @commands.command(help = 'Calcula a expressão dada (Use `/` para divisão, `*` para multiplicação, `**`para potência)', 
+    @commands.command(help = 'Calcula a expressão dada (Use `/` para divisão, `*` para multiplicação e `**`para potência)', 
     aliases = ['calculadora', 'calcular'])
     async def calc(self, ctx, *, express):
         try:
@@ -17,7 +17,7 @@ class Calculators(commands.Cog, name = "calculator"):
         except (RuntimeError, OverflowError, ValueError, SyntaxError, NameError, TypeError, ZeroDivisionError):
             await ctx.reply("Desculpe, eu não posso calcular `{}` ou ocorreu um erro desconhecido.".format(express))
 
-    @commands.command()
+    @commands.command(help = 'Diz a cotação do dólar em real(Infelizmente a API só atualiza uma vez ao dia', aliases = ['dol'])
     async def dolar(self, ctx):
         async with ctx.typing():
             c = CurrencyRates(force_decimal = True)

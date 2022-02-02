@@ -27,28 +27,6 @@ current_time = datetime.now()
 tz_BR = pytz.timezone('America/Sao_Paulo') 
 datetime_BR = datetime.now(tz_BR)
 
-@bot.event
-async def on_ready():
-  bot.load_extension('cogs.')
-
-for filename in os.listdir('Cogs'):
-  if filename.endswith('.py'):
-    bot.load_extension(f'Cogs.{filename[:-3]}')
-
-@bot.event
-async def on_ready():
-
-
-  print ('===============================')
-  print (f'Acordei pra tomar café às {(datetime_BR.strftime("%H:%M"))}')
-  #print (len(bot.guilds))
-  print ('===============================')
-
-  ligado.start()
-  
-  bot.loop.create_task(status_task())
-  ligado.stop()
-
 @tasks.loop(seconds=11)
 async def ligado():
   user = [319963626108878848]
@@ -65,6 +43,24 @@ async def status_task():
         await bot.change_presence(activity=disnake.Activity(type=disnake.ActivityType.watching,
                 name=f'Digite {prefix}help | Estou em {len(bot.guilds)} servidores'),status=disnake.Status.online)
         await asyncio.sleep(1800)
+
+@bot.event
+async def on_ready():
+  bot.load_extension('cogs.')
+
+for filename in os.listdir('Cogs'):
+  if filename.endswith('.py'):
+    bot.load_extension(f'Cogs.{filename[:-3]}')
+
+  print ('===============================')
+  print (f'Acordei pra tomar café às {(datetime_BR.strftime("%H:%M"))}')
+  #print (len(bot.guilds))
+  print ('===============================')
+
+  ligado.start()
+  
+  bot.loop.create_task(status_task())
+  ligado.stop()
 
 
 @tasks.loop(hours = 8)
