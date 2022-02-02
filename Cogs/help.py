@@ -6,7 +6,7 @@ class HelpCommand(commands.MinimalHelpCommand):
         destination = self.get_destination()
         for page in self.paginator.pages:
             emby = disnake.Embed(description=page)
-            await destination.send(embed=emby)
+            await destination.reply (embed=emby)
 
 
     

@@ -8,7 +8,8 @@ class Calculators(commands.Cog, name = "calculator"):
     def __init__(self, bot:commands.Bot):
         self.bot = bot
 
-    @commands.command()
+    @commands.command(help = 'Calcula a expressão dada (Use `/` para divisão, `*` para multiplicação, `**`para potência)', 
+    aliases = ['calculadora', 'calcular'])
     async def calc(self, ctx, *, express):
         try:
             soma = ne.evaluate(express)
