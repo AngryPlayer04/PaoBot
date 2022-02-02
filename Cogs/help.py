@@ -1,4 +1,4 @@
-from disnake import commands
+from disnake.ext import commands
 
 class HelpCommand(commands.MinimalHelpCommand):
     def get_command_signature(self, command):
