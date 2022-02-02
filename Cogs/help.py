@@ -2,10 +2,10 @@ import disnake
 from disnake.ext import commands
 
 class HelpCommand(commands.MinimalHelpCommand):
-    async def send_pages(self, ctx):
+    async def send_pages(self):
         for page in self.paginator.pages:
             emby = disnake.Embed(description=page)
-            await ctx.reply(embed=emby)
+            await self.ctx.reply(embed=emby)
 
 
     
