@@ -31,7 +31,9 @@ datetime_BR = datetime.now(tz_BR)
 async def on_ready():
   bot.load_extension('cogs.')
 
-
+for filename in os.listdir('./Cogs'):
+  if filename.endswith('.py'):
+    bot.load_extension(f'Cogs.{filename[:-3]}')
 
 @bot.event
 async def on_ready():
