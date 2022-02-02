@@ -27,7 +27,7 @@ current_time = datetime.now()
 tz_BR = pytz.timezone('America/Sao_Paulo') 
 datetime_BR = datetime.now(tz_BR)
 
-@bot.event
+
 
 
 @bot.event
@@ -43,10 +43,7 @@ for filename in os.listdir('Cogs'):
   #print (len(bot.guilds))
   print ('===============================')
 
-  ligado.start()
-  
-  bot.loop.create_task(status_task())
-  ligado.stop()
+
 
 @tasks.loop(seconds=11)
 async def ligado():
@@ -64,6 +61,13 @@ async def status_task():
         await bot.change_presence(activity=disnake.Activity(type=disnake.ActivityType.watching,
                 name=f'Digite {prefix}help | Estou em {len(bot.guilds)} servidores'),status=disnake.Status.online)
         await asyncio.sleep(1800)
+
+@bot.event
+async def on_ready():
+  ligado.start()
+  
+  bot.loop.create_task(status_task())
+  ligado.stop()
 
 
 @tasks.loop(hours = 8)
