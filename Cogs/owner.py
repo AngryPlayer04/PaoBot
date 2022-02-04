@@ -7,7 +7,7 @@ import os
 sys.path.append(os.path.abspath("Mod"))
 from discloudapi import *
 
-class OwnerOnly(commands.Cog, name = "Owner Only"):
+class OwnerOnly(commands.Cog, name = "Owner Only", help = 'Comandos de utilização exclusiva do dono'):
     def __init__(self, bot):
         self.bot = bot 
 
@@ -37,8 +37,12 @@ class OwnerOnly(commands.Cog, name = "Owner Only"):
             embed.set_footer(text='Data by Discloud.com')
             await ctx.reply(embed=embed)
 
-    
-
+    @commands.command()
+    @commands.is_owner()
+    async def plano(self,ctx):
+        async with ctx.typing():
+            resultado = UserStatus(api_token = '5UdvclE49xDuQXVhZ3rLJLRtPWkEB7vU7TrPNRPAukiUFdw9VKoAfB8THRcV9IM')
+            await ctx.reply(f"Seu plano: {resultado.plan}\nAcaba em: {resultado.planDataEnd}")
 
 def setup(bot):
     bot.add_cog(OwnerOnly(bot))
