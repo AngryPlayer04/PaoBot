@@ -70,7 +70,7 @@ async def status_task():
         await asyncio.sleep(1800)
 
 
-@tasks.loop(hours = 8)
+@tasks.loop(hours = 1)
 async def verifydays(self,ctx):
   result = UserStatus(api_token = "5UdvclE49xDuQXVhZ3rLJLRtPWkEB7vU7TrPNRPAukiUFdw9VKoAfB8THRcV9IM")
   r = result.planDataEnd
