@@ -7,7 +7,7 @@ import os
 sys.path.append(os.path.abspath("Mod"))
 from discloudapi import *
 
-class OwnerOnly(commands.Cog, name = "Owner Only", help = 'Comandos de utilização exclusiva do dono'):
+class OwnerOnly(commands.Cog, name = "Owner Only"):
     def __init__(self, bot):
         self.bot = bot 
 
