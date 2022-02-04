@@ -11,7 +11,7 @@ class OwnerOnly(commands.Cog, name = "Owner Only"):
     def __init__(self, bot):
         self.bot = bot 
 
-    @commands.command(help = 'Reinicia o bot(*Apenas o dono do bot pode utilizar este comando*', aliases = ['reiniciar'])
+    @commands.command(help = 'Reinicia o bot(*Apenas o dono do bot pode utilizar este comando*)', aliases = ['reiniciar'])
     @commands.is_owner()
     async def restart(self, ctx):
         await ctx.reply('Reiniciando <a:digitando:931267989033082901>')
@@ -36,6 +36,9 @@ class OwnerOnly(commands.Cog, name = "Owner Only"):
             embed.set_author(name='Pão Bot', icon_url= 'https://cdn-icons.flaticon.com/png/512/3226/premium/3226045.png?token=exp=1643694397~hmac=71f7bb1fb6214ecd11e6d2239a6f27f0')
             embed.set_footer(text='Data by Discloud.com')
             await ctx.reply(embed=embed)
+
+    
+
 
 def setup(bot):
     bot.add_cog(OwnerOnly(bot))

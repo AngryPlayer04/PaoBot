@@ -2,12 +2,15 @@ import disnake
 from disnake import channel
 from disnake.ext import commands, tasks
 import json
+import sys
 import os 
 from datetime import datetime 
 import pytz
 from itertools import cycle
 import asyncio
 import requests
+sys.path.append(os.path.abspath("Mod"))
+from discloudapi import *
 
 # Get configuration.json
 with open("configuration.json", "r") as config: 
@@ -69,11 +72,10 @@ async def status_task():
 
 @tasks.loop(hours = 8)
 async def verifydays(self,ctx):
-  channel = bot.get_channel(319963626108878848)
-  result = requests.get('https://discloud.app/status/user', headers = {'api-token': '5UdvclE49xDuQXVhZ3rLJLRtPWkEB7vU7TrPNRPAukiUFdw9VKoAfB8THRcV9IM'}).json()
-  r = result['lastDataLeft']['days']
+  result = UserStatus(api_token = "5UdvclE49xDuQXVhZ3rLJLRtPWkEB7vU7TrPNRPAukiUFdw9VKoAfB8THRcV9IM")
+  r = result.planDataEnd
   if r <= 1:
-    cas = self.bot.get_user(319963626108878848)
+    cas = bot.get_user(319963626108878848)
     await cas.send('**O PLANO TA ACABANDO, FAZ BACKUP!!**')
 
 @verifydays.before_loop
