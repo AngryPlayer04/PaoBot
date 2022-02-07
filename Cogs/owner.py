@@ -43,9 +43,7 @@ class OwnerOnly(commands.Cog, name = "Owner Only"):
     async def plano(self,ctx):
         async with ctx.typing():
             resultado = UserStatus(api_token = '5UdvclE49xDuQXVhZ3rLJLRtPWkEB7vU7TrPNRPAukiUFdw9VKoAfB8THRcV9IM')
-            d = (datetime.strptime( resultado.planDataEnd,"%Y-%m-%dT%H:%M:%SZ"))
-            r = d.strftime('%c')
-            embed= disnake.Embed(title = 'Plano:', description = f"Seu plano: `{resultado.plan}`\nAcaba em: {r}", color = 0xffb43b)
+            embed= disnake.Embed(title = 'Plano:', description = f"Seu plano: `{resultado.plan}`\nAcaba em: `{resultado.planDataEnd}`", color = 0xffb43b)
             embed.set_author(name='Pão Bot', icon_url= 'https://cdn-icons.flaticon.com/png/512/3226/premium/3226045.png?token=exp=1643694397~hmac=71f7bb1fb6214ecd11e6d2239a6f27f0')
             embed.set_footer(text='Data by Discloud.com')
             await ctx.reply(embed=embed)
