@@ -13,7 +13,7 @@ class OwnerOnly(commands.Cog, name = "Owner Only"):
     async def restart(self, ctx):
         await ctx.reply('Reiniciando <a:digitando:931267989033082901>')
         result = requests.post("https://discloud.app/status/bot/850123093077917716/restart", headers={"api-token": token}).json()
-        print (result)
+        
 
 def setup(bot):
     bot.add_cog(OwnerOnly(bot))
