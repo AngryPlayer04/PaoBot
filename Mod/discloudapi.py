@@ -23,7 +23,7 @@ class UserStatus():
         headers = r.headers
         self.userID = result['userID']
         self.plan = result['plan']
-        self.lastDataLeft = result['lastDataLeft']
+        #self.lastDataLeft = result['lastDataLeft']
         self.planDataEnd = result['planDataEnd']
         self.ratelimit = headers['x-ratelimit-limit']
         self.ratelimit_remaining = headers['x-ratelimit-remaining']
