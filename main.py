@@ -18,7 +18,7 @@ with open("configuration.json", "r") as config:
 # Intents
 intents = disnake.Intents.default()
 # The bot
-bot = commands.Bot(prefix, intents = intents)
+bot = commands.Bot(prefix, intents = intents, case_insensitive = True)
 
 #status= cycle(['p.help', 'Pão', 'Bread', f'Estou em {int(len(bot.guilds))} servidores'])
 
