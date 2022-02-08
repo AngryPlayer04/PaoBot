@@ -1,10 +1,6 @@
-
 import disnake
-from disnake.ext.commands import MissingPermissions, CheckFailure, CommandNotFound
-from disnake.ext import commands, tasks
-
+from disnake.ext import commands
 import json
-import requests
 from datetime import datetime
 import pytz
 

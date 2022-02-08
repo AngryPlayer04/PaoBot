@@ -1,13 +1,6 @@
 import disnake
-from disnake.ext.commands import MissingPermissions, CheckFailure, CommandNotFound
-from disnake.ext import commands, tasks
-from datetime import datetime
+from disnake.ext import commands
 import requests
-import sys
-import os
-sys.path.append(os.path.abspath("Mod"))
-from discloudapi import *
-
 
 token = '5UdvclE49xDuQXVhZ3rLJLRtPWkEB7vU7TrPNRPAukiUFdw9VKoAfB8THRcV9IM'
 
