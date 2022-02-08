@@ -8,6 +8,9 @@ import os
 sys.path.append(os.path.abspath("Mod"))
 from discloudapi import *
 
+
+token = '5UdvclE49xDuQXVhZ3rLJLRtPWkEB7vU7TrPNRPAukiUFdw9VKoAfB8THRcV9IM'
+
 class OwnerOnly(commands.Cog, name = "Owner Only"):
     def __init__(self, bot):
         self.bot = bot 
@@ -16,13 +19,13 @@ class OwnerOnly(commands.Cog, name = "Owner Only"):
     @commands.is_owner()
     async def restart(self, ctx):
         await ctx.reply('Reiniciando <a:digitando:931267989033082901>')
-        result = requests.post("https://discloud.app/status/bot/850123093077917716/restart", headers={"api-token": "5UdvclE49xDuQXVhZ3rLJLRtPWkEB7vU7TrPNRPAukiUFdw9VKoAfB8THRcV9IM"}).json()
+        result = requests.post("https://discloud.app/status/bot/850123093077917716/restart", headers={"api-token": token}).json()
 
     @commands.command(help = 'Mostra o status do bot')
     @commands.is_owner()
     async def status(self, ctx):
         async with ctx.typing():
-            resultado = BotStatus(bot_id = 850123093077917716, api_token = "5UdvclE49xDuQXVhZ3rLJLRtPWkEB7vU7TrPNRPAukiUFdw9VKoAfB8THRcV9IM")
+            resultado = BotStatus(bot_id = 850123093077917716, api_token = token)
             embed=disnake.Embed(title='Status', description=(f"Uso de CPU: **{resultado.cpu}**\n Uso de memória: **{resultado.memory}**"), color= 0xffb43b)
             embed.set_author(name='Pão Bot', icon_url= 'https://cdn-icons.flaticon.com/png/512/3226/premium/3226045.png?token=exp=1643694397~hmac=71f7bb1fb6214ecd11e6d2239a6f27f0')
             embed.set_footer(text='Data by Discloud.com')
@@ -32,7 +35,7 @@ class OwnerOnly(commands.Cog, name = "Owner Only"):
     @commands.is_owner()
     async def log(self, ctx):
         async with ctx.typing():
-            resultado = BotLogs(bot_id = 850123093077917716, api_token = "5UdvclE49xDuQXVhZ3rLJLRtPWkEB7vU7TrPNRPAukiUFdw9VKoAfB8THRcV9IM")
+            resultado = BotLogs(bot_id = 850123093077917716, api_token = token)
             embed=disnake.Embed(title='Log:', url = resultado.link, description=(f" \n {resultado.logs} "), color= 0xffb43b)
             embed.set_author(name='Pão Bot', icon_url= 'https://cdn-icons.flaticon.com/png/512/3226/premium/3226045.png?token=exp=1643694397~hmac=71f7bb1fb6214ecd11e6d2239a6f27f0')
             embed.set_footer(text='Data by Discloud.com')
@@ -42,7 +45,7 @@ class OwnerOnly(commands.Cog, name = "Owner Only"):
     @commands.is_owner()
     async def plano(self,ctx):
         async with ctx.typing():
-            resultado = UserStatus(api_token = '5UdvclE49xDuQXVhZ3rLJLRtPWkEB7vU7TrPNRPAukiUFdw9VKoAfB8THRcV9IM')
+            resultado = UserStatus(api_token = token)
             embed= disnake.Embed(title = 'Plano:', description = f"Seu plano: `{resultado.plan}`\nAcaba em: `{resultado.planDataEnd}`", color = 0xffb43b)
             embed.set_author(name='Pão Bot', icon_url= 'https://cdn-icons.flaticon.com/png/512/3226/premium/3226045.png?token=exp=1643694397~hmac=71f7bb1fb6214ecd11e6d2239a6f27f0')
             embed.set_footer(text='Data by Discloud.com')
