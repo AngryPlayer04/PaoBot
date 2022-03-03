@@ -47,7 +47,7 @@ async def on_ready():
   bot.loop.create_task(status_task())
   ligado.stop()
 
-@tasks.loop(seconds=11)
+@tasks.loop(seconds=5)
 async def ligado():
   user = [319963626108878848]
   for id in user:
