@@ -64,7 +64,7 @@ async def status_task():
                 name=f'Digite {prefix}help | Estou em {len(bot.guilds)} servidores'),status=disnake.Status.online)
         await asyncio.sleep(1800)
 
-#dasddadgsdsdfsfds
+
 
 
 
