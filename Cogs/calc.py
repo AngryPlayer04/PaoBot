@@ -37,7 +37,7 @@ class Calculators(commands.Cog, name = "calculator"):
             s.download(threads=threads)
             s.upload(pre_allocate=False,threads=threads)
             results_dict = s.results.dict()
-            await ctx.reply (results_dict)
+            await ctx.reply (s.results)
 
 
 def setup(bot):
