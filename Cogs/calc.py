@@ -36,7 +36,8 @@ class Calculators(commands.Cog, name = "calculator"):
             s.get_best_server()
             s.download(threads=threads)
             s.upload(pre_allocate=False,threads=threads)
-            await ctx.reply (s.results.share())
+            results_dict = s.results.dict()
+            await ctx.reply (results_dict)
 
 
 def setup(bot):
