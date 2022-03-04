@@ -29,15 +29,15 @@ class Calculators(commands.Cog, name = "calculator"):
     async def pingnet(self, ctx):
         async with ctx.typing():
             servers = []
-            threads = 1
+            threads = None
 
             s = speedtest.Speedtest()
             s.get_servers(servers)
             s.get_best_server()
             s.download(threads=threads)
             s.upload(pre_allocate=False,threads=threads)
-            results_dict = s.results.dict()
-            await ctx.reply (s.results)
+            
+            await ctx.reply (s.results.share())
 
 
 def setup(bot):
