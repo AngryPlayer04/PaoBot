@@ -3,6 +3,7 @@ from disnake.ext import commands
 import json
 import numexpr as ne
 from forex_python.converter import CurrencyRates
+import speedtest
 
 class Calculators(commands.Cog, name = "calculator"):
     def __init__(self, bot:commands.Bot):
@@ -23,6 +24,19 @@ class Calculators(commands.Cog, name = "calculator"):
             c = CurrencyRates(force_decimal = True)
             result = c.convert ('USD', 'BRL', 1)
             await ctx.reply(content = f'Um dólar equivale atualmente a R${result:.3}')
+
+    @commands.command(help = 'Comando de ping(criado apenas para efeitos de teste)', aliases = ['p'])
+    async def pingnet(self, ctx):
+        async with ctx.typing():
+            servers = []
+            threads = 1
+
+            s = speedtest.Speedtest()
+            s.get_servers(servers)
+            s.get_best_server()
+            s.download(threads=threads)
+            s.upload(pre_allocate=False,threads=threads)
+            await ctx.reply (s.results.share())
 
 
 def setup(bot):
