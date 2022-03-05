@@ -3,7 +3,7 @@ from disnake.ext import commands
 import json
 import numexpr as ne
 from forex_python.converter import CurrencyRates
-import speedtest
+
 
 class Calculators(commands.Cog, name = "calculator"):
     def __init__(self, bot:commands.Bot):
