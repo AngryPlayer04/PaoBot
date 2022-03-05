@@ -1,7 +1,5 @@
-import disnake 
 from disnake.ext import commands 
 from random import choice, randrange
-
 
 
 class Funny(commands.Cog, name = "Funny Commands"):
