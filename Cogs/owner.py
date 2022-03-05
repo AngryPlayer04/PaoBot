@@ -14,7 +14,7 @@ class OwnerOnly(commands.Cog, name = "Owner Only"):
         result = requests.post("https://discloud.app/status/bot/850123093077917716/restart", headers={"api-token": token}).json()
         
     @commands.Cog.listener()
-    async def on_ready():
+    async def on_ready(self):
         print('Owner carregado!')
         print('===============================')
 

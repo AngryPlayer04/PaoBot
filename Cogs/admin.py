@@ -25,7 +25,7 @@ class PermOnly(commands.Cog, name = "Permonly"):
 
 
     @commands.Cog.listener()
-    async def on_ready():
+    async def on_ready(self):
         print('Admin carregado!')
 
 

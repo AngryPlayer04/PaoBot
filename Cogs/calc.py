@@ -30,7 +30,7 @@ class Calculators(commands.Cog, name = "calculator"):
         await ctx.reply(f'Pong! <a:paopula:858815343072903178> `{latency}ms` ')
 
     @commands.Cog.listener()
-    async def on_ready():
+    async def on_ready(self):
         print('Calc carregado!')
 
 def setup(bot):
