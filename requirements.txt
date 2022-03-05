@@ -5,4 +5,3 @@ numexpr
 requests 
 lyricsgenius
 beautifulsoup4
-speedtest-cli
