@@ -24,6 +24,10 @@ class PermOnly(commands.Cog, name = "Permonly"):
         await ctx.channel.purge(limit = amount + 1)
 
 
+    @commands.Cog.listener()
+    async def on_ready():
+        print('Admin carregado!')
+
 
 
 

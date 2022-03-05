@@ -31,5 +31,10 @@ class Funny(commands.Cog, name = "Funny Commands"):
             await message.reply(choice(bread))
             
 
+    @commands.Cog.listener()
+    async def on_ready(self):
+        print ('Fun carregado!')
+
+
 def setup(bot):
     bot.add_cog(Funny(bot))

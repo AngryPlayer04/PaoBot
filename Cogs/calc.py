@@ -29,6 +29,9 @@ class Calculators(commands.Cog, name = "calculator"):
         latency = round(self.bot.latency * 1000)
         await ctx.reply(f'Pong! <a:paopula:858815343072903178> `{latency}ms` ')
 
+    @commands.Cog.listener()
+    async def on_ready():
+        print('Calc carregado!')
 
 def setup(bot):
     bot.add_cog(Calculators(bot))

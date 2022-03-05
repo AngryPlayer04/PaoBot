@@ -39,8 +39,7 @@ async def on_ready():
 
   print ('===============================')
   print (f'Acordei pra tomar café às {(datetime_BR.strftime("%H:%M"))}')
-  #print (len(bot.guilds))
-  print ('===============================')
+
 
   ligado.start()
   
