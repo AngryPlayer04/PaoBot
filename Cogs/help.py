@@ -1,7 +1,7 @@
 import disnake
 from disnake.ext import commands
 
-class HelpCommand(commands.MinimalHelpCommand):
+class HelpCommand(commands.MinimalHelpCommand, aliases = ['h']):
     async def send_pages(self):
         destination = self.get_destination()
         for page in self.paginator.pages:
@@ -11,7 +11,7 @@ class HelpCommand(commands.MinimalHelpCommand):
 
     
 
-class HelpCog(commands.Cog, name = 'Help', aliases = ['h']):
+class HelpCog(commands.Cog, name = 'Help'):
     '''Mostra os comandos e suas funções'''
 
     def __init__(self, bot):
