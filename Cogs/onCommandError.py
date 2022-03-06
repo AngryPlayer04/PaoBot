@@ -1,6 +1,5 @@
 from disnake.ext import commands
 from disnake.ext.commands import MissingPermissions, CheckFailure, CommandNotFound
-import time
 
 
 class OnCommandErrorCog(commands.Cog, name="on command error"):

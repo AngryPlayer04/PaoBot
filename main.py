@@ -12,7 +12,6 @@ with open("configuration.json", "r") as config:
   data = json.load(config)
   token = data["token"]
   prefix = data["prefix"]
-  
 
 
 # Intents
@@ -62,11 +61,6 @@ async def status_task():
         await bot.change_presence(activity=disnake.Activity(type=disnake.ActivityType.watching,
                 name=f'Digite {prefix}help | Estou em {len(bot.guilds)} servidores'),status=disnake.Status.online)
         await asyncio.sleep(1800)
-
-
-
-
-
 
 
 

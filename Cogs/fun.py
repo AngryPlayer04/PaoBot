@@ -21,7 +21,7 @@ class Funny(commands.Cog, name = "Funny Commands"):
         "https://www.tudogostoso.com.br/receita/105067-pao-recheado.html"
         await ctx.reply(choice(lin))
 
-    @commands.Cog.listener()
+    @commands.Cog.listener(case_insensitive = True)
     async def on_message(self, message):
         if message.content in ["Pão", "pão", "bread", "Bread", "Oãp"]:
             bread = 'https://tenor.com/view/falling-bread-bread-gif-19081960',\
