@@ -11,7 +11,7 @@ class HelpCommand(commands.MinimalHelpCommand):
 
     
 
-class HelpCog(commands.Cog, name = 'Help'):
+class HelpCog(commands.Cog, name = 'Help', aliases = ['h']):
     '''Mostra os comandos e suas funções'''
 
     def __init__(self, bot):
