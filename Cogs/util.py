@@ -33,17 +33,17 @@ class Util(commands.Cog, name = "Utility Commands"):
             
     @commands.command()
     async def avatar(self,ctx, usuario: disnake.Member = None):
-        avaEmbed = disnake.Embed(title = f"Avatar de {usuario.name}", color=0xfafafa)
-        avaEmbed.set_footer(text=f"Pão Bot, todos os direitos reservados.")
-        avaEmbed.set_image(url=memberAvatar)
+        
 
         if usuario == None:
             usuario = ctx.author
 
             memberAvatar = usuario.avatar.url
-            await ctx.reply(embed = avaEmbed)
-        
+            avaEmbed = disnake.Embed(title = f"Avatar de {usuario.name}", color=0xfafafa)
+            avaEmbed.set_footer(text=f"Pão Bot, todos os direitos reservados.")
+            avaEmbed.set_image(url=memberAvatar)
 
+            await ctx.reply(embed = avaEmbed)
 
 
     @commands.Cog.listener()
