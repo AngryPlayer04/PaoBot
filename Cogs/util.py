@@ -34,15 +34,16 @@ class Util(commands.Cog, name = "Utility Commands"):
     @commands.command(help = 'Envia o avatar do usuário', aliases = ['pfp','icon', 'icone', 'ícone'])
     async def avatar(self,ctx, *, usuario: disnake.Member = None):
         
+        
+        
 
-        if usuario == None:
-            usuario = ctx.author
+        if not usuario:
+            return
 
-            memberAvatar = usuario.avatar.url
-            aEmbed = disnake.Embed(title = usuario.name, color=0xf98b3c, description= f'[Avatar:]({memberAvatar})')
-            aEmbed.set_image(url=memberAvatar)
-
-            await ctx.reply(embed = aEmbed)
+        memberAvatar = usuario.avatar.url
+        aEmbed = disnake.Embed(title = usuario.name, color=0xf98b3c, description= f'[Avatar:]({memberAvatar})')
+        aEmbed.set_image(url=memberAvatar)
+        await ctx.reply(embed = aEmbed)
 
 
     @commands.Cog.listener()
