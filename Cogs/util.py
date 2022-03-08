@@ -39,10 +39,10 @@ class Util(commands.Cog, name = "Utility Commands"):
             usuario = ctx.author
 
             memberAvatar = usuario.avatar.url
-            avaEmbed = disnake.Embed(title = f"Avatar de {usuario.name}", color=0xf98b3c, description= f'[Link]({memberAvatar})')
-            avaEmbed.set_image(url=memberAvatar)
+            aEmbed = disnake.Embed(title = usuario.name, color=0xf98b3c, description= f'Seu [avatar:]({memberAvatar})')
+            aEmbed.set_image(url=memberAvatar)
 
-            await ctx.reply(embed = avaEmbed)
+            await ctx.reply(embed = aEmbed)
 
 
     @commands.Cog.listener()
