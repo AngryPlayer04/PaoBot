@@ -31,11 +31,9 @@ class Util(commands.Cog, name = "Utility Commands"):
                 'https://tenor.com/view/dogebred-bread-dog-spin-gif-14407769'
             await message.reply(choice(bread))
             
-    @commands.command(help = 'Envia o avatar do usuário', aliases = ['pfp','icon', 'icone', 'ícone'])
+    @commands.command(help = 'Envia o avatar de um usuário, podendo ser uma menção ou ID', aliases = ['pfp','icon', 'icone', 'ícone'])
     async def avatar(self,ctx, *, usuario: disnake.Member = None):
-        
-        
-        
+
 
         if usuario == None:
             usuario = ctx.author
