@@ -38,13 +38,13 @@ class Util(commands.Cog, name = "Utility Commands"):
         if usuario == None:
             usuario = ctx.author
             memberAvatar = usuario.avatar.url
-            aEmbed = disnake.Embed(title = usuario.name, color=0xf98b3c, description= f'[Avatar:]({memberAvatar})')
+            aEmbed = disnake.Embed(title = usuario.name, color=0xffb354, description= f'[Avatar:]({memberAvatar})')
             aEmbed.set_image(url=memberAvatar)
             await ctx.reply(embed = aEmbed)
 
         else:
             memberAvatar = usuario.avatar.url
-            aEmbed = disnake.Embed(title = usuario.name, color=0xf98b3c, description= f'[Avatar:]({memberAvatar})')
+            aEmbed = disnake.Embed(title = usuario.name, color=0xffb354, description= f'[Avatar:]({memberAvatar})')
             aEmbed.set_image(url=memberAvatar)
             await ctx.reply(embed = aEmbed)
 
