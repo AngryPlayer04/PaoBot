@@ -32,7 +32,7 @@ class Util(commands.Cog, name = "Utility Commands"):
             await message.reply(choice(bread))
             
     @commands.command(help = 'Envia o avatar do usuário', aliases = ['pfp','icon', 'icone', 'ícone'])
-    async def avatar(self,ctx, usuario: disnake.Member = None):
+    async def avatar(self,ctx, *, usuario: disnake.Member = None):
         
 
         if usuario == None:
