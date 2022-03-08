@@ -1,8 +1,9 @@
+import disnake
 from disnake.ext import commands 
 from random import choice, randrange
 
 
-class Funny(commands.Cog, name = "Funny Commands"):
+class Util(commands.Cog, name = "Utility Commands"):
     def __init__(self, bot:commands.Bot):
         self.bot = bot 
     @commands.command()
@@ -30,6 +31,20 @@ class Funny(commands.Cog, name = "Funny Commands"):
                 'https://tenor.com/view/dogebred-bread-dog-spin-gif-14407769'
             await message.reply(choice(bread))
             
+    @commands.command()
+    async def avatar(self,ctx, usuario: disnake.Member = None):
+        avaEmbed = disnake.Embed(title = f"Avatar de {usuario.name}", color=0xfafafa)
+        avaEmbed.set_footer(text=f"Pão Bot, todos os direitos reservados.")
+        avaEmbed.set_image(url=memberAvatar)
+
+        if usuario == None:
+            usuario = ctx.author
+
+            memberAvatar = usuario.avatar.url
+            await ctx.reply(embed = avaEmbed)
+        
+
+
 
     @commands.Cog.listener()
     async def on_ready(self):
@@ -37,4 +52,4 @@ class Funny(commands.Cog, name = "Funny Commands"):
 
 
 def setup(bot):
-    bot.add_cog(Funny(bot))
+    bot.add_cog(Util(bot))
