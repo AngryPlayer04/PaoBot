@@ -39,8 +39,7 @@ class Util(commands.Cog, name = "Utility Commands"):
             usuario = ctx.author
 
             memberAvatar = usuario.avatar.url
-            avaEmbed = disnake.Embed(title = f"Avatar de {usuario.name}", color=0xfafafa)
-            avaEmbed.set_footer(text=f"Pão Bot, todos os direitos reservados.")
+            avaEmbed = disnake.Embed(title = f"Avatar de [{usuario.name}](memberAvatar)", color=0xf98b3c)
             avaEmbed.set_image(url=memberAvatar)
 
             await ctx.reply(embed = avaEmbed)
