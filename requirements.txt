@@ -2,6 +2,6 @@ disnake
 forex_python
 pytz
 numexpr
-requests 
-lyricsgenius
-beautifulsoup4
+
+
+
