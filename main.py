@@ -38,13 +38,13 @@ async def on_ready():
   print (f'Acordei pra tomar café às {(datetime_BR.strftime("%H:%M"))}')
 
 
-  ligado.start()
+  #ligado.start()
   
   bot.loop.create_task(status_task())
-  ligado.stop()
+  #ligado.stop()
 
-@tasks.loop(seconds=1)
-async def ligado():
+#@tasks.loop(seconds=1)
+#async def ligado():
   user = [319963626108878848]
   for id in user:
     member = await bot.fetch_user(id)
