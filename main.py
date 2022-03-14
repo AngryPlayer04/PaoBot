@@ -19,8 +19,6 @@ intents = disnake.Intents.default()
 # The bot
 bot = commands.Bot(prefix, intents = intents, case_insensitive = True)
 
-#status= cycle(['p.help', 'Pão', 'Bread', f'Estou em {int(len(bot.guilds))} servidores'])
-
 tz_BR = pytz.timezone('America/Sao_Paulo') 
 datetime_BR = datetime.now(tz_BR)
 
