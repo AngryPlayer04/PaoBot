@@ -4,7 +4,7 @@ import numexpr as ne
 from forex_python.converter import CurrencyRates
 
 
-class Calculators(commands.Cog, name = "calculator"):
+class Calculators(commands.Cog, name = "Calculators"):
     def __init__(self, bot:commands.Bot):
         self.bot = bot
 
