@@ -24,7 +24,7 @@ class Util(commands.Cog, name = "Utility Commands"):
 
     @commands.Cog.listener()
     async def on_message(self, message):
-        if message.content in ["Pão", "pão", "bread", "Bread", "Oãp"]:
+        if message.content in ["Pão", "pão", "bread", "Bread", "Oãp",":bread:"]:
             bread = 'https://tenor.com/view/falling-bread-bread-gif-19081960',\
                 'https://tenor.com/view/cat-bread-gif-9824952',\
                 'https://tenor.com/view/toasty-the-walking-toast-bread-gif-7333840',\
