@@ -24,7 +24,7 @@ class Calculators(commands.Cog, name = "Calculators"):
             result = c.convert ('USD', 'BRL', 1)
             await ctx.reply(content = f'Um dólar equivale atualmente a R${result:.3}')
 
-    @commands.command(help = 'Ping do bot com a API', aliases = ['p'])
+    @commands.command(help = 'Ping do bot com a API do Discord', aliases = ['p'])
     async def ping(self, ctx):
         latency = round(self.bot.latency * 1000)
         await ctx.reply(f'Pong! <a:paopula:858815343072903178> `{latency}ms` ')

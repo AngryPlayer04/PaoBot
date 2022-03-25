@@ -52,6 +52,7 @@ class Util(commands.Cog, name = "Utility Commands"):
     @commands.Cog.listener()
     async def on_ready(self):
         print ('Fun carregado!')
+        print('===============================')
 
 
 def setup(bot):
