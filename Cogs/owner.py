@@ -16,7 +16,7 @@ class OwnerOnly(commands.Cog, name = "Owner Only"):
         
     @commands.command(help = 'Busca pelo significado de uma palavra no dicionário.', aliases = ['dicionário', 'dicionario'])
     async def dicio(self, ctx, *, palavra):
-        d = requests.get(f'https://significado.herokuapp.com/v2/{palavra}').json()
+        d = requests.get(f'https://significado.herokuapp.com/v2/{palavra}')
         await ctx.reply(d.partOfSpeech)
 
 
