@@ -47,6 +47,10 @@ class Util(commands.Cog, name = "Utility Commands"):
             aEmbed = disnake.Embed(title = usuario.name, color=0xffb354, description= f'[Avatar:]({memberAvatar})')
             aEmbed.set_image(url=memberAvatar)
             await ctx.reply(embed = aEmbed)
+        
+        
+
+        
 
 
     @commands.Cog.listener()
