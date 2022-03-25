@@ -20,7 +20,7 @@ class OwnerOnly(commands.Cog, name = "Owner Only"):
         async with ctx.typing():
             d = requests.get(f'https://significado.herokuapp.com/v2/{palavra}')
             r = d.json()
-            await ctx.reply(r['partOfSpeech'])
+            await ctx.reply(r)
 
 
 
