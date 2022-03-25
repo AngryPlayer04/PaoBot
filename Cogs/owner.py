@@ -1,6 +1,7 @@
 from wsgiref import headers
 from disnake.ext import commands
 import requests
+import json
 
 token = '5UdvclE49xDuQXVhZ3rLJLRtPWkEB7vU7TrPNRPAukiUFdw9VKoAfB8THRcV9IM'
 
@@ -17,8 +18,9 @@ class OwnerOnly(commands.Cog, name = "Owner Only"):
     @commands.command(help = 'Busca pelo significado de uma palavra no dicionário.', aliases = ['dicionário', 'dicionario'])
     async def dicio(self, ctx, *, palavra):
         async with ctx.typing():
-            d = requests.get(f'https://significado.herokuapp.com/v2/{palavra}')
-            await ctx.reply(d)
+            d = requests.get(f'https://significado.herokuapp.com/v2/{palavra}'.json())
+            j = json.loads(d)
+            await ctx.reply(j.partOfSpeech)
 
 
 
