@@ -19,6 +19,9 @@ class OwnerOnly(commands.Cog, name = "Owner Only"):
     async def dicio(self, ctx, *, palavra):
         async with ctx.typing():
             d = requests.get(f'https://significado.herokuapp.com/v2/{palavra}').json()
+            d = [
+                {"partOfSpeech": "...","meanings": ["", ""]}
+                ]
             await ctx.reply(d)
 
 
