@@ -20,7 +20,7 @@ class OwnerOnly(commands.Cog, name = "Owner Only"):
         async with ctx.typing():
             d = requests.get(f'https://significado.herokuapp.com/v2/{palavra}').json()
             res = str(d[0]['meanings'])[1:-1]
-            ult = re.findall('', res)
+            ult = re.findall('(^*)', res)
             await ctx.reply(ult)
 
 
