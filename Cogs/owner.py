@@ -1,7 +1,7 @@
 from wsgiref import headers
 from disnake.ext import commands
 import requests
-import json
+import re
 
 token = '5UdvclE49xDuQXVhZ3rLJLRtPWkEB7vU7TrPNRPAukiUFdw9VKoAfB8THRcV9IM'
 
@@ -20,7 +20,7 @@ class OwnerOnly(commands.Cog, name = "Owner Only"):
         async with ctx.typing():
             d = requests.get(f'https://significado.herokuapp.com/v2/{palavra}').json()
             res = str(d[0]['meanings'])[1:-1]
-            ult = res.split('')[1:1]
+            ult = res.split('')[1:-1]
             await ctx.reply(ult)
 
 
