@@ -55,7 +55,7 @@ class Util(commands.Cog, name = "Utility Commands"):
             d = requests.get(f'https://significado.herokuapp.com/v2/{palavra}').json()
             res = str(d[0]['meanings'])[1:-1]
             ult = res.replace('., ','.').replace('[','**').replace(']',':**').replace("'","")
-            await ctx.reply(ult) 
+            await ctx.reply(res) 
 
 
     @commands.Cog.listener()
