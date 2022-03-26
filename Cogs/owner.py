@@ -21,7 +21,7 @@ class OwnerOnly(commands.Cog, name = "Owner Only"):
             d = requests.get(f'https://significado.herokuapp.com/v2/{palavra}').json()
             res = str(d[0]['meanings'])[1:-1]
             ult = res.replace(' ',' ')
-            await ctx.reply(res)
+            await ctx.reply(ult)
 
 
 
