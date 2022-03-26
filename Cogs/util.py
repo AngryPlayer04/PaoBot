@@ -54,7 +54,7 @@ class Util(commands.Cog, name = "Utility Commands"):
         async with ctx.typing():
             d = requests.get(f'https://significado.herokuapp.com/v2/{palavra}').json()
             res = str(d[0]['meanings'])[1:-1]
-            ult = res.replace('[','**').replace(']','**')
+            ult = res.replace('[','**').replace(']','**').replace("'","")
             await ctx.reply(ult)
 
 
