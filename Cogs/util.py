@@ -1,6 +1,7 @@
 import disnake
 from disnake.ext import commands 
 from random import choice, randrange
+import requests
 
 
 class Util(commands.Cog, name = "Utility Commands"):
@@ -48,9 +49,12 @@ class Util(commands.Cog, name = "Utility Commands"):
             aEmbed.set_image(url=memberAvatar)
             await ctx.reply(embed = aEmbed)
         
-        
-
-        
+    @commands.command(help = 'Busca pelo significado de uma palavra no dicionário.', aliases = ['dicionário', 'dicionario'])
+    async def dicio(self, ctx, *, palavra):
+        async with ctx.typing():
+            d = requests.get(f'https://significado.herokuapp.com/v2/{palavra}').json()
+            res = str(d[0]['meanings'])[1:-1]
+            await ctx.reply(res)
 
 
     @commands.Cog.listener()
