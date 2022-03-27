@@ -51,15 +51,17 @@ class Util(commands.Cog, name = "Utility Commands"):
         
     @commands.command(help = 'Busca pelo significado de uma palavra no dicionário.', aliases = ['dicionário', 'dicionario'])
     async def dicio(self, ctx, *, palavra):
-        async with ctx.typing():
-            d = requests.get(f'https://significado.herokuapp.com/v2/{palavra}').json()
-            res = str(d[0]['meanings'])[1:-1]
-            gen = str(d[0]['partOfSpeech'])
-            ult = res.replace('[','**').replace(']',':**').replace("'","").replace('.,','.').replace('.', '.\n')
-            dEmbed = disnake.Embed(title = palavra.capitalize(), color = 0xffb354, description = f'Gênero: {gen.capitalize()}')
-            dEmbed.set_thumbnail(url = 'https://purepng.com/public/uploads/large/purepng.com-dictionary-icon-android-lollipopsymbolsiconsgooglegoogle-iconsandroid-lollipoplollipop-iconsandroid-50-721522597173cj5xd.png')
-            dEmbed.add_field(name = 'Significado:', value = ult, inline = False)
-            await ctx.reply(embed = dEmbed) 
+        d = requests.get(f'https://significado.herokuapp.com/v2/{palavra}').json()
+
+        res = str(d[0]['meanings'])[1:-1]
+        gen = str(d[0]['partOfSpeech'])
+
+        ult = res.replace('[','**').replace(']',':**').replace("'","").replace('.,','.').replace('.', '.\n')
+        dEmbed = disnake.Embed(title = palavra.capitalize(), color = 0xffb354, description = f'Gênero: {gen.capitalize()}')
+        dEmbed.set_thumbnail(url = 'https://purepng.com/public/uploads/large/purepng.com-dictionary-icon-android-lollipopsymbolsiconsgooglegoogle-iconsandroid-lollipoplollipop-iconsandroid-50-721522597173cj5xd.png')
+        dEmbed.add_field(name = 'Significado:', value = ult, inline = False)
+        
+        await ctx.reply(embed = dEmbed) 
 
 
     @commands.Cog.listener()
