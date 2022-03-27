@@ -57,10 +57,10 @@ class Util(commands.Cog, name = "Utility Commands"):
         gen = str(d[0]['partOfSpeech'])
 
         ult = res.replace('[','**').replace(']',':**').replace("'","").replace('.,','.').replace('.', '.\n')
-        dEmbed = disnake.Embed(title = palavra.capitalize(), color = 0xffb354, description = f'Gênero: {gen.capitalize()}')
+        dEmbed = disnake.Embed(title = palavra.capitalize(), color = 0xffb354, description = gen.capitalize()')
         dEmbed.set_thumbnail(url = 'https://purepng.com/public/uploads/large/purepng.com-dictionary-icon-android-lollipopsymbolsiconsgooglegoogle-iconsandroid-lollipoplollipop-iconsandroid-50-721522597173cj5xd.png')
         dEmbed.add_field(name = 'Significado:', value = ult, inline = False)
-        
+
         await ctx.reply(embed = dEmbed) 
 
 
