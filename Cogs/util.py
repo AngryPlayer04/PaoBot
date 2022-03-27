@@ -57,12 +57,15 @@ class Util(commands.Cog, name = "Utility Commands"):
             gen = str(d[0]['partOfSpeech'])
             et = str(d[0]['etymology'])
             ult = res.replace('[','**').replace(']',':**').replace("'","").replace('.,','.').replace('.', '.\n')
+            if et is None:
+                dEmbed = disnake.Embed(title = palavra.capitalize(), color = 0xffb354, description = gen.capitalize())
+                dEmbed.set_thumbnail(url = 'https://purepng.com/public/uploads/large/purepng.com-dictionary-icon-android-lollipopsymbolsiconsgooglegoogle-iconsandroid-lollipoplollipop-iconsandroid-50-721522597173cj5xd.png')
+                dEmbed.add_field(name = 'Significado:', value = ult, inline = False)
 
-            dEmbed = disnake.Embed(title = palavra.capitalize(), color = 0xffb354, description = gen.capitalize())
-            dEmbed.set_thumbnail(url = 'https://purepng.com/public/uploads/large/purepng.com-dictionary-icon-android-lollipopsymbolsiconsgooglegoogle-iconsandroid-lollipoplollipop-iconsandroid-50-721522597173cj5xd.png')
-            if et is not None:
-                dEmbed.add_field(name = 'Etimologia:', value = et, inline = False)
             else:
+                dEmbed = disnake.Embed(title = palavra.capitalize(), color = 0xffb354, description = gen.capitalize())
+                dEmbed.set_thumbnail(url = 'https://purepng.com/public/uploads/large/purepng.com-dictionary-icon-android-lollipopsymbolsiconsgooglegoogle-iconsandroid-lollipoplollipop-iconsandroid-50-721522597173cj5xd.png')
+                dEmbed.add_field(name = 'Etimologia:', value = et, inline = False)
                 dEmbed.add_field(name = 'Significado:', value = ult, inline = False)
 
             await ctx.reply(embed = dEmbed) 
