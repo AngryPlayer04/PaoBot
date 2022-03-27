@@ -60,7 +60,8 @@ class Util(commands.Cog, name = "Utility Commands"):
 
             dEmbed = disnake.Embed(title = palavra.capitalize(), color = 0xffb354, description = gen.capitalize())
             dEmbed.set_thumbnail(url = 'https://purepng.com/public/uploads/large/purepng.com-dictionary-icon-android-lollipopsymbolsiconsgooglegoogle-iconsandroid-lollipoplollipop-iconsandroid-50-721522597173cj5xd.png')
-            dEmbed.add_field(name = 'Etimologia:', value = et, inline = False)
+            if et is not None:
+                dEmbed.add_field(name = 'Etimologia:', value = et, inline = False)
             dEmbed.add_field(name = 'Significado:', value = ult, inline = False)
 
             await ctx.reply(embed = dEmbed) 
