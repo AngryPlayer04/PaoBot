@@ -54,8 +54,9 @@ class Util(commands.Cog, name = "Utility Commands"):
         async with ctx.typing():
             d = requests.get(f'https://significado.herokuapp.com/v2/{palavra}').json()
             res = str(d[0]['meanings'])[1:-1]
+            gen = str(d[0]['partOfSpeech'])[1:-1]
             ult = res.replace('[','**').replace(']',':**').replace("'","").replace('.,','.').replace('.', '.\n')
-            await ctx.reply(ult) 
+            await ctx.reply(gen + '\n' + ult) 
 
 
     @commands.Cog.listener()
