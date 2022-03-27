@@ -35,7 +35,6 @@ class Util(commands.Cog, name = "Utility Commands"):
     @commands.command(help = 'Envia o avatar de um usuário, podendo ser uma menção ou ID', aliases = ['pfp','icon', 'icone', 'ícone'])
     async def avatar(self,ctx, *, usuario: disnake.Member = None):
 
-
         if usuario == None:
             usuario = ctx.author
             memberAvatar = usuario.avatar.url

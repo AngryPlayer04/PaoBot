@@ -18,6 +18,10 @@ class OnCommandErrorCog(commands.Cog, name="on command error"):
 			print (error)
 		if isinstance(error, MissingPermissions):
 			print(error)
+		
+		if isinstance(error, KeyError):
+			await ctx.reply('Certifique-se que digitou corretamente')
+
 		raise error
 
 def setup(bot):
