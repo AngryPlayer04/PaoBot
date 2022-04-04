@@ -1,4 +1,3 @@
-from wsgiref import headers
 from disnake.ext import commands
 import requests
 
