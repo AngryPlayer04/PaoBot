@@ -2,7 +2,7 @@ from disnake.ext import commands
 import requests
 
 
-token = '5UdvclE49xDuQXVhZ3rLJLRtPWkEB7vU7TrPNRPAukiUFdw9VKoAfB8THRcV9IM'
+token = 'wwfoQpGct2wHrth7S3eCQbI2wgOT6rv6BydbPn14WVEqTz1GmnOP9opHxP7TKK'
 
 class OwnerOnly(commands.Cog, name = "Owner Only"):
     def __init__(self, bot):
