@@ -42,6 +42,7 @@ async def on_ready():
   
   bot.loop.create_task(status_task())
   #ligado.stop()
+  del bot.on_ready
 
 #@tasks.loop(seconds=1)
 #async def ligado():
