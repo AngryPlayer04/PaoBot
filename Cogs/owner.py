@@ -16,8 +16,9 @@ class OwnerOnly(commands.Cog, name = "Owner Only"):
         result = requests.post("https://discloud.app/api/v2/app/850123093077917716/restart", headers={"api-token": token}).json()
         
     @commands.command(help = 'Log do bot(*Apenas o dono do bot pode utilizar este comando*)', aliases = ['logs'])
-    @commands.is_owner()
+    
     async def log(self, ctx):
+        
         result = requests.get("https://discloud.app/api/v2/app/850123093077917716/logs", headers={"api-token": token}).json()
         await ctx.reply(result)
 
