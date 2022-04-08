@@ -8,8 +8,8 @@ class Owner(commands.Cog, name = "Owner"):
     def __init__(self, bot):
         self.bot = bot 
         
-    @commands.command()
-    @command.is_owner()
+    @commands.command(help = 'Logs do bot', aliases = ['log'])
+    @commands.is_owner()
     async def logs(self, ctx):
         re = requests.get("https://discloud.app/api/v2/app/850123093077917716/logs", headers={"api-token": token}).json()
         await ctx.reply(re)
