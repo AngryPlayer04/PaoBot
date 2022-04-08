@@ -15,7 +15,6 @@ class OwnerOnly(commands.Cog, name = "Owner Only"):
         await ctx.reply('Reiniciando <a:digitando:931267989033082901>')
         result = requests.post("https://discloud.app/api/v2/app/850123093077917716/restart", headers={"api-token": token}).json()
         
-        
     @commands.command(help = 'Status do bot(*Apenas o dono do bot pode utilizar este comando*)', aliases = ['reiniciar', 'r'])
     @commands.is_owner()
     async def status(self, ctx):
