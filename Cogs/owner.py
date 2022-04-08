@@ -1,4 +1,3 @@
-from urllib import request
 from disnake.ext import commands
 import requests
 
