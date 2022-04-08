@@ -13,9 +13,9 @@ class Calculators(commands.Cog, name = "Calculators"):
     async def calc(self, ctx, *, express):
         try:
             soma = ne.evaluate(express)
-            await ctx.reply(":abacus: **|** O resultado é:`{}`".format(soma))
+            await ctx.reply(f":abacus: **|** O resultado é:`{soma}`")
         except (RuntimeError, OverflowError, ValueError, SyntaxError, NameError, TypeError, ZeroDivisionError):
-            await ctx.reply("Desculpe, eu não posso calcular `{}` ou ocorreu um erro desconhecido.".format(express))
+            await ctx.reply(f"Desculpe, eu não posso calcular `{express}` ou ocorreu um erro desconhecido.")
 
     @commands.command(help = 'Diz a cotação do dólar em real(Infelizmente a API só atualiza uma vez ao dia', aliases = ['dol'])
     async def dolar(self, ctx):

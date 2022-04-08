@@ -35,18 +35,12 @@ class Util(commands.Cog, name = "Utility Commands"):
     @commands.command(help = 'Envia o avatar de um usuário, podendo ser uma menção ou ID', aliases = ['pfp','icon', 'icone', 'ícone'])
     async def avatar(self,ctx, *, usuario: disnake.Member = None):
 
-        if usuario == None:
+        if usuario is None:
             usuario = ctx.author
-            memberAvatar = usuario.avatar.url
-            aEmbed = disnake.Embed(title = usuario.name, color=0xffb354, description= f'[Avatar:]({memberAvatar})')
-            aEmbed.set_image(url=memberAvatar)
-            await ctx.reply(embed = aEmbed)
-
-        else:
-            memberAvatar = usuario.avatar.url
-            aEmbed = disnake.Embed(title = usuario.name, color=0xffb354, description= f'[Avatar:]({memberAvatar})')
-            aEmbed.set_image(url=memberAvatar)
-            await ctx.reply(embed = aEmbed)
+        memberAvatar = usuario.avatar.url
+        aEmbed = disnake.Embed(title = usuario.name, color=0xffb354, description= f'[Avatar:]({memberAvatar})')
+        aEmbed.set_image(url=memberAvatar)
+        await ctx.reply(embed = aEmbed)
         
     @commands.command(help = 'Busca pelo significado de uma palavra no dicionário.', aliases = ['dicionário', 'dicionario'])
     async def dicio(self, ctx, *, palavra):
