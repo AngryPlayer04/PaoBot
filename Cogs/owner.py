@@ -19,7 +19,7 @@ class Owner(commands.Cog, name = "Owner"):
             li = re['link']
             oEmbed = disnake.Embed(title = 'Log', color = 0xffb354, description = f'[Link do log]({li})')
             oEmbed.set_thumbnail(url = 'https://cdn-icons-png.flaticon.com/512/2125/2125009.png')
-            oEmbed.add_field(name ='\u200b', value='```py \n {res} \n ```', inline=False)
+            oEmbed.add_field(name ='\u200b', value = f'```py \n {res} \n ```', inline=False)
 
             await ctx.reply(embed = oEmbed)
 
