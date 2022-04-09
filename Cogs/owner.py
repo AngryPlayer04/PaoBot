@@ -17,9 +17,9 @@ class Owner(commands.Cog, name = "Owner"):
             re = requests.get("https://discloud.app/api/v2/app/850123093077917716/logs", headers={"api-token": token}).json()
             res = re['logs']
             li = re['link']
-            
+
             oEmbed = disnake.Embed(title = '\u200b', color = 0xffb354, description = f'[Link do log]({li})')
-            oEmbed.set_author(name = f'{self.bot.user.name} logs', icon_url=str(bot.user.avatar_url))
+            oEmbed.set_author(name = f'{self.bot.user.name} logs', icon_url= self.bot.user.avatar.url))
             oEmbed.add_field(name ='\u200b', value = f'```py \n {res} \n ```', inline=False)
             oEmbed.set_thumbnail(url = 'https://cdn-icons-png.flaticon.com/512/2125/2125009.png')
 
