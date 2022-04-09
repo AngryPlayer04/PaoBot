@@ -31,6 +31,7 @@ class Owner(commands.Cog, name = "Owner"):
         await ctx.reply('Reiniciando <a:digitando:931267989033082901>')
         result = requests.post("https://discloud.app/api/v2/app/850123093077917716/restart", headers={"api-token": token}).json()
 
+
     @commands.Cog.listener()
     async def on_ready(self):
         print('Owner carregado!')
