@@ -4,7 +4,7 @@ from random import choice, randrange
 import requests
 
 
-class Util(commands.Cog, name = "Utility Commands"):
+class Util(commands.Cog, name = "Utility"):
     def __init__(self, bot:commands.Bot):
         self.bot = bot 
     @commands.command()
