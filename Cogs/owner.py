@@ -17,7 +17,7 @@ class Owner(commands.Cog, name = "Owner"):
             re = requests.get("https://discloud.app/api/v2/app/850123093077917716/logs", headers={"api-token": token}).json()
             li = re['link']
 
-            oEmbed = disnake.Embed(title = '\u200b', color = 0xffb354, description = f'[Link do log]({li})')
+            oEmbed = disnake.Embed(title = 'Log', color = 0xffb354, description = f'[Link do log]({li})')
             oEmbed.set_author(name = 'Pão Bot logs', icon_url = 'https://cdn.discordapp.com/avatars/850123093077917716/2fe303ab1bf685becf029d72834b0f16.png')
             oEmbed.set_thumbnail(url = 'https://cdn-icons-png.flaticon.com/512/2125/2125009.png')
 
