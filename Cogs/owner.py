@@ -4,7 +4,6 @@ import requests
 
 token = 'wwfoQpGct2wHrth7S3eCQbI2wgOT6rv6BydbPn14WVEqTz1GmnOP9opHxP7TKK'
 
-
 class Owner(commands.Cog, name = "Owner"):
     def __init__(self, bot):
         self.bot = bot 
