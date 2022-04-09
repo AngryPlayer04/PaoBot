@@ -15,7 +15,7 @@ class Owner(commands.Cog, name = "Owner"):
         async with ctx.typing():
             
             re = requests.get("https://discloud.app/api/v2/app/850123093077917716/logs", headers={"api-token": token}).json()
-            res = re['logs'][:1024]
+            res = re['logs'][:1000]
             li = re['link']
 
             oEmbed = disnake.Embed(title = 'Log:', color = 0xffb354, description = f'[Link do log]({li})')
