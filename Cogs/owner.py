@@ -15,12 +15,12 @@ class Owner(commands.Cog, name = "Owner"):
         async with ctx.typing():
             
             re = requests.get("https://discloud.app/api/v2/app/850123093077917716/logs", headers={"api-token": token}).json()
-            res = re['logs'][:2000]
+            res = re['logs'][:1024]
             li = re['link']
 
-            oEmbed = disnake.Embed(title = 'Logs', color = 0xffb354, description = f'```py \n {res} \n ```')
-            oEmbed.set_author(name = 'Pão Bot logs', icon_url = 'https://cdn.discordapp.com/avatars/850123093077917716/2fe303ab1bf685becf029d72834b0f16.png')
-            oEmbed.add_field(name ='\u200b', value = f'[Link do log]({li})', inline=False)
+            oEmbed = disnake.Embed(title = 'Log:', color = 0xffb354, description = f'[Link do log]({li})')
+            oEmbed.set_author(name = 'Pão Bot', icon_url = 'https://cdn.discordapp.com/avatars/850123093077917716/2fe303ab1bf685becf029d72834b0f16.png')
+            oEmbed.add_field(name ='\u200b', value = f'```py \n {res} \n ```', inline=False)
             oEmbed.set_thumbnail(url = 'https://cdn-icons-png.flaticon.com/512/2125/2125009.png')
 
             await ctx.reply(embed = oEmbed)
