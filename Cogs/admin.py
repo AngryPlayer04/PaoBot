@@ -13,7 +13,6 @@ with open("configuration.json", "r") as config:
 	prefix = data["prefix"]
     
 
-
 class AdminOnly(commands.Cog, name = "Admin Only"):
     def __init__(self, bot:commands.Bot):
         self.bot = bot
