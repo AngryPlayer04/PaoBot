@@ -15,7 +15,7 @@ class Owner(commands.Cog, name = "Owner"):
         async with ctx.typing():
             
             re = requests.get("https://discloud.app/api/v2/app/850123093077917716/logs", headers={"api-token": token}).json()
-            res = str(re['logs'])[1:-1]
+            res = str(re['logs'])
             await ctx.reply(f'{res}')
 
     @commands.command(help = 'Reinicia o bot(*Apenas o dono do bot pode utilizar este comando*)', aliases = ['reiniciar', 'r'])
