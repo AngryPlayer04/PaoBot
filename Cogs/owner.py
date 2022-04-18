@@ -34,6 +34,9 @@ class Owner(commands.Cog, name = "Owner"):
         await ctx.reply('Reiniciando <a:digitando:931267989033082901>')
         result = requests.post("https://discloud.app/api/v2/app/850123093077917716/restart", headers={"api-token": token}).json()
 
+
+
+
     @commands.command(help = 'Faz o backup do bot e envia em zip', aliases = ['b','bk'])
     @commands.is_owner()
     async def backup(self, ctx):
@@ -46,6 +49,8 @@ class Owner(commands.Cog, name = "Owner"):
         await ctx.add_reaction('✅')
         asyncio.sleep(3)
         os.remove('backup.zip')
+
+
 
 
     @commands.Cog.listener()
