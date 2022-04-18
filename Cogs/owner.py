@@ -41,13 +41,13 @@ class Owner(commands.Cog, name = "Owner"):
     @commands.is_owner()
     async def backup(self, ctx):
 
-        dire = pathlib.Path('/')
+        dire = pathlib.Path('./')
         with zipfile.ZipFile('backup.zip', mode = 'w') as archive:
             for file_path in dire.rglob('*'):
                 archive.write(file_path, arcname=file_path.relative_to(dire))
         await ctx.author.send(file = disnake.File(r'backup.zip'))
         await ctx.add_reaction('✅')
-        asyncio.sleep(3)
+        await asyncio.sleep(3)
         os.remove('backup.zip')
 
 
