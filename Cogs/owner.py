@@ -1,7 +1,10 @@
 import disnake
 from disnake.ext import commands
 import requests
-
+import pathlib
+import zipfile
+import os
+import asyncio
 
 token = 'wwfoQpGct2wHrth7S3eCQbI2wgOT6rv6BydbPn14WVEqTz1GmnOP9opHxP7TKK'
 
@@ -30,6 +33,19 @@ class Owner(commands.Cog, name = "Owner"):
     async def restart(self, ctx):
         await ctx.reply('Reiniciando <a:digitando:931267989033082901>')
         result = requests.post("https://discloud.app/api/v2/app/850123093077917716/restart", headers={"api-token": token}).json()
+
+    @commands.command(help = 'Faz o backup do bot e envia em zip', aliases = ['b','bk'])
+    @commands.is_owner()
+    async def backup(self, ctx):
+
+        dir = pathlib.Path('/app')
+        with zipfile.ZipFile('backup.zip', mode = 'w') as archive:
+            for file_path in dir.rglob('*'):
+                archive.write(file_path, arcname=file_path.relative_to(dir))
+        await ctx.author.send(file = discord.File(r'backup.zip'))
+        await ctx.add_reaction('✅')
+        asyncio.sleep(3)
+        os.remove('backup.zip')
 
 
     @commands.Cog.listener()
