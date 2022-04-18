@@ -46,7 +46,7 @@ class Owner(commands.Cog, name = "Owner"):
             for file_path in dire.rglob('*'):
                 archive.write(file_path, arcname=file_path.relative_to(dire))
         await ctx.author.send(file = disnake.File(r'backup.zip'))
-        await ctx.add_reaction('✅')
+        await ctx.Message.add_reaction('✅')
         await asyncio.sleep(3)
         os.remove('backup.zip')
 
