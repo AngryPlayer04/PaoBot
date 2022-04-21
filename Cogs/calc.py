@@ -22,9 +22,9 @@ class Calculators(commands.Cog, name = "Calculators"):
         async with ctx.typing():
             g = str(get_price('USD', 'BRL', None)) 
             val = decimal.Decimal(f'{g}').quantize(decimal.Decimal('0.01'))
-            #vt = str(val.replace('.',","))
+            vt = val.replace('.',",")
 
-            await ctx.reply(content = f'Um dólar equivale atualmente a R${val}')
+            await ctx.reply(content = f'Um dólar equivale atualmente a R${vt}')
 
     @commands.command(help = 'Ping do bot com a API do Discord', aliases = ['p'])
     async def ping(self, ctx):
