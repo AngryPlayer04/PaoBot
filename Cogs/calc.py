@@ -20,11 +20,11 @@ class Calculators(commands.Cog, name = "Calculators"):
     @commands.command(help = 'Diz a cotação do dólar', aliases = ['dol'])
     async def dolar(self, ctx):
         async with ctx.typing():
-            g = get_price('USD', 'BRL', None) 
+            g = str(get_price('USD', 'BRL', None)) 
             val = decimal.Decimal(f'{g}').quantize(decimal.Decimal('0.01'))
-            vt = str(val.replace('.',","))
+            #vt = str(val.replace('.',","))
 
-            await ctx.reply(content = f'Um dólar equivale atualmente a R${vt}')
+            await ctx.reply(content = f'Um dólar equivale atualmente a R${val}')
 
     @commands.command(help = 'Ping do bot com a API do Discord', aliases = ['p'])
     async def ping(self, ctx):
