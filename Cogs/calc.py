@@ -22,7 +22,7 @@ class Calculators(commands.Cog, name = "Calculators"):
         async with ctx.typing():
             g = get_price('USD', 'BRL', None) 
             val = decimal.Decimal(f'{g}').quantize(decimal.Decimal('0.01'))
-            vt = val.replace('.',",")
+            vt = str(val.replace('.',","))
 
             await ctx.reply(content = f'Um dólar equivale atualmente a R${vt}')
 
