@@ -21,9 +21,8 @@ class Calculators(commands.Cog, name = "Calculators"):
     async def dolar(self, ctx):
         async with ctx.typing():
             g = str(get_price('USD', 'BRL', None)) 
-            val = decimal.Decimal(f'{g}').quantize(decimal.Decimal('0.01'))
-            vt = val.replace('.',",")
-
+            val = decimal.Decimal(g).quantize(decimal.Decimal('0.01'))
+            vt = str(val).replace('.',",")
             await ctx.reply(content = f'Um dólar equivale atualmente a R${vt}')
 
     @commands.command(help = 'Ping do bot com a API do Discord', aliases = ['p'])
