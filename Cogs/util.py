@@ -2,6 +2,7 @@ import disnake
 from disnake.ext import commands 
 from random import choice, randrange
 import requests
+from translate import Translator
 
 
 class Util(commands.Cog, name = "Utility"):
@@ -58,6 +59,14 @@ class Util(commands.Cog, name = "Utility"):
             dEmbed.add_field(name = 'Significado:', value = ult, inline = False) 
 
             await ctx.reply(embed = dEmbed) 
+
+    @commands.command(help = 'Traduz do inglês para o português', aliases = ['translate', 'tl', 'tradutor'])
+    async def traduzir(self, ctx, *, origem):
+        async with ctx.typing():
+            tl = Translator(to_lang = 'pt')
+            tn = tl.translate(origem)
+            await ctx.reply(tn)
+
 
 
     @commands.Cog.listener()
