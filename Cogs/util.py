@@ -1,8 +1,10 @@
 import disnake
 from disnake.ext import commands 
-from random import choice, randrange
+from random import choice, randrange, randint
 import requests
 from translate import Translator
+import aiohttp
+import json
 
 
 class Util(commands.Cog, name = "Utility"):
@@ -26,12 +28,14 @@ class Util(commands.Cog, name = "Utility"):
 
     @commands.Cog.listener()
     async def on_message(self, message):
+        session = aiohttp.ClientSession()
         if message.content in ["Pão", "pão", "bread", "Bread", "Oãp","🍞"]:
-            bread = 'https://tenor.com/view/falling-bread-bread-gif-19081960',\
-                'https://tenor.com/view/cat-bread-gif-9824952',\
-                'https://tenor.com/view/toasty-the-walking-toast-bread-gif-7333840',\
-                'https://tenor.com/view/dogebred-bread-dog-spin-gif-14407769'
-            await message.reply(choice(bread))
+            response = await session.get('http://api.giphy.com/v1/gifs/search?q=bread&api_key=GiIoyyWzwxGb4h8VOw62xA3mqano25E9&limit=30')
+            data = json.loads(await response.text())
+            gifch = randint(0, 29)
+            bread = (data['data'][gifch]['images']['original']['url'])
+            await session.close()
+            await message.reply(bread)
             
     @commands.command(help = 'Envia o avatar de um usuário, podendo ser uma menção ou ID', aliases = ['pfp','icon', 'icone', 'ícone'])
     async def avatar(self,ctx, *, usuario: disnake.Member = None):
