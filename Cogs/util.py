@@ -30,9 +30,9 @@ class Util(commands.Cog, name = "Utility"):
     async def on_message(self, message):
         session = aiohttp.ClientSession()
         if message.content in ["Pão", "pão", "bread", "Bread", "Oãp","🍞"]:
-            response = await session.get('http://api.giphy.com/v1/gifs/search?q=bread&api_key=GiIoyyWzwxGb4h8VOw62xA3mqano25E9&limit=30')
+            response = await session.get('http://api.giphy.com/v1/gifs/search?q=bread&api_key=GiIoyyWzwxGb4h8VOw62xA3mqano25E9&limit=50')
             data = json.loads(await response.text())
-            gifch = randint(0, 29)
+            gifch = randint(0, 49)
             bread = (data['data'][gifch]['images']['original']['url'])
             await session.close()
             await message.reply(bread)
