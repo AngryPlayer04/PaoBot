@@ -4,7 +4,6 @@ import requests
 import pathlib
 import zipfile
 import os
-import asyncio
 
 token = 'wwfoQpGct2wHrth7S3eCQbI2wgOT6rv6BydbPn14WVEqTz1GmnOP9opHxP7TKK'
 
