@@ -34,11 +34,12 @@ class Util(commands.Cog, name = "Utility"):
             data = json.loads(await response.text())
             gifch = randint(0, 49)
             bread = (data['data'][gifch]['images']['original']['url'])
-            await session.close()
+            
             bembed = disnake.Embed(title=message, color=0xffb354, description='\u200b')
             bembed.set_image(bread)
             bembed.set_author(name="Pão Bot", icon_url="https://images-ext-2.discordapp.net/external/lK0peJ7nECCGR6-5ND3L1ysNwT1Iq1DVkHJoF19Pwcg/%3Fsize%3D1024/https/cdn.discordapp.com/avatars/850123093077917716/2fe303ab1bf685becf029d72834b0f16.png")
             bembed.set_footer(text='Powered by GIPHY', icon_url='https://giphy.com/static/img/about/stickers/logo-spin.gif')
+            await session.close()
             await message.reply(embed = bembed)
             
     @commands.command(help = 'Envia o avatar de um usuário, podendo ser uma menção ou ID', aliases = ['pfp','icon', 'icone', 'ícone'])
