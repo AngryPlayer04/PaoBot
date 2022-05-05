@@ -43,7 +43,7 @@ class Owner(commands.Cog, name = "Owner"):
     @commands.is_owner()
     async def user(self, ctx):
         async with aiohttp.ClientSession() as session:
-            async with session.get("https://discloud.app/api/v2/319963626108878848", headers={"api-token": token}) as res:
+            async with session.get("https://discloud.app/api/v2/user", headers={"api-token": token}) as res:
                 await ctx.reply(res)
             await session.close()
 
