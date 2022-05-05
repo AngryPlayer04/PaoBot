@@ -4,6 +4,8 @@ import requests
 import pathlib
 import zipfile
 import os
+import aiohttp
+
 
 token = 'wwfoQpGct2wHrth7S3eCQbI2wgOT6rv6BydbPn14WVEqTz1GmnOP9opHxP7TKK'
 
@@ -26,6 +28,16 @@ class Owner(commands.Cog, name = "Owner"):
             oEmbed.set_thumbnail(url = 'https://cdn-icons-png.flaticon.com/512/2125/2125009.png')
 
             await ctx.reply(embed = oEmbed)
+
+
+    @commands.command(help = 'Status do bot')
+    @commands.is_owner()
+    async def status(self, ctx):
+        async with ctx.typing():
+            async def get_data():
+                async with aiohttp.ClientSession() as ses:
+                    async with ses.post("https://discloud.app/api/v2/app/850123093077917716", headers={"api-token": token}) as res:
+                        await ctx.reply(res.json())
 
     @commands.command(help = 'Reinicia o bot(*Apenas o dono do bot pode utilizar este comando*)', aliases = ['reiniciar', 'r'])
     @commands.is_owner()
