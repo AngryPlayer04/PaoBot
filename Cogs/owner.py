@@ -35,7 +35,8 @@ class Owner(commands.Cog, name = "Owner"):
     async def status(self, ctx):
         async with aiohttp.ClientSession() as session:
             async with session.get("https://discloud.app/api/v2/app/850123093077917716", headers={"api-token": token}) as res:
-                await ctx.reply(res)
+                await ctx.reply(res.json())
+        await session.close()
 
     @commands.command(help = 'Reinicia o bot(*Apenas o dono do bot pode utilizar este comando*)', aliases = ['reiniciar', 'r'])
     @commands.is_owner()
