@@ -30,17 +30,21 @@ class Util(commands.Cog, name = "Utility"):
     async def on_message(self, message):
         session = aiohttp.ClientSession()
         if message.content in ["Pão", "pão", "bread", "Bread", "Oãp","🍞"]:
-            response = await session.get('http://api.giphy.com/v1/gifs/search?q=bread&api_key=GiIoyyWzwxGb4h8VOw62xA3mqano25E9&limit=50')
-            data = json.loads(await response.text())
-            gifch = randint(0, 49)
-            bread = (data['data'][gifch]['images']['original']['url'])
+            if message.author == self.bot:
+                return
             
-            bembed = disnake.Embed(color=0xffb354)
-            bembed.set_image(bread)
-            bembed.set_author(name="Pão Bot", icon_url="https://images-ext-2.discordapp.net/external/lK0peJ7nECCGR6-5ND3L1ysNwT1Iq1DVkHJoF19Pwcg/%3Fsize%3D1024/https/cdn.discordapp.com/avatars/850123093077917716/2fe303ab1bf685becf029d72834b0f16.png")
-            bembed.set_footer(text='Powered by GIPHY', icon_url='https://giphy.com/static/img/about/stickers/logo-spin.gif')
-            await session.close()
-            await message.reply(embed = bembed)
+            else:
+                response = await session.get('http://api.giphy.com/v1/gifs/search?q=bread&api_key=GiIoyyWzwxGb4h8VOw62xA3mqano25E9&limit=50')
+                data = json.loads(await response.text())
+                gifch = randint(0, 49)
+                bread = (data['data'][gifch]['images']['original']['url'])
+            
+                bembed = disnake.Embed(color=0xffb354)
+                bembed.set_image(bread)
+                bembed.set_author(name="Pão Bot", icon_url="https://images-ext-2.discordapp.net/external/lK0peJ7nECCGR6-5ND3L1ysNwT1Iq1DVkHJoF19Pwcg/%3Fsize%3D1024/https/cdn.discordapp.com/avatars/850123093077917716/2fe303ab1bf685becf029d72834b0f16.png")
+                bembed.set_footer(text='Powered by GIPHY', icon_url='https://giphy.com/static/img/about/stickers/logo-spin.gif')
+                await session.close()
+                await message.reply(embed = bembed)
             
     @commands.command(help = 'Envia o avatar de um usuário, podendo ser uma menção ou ID', aliases = ['pfp','icon', 'icone', 'ícone'])
     async def avatar(self,ctx, *, usuario: disnake.Member = None):
