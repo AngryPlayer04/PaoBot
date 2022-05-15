@@ -71,10 +71,14 @@ class Util(commands.Cog, name = "Utility"):
 
     @commands.command(help = 'Traduz do inglês para o português', aliases = ['translate', 'tl', 'tradutor'])
     async def traduzir(self, ctx, *, origem):
-        async with ctx.typing():
-            tl = Translator(to_lang = 'pt-br')
-            tn = tl.translate(origem)
-            await ctx.reply(tn)
+        if '@everyone' in origem:
+            await ctx.reply('Nada de mencionar todo mundo')
+
+        else:
+            async with ctx.typing():
+                tl = Translator(to_lang = 'pt-br')
+                tn = tl.translate(origem)
+                await ctx.reply(tn)
 
 
 
