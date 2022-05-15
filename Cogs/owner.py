@@ -1,5 +1,6 @@
 import disnake
 from disnake.ext import commands
+from disnake.utils import format_dt
 import requests
 import pathlib
 import zipfile
@@ -55,10 +56,12 @@ class Owner(commands.Cog, name = "Owner"):
                 lt = st['lastDataLeft']
                 dias = lt['days']
                 hour = lt['hours']
+                minutos = lt['minutes']
+                sec = lt['seconds']
                 dt = datetime.now()
-                td = timedelta(days= dias)
-                planoend = dt + td
-                embed = disnake.Embed(title= 'Info do plano:', color= 0xffb354, description= f'Plano:{plano}\nTermina em `{dias}` dias e `{hour}` horas\nData:{planoend}')
+                td = timedelta(days= dias, hours= hour, minutes= minutos, seconds= sec)
+                planoend = format_dt(dt + td)
+                embed = disnake.Embed(title= 'Info do plano:', color= 0xffb354, description= f'Plano:{plano}\nTermina em `{dias}` dias e `{hour}` horas\nData: {planoend}')
                 await ctx.reply(embed = embed)
             await session.close()
 
