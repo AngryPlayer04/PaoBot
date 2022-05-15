@@ -40,7 +40,7 @@ class Owner(commands.Cog, name = "Owner"):
                 cpu = st['cpu']
                 mem = st['memory']
                 restart = st['last_restart']
-                embed = disnake.Embed(title= 'Status do bot', color= 0xffb354, description= f'{cont}\n{cpu}\n{mem}\n{restart}')
+                embed = disnake.Embed(title= 'Status:', color= 0xffb354, description= f'{cont}\n{cpu}\n{mem}\n{restart}')
                 await ctx.reply(embed = embed)
             await session.close()
 
@@ -50,8 +50,12 @@ class Owner(commands.Cog, name = "Owner"):
     async def user(self, ctx):
         async with aiohttp.ClientSession() as session:
             async with session.get("https://discloud.app/api/v2/user", headers={"api-token": token}) as res:
-                
-                await ctx.reply()
+                st = await res.json()
+                plano = st['plan']
+                last = st['lasDataLeft']['days']['hours']
+                planoend = st['planDataEnd']
+                embed = disnake.Embed(title= 'Status:', color= 0xffb354, description= f'{plano}\n{last}\n{planoend}')
+                await ctx.reply(embed = embed)
             await session.close()
 
 
