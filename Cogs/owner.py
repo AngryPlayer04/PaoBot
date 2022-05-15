@@ -53,10 +53,10 @@ class Owner(commands.Cog, name = "Owner"):
                 st = await res.json()
                 plano = st['plan']
                 lt = st['lastDataLeft']
-                last = lt['days']
+                dias = lt['days']
                 hour = lt['hours']
                 planoend = st['planDataEnd']
-                embed = disnake.Embed(title= 'Info do plano:', color= 0xffb354, description= f'Plano:{plano}\nTermina em {last} dias e {hour}horas\nData:`{planoend}`')
+                embed = disnake.Embed(title= 'Info do plano:', color= 0xffb354, description= f'Plano:{plano}\nTermina em `{dias}` dias e `{hour}` horas\nData:`{planoend}`')
                 await ctx.reply(embed = embed)
             await session.close()
 
