@@ -53,7 +53,7 @@ class Owner(commands.Cog, name = "Owner"):
                 st = await res.json()
                 plano = st['plan']
                 lt = st['lastDataLeft']
-                last = list(st['days']['hours'])
+                last = list(lt['days']['hours'])
                 planoend = st['planDataEnd']
                 embed = disnake.Embed(title= 'Status:', color= 0xffb354, description= f'{plano}\n{last}\n{planoend}')
                 await ctx.reply(embed = embed)
