@@ -35,7 +35,14 @@ class Owner(commands.Cog, name = "Owner"):
     async def status(self, ctx):
         async with aiohttp.ClientSession() as session:
             async with session.get("https://discloud.app/api/v2/app/850123093077917716", headers={"api-token": token}) as res:
-                await ctx.reply(await res.json())
+                st = await res.json()
+                cont = st['container']
+                cpu = st['cpu']
+                mem = st['memory']
+                restart = st['last_restart']
+                embed = disnake.Embed(title= 'Status do bot', color= 0xffb354, description= f'{cont}\n{cpu}\n{mem}\n{restart}')
+                embed.set_author(name= 'Pão Bot', icon_url= disnake.ClientUser.avatar)
+                await ctx.reply(embed = embed)
             await session.close()
 
 
@@ -44,7 +51,8 @@ class Owner(commands.Cog, name = "Owner"):
     async def user(self, ctx):
         async with aiohttp.ClientSession() as session:
             async with session.get("https://discloud.app/api/v2/user", headers={"api-token": token}) as res:
-                await ctx.reply(await res.json())
+                
+                await ctx.reply()
             await session.close()
 
 
