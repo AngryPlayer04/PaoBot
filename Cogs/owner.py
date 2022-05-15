@@ -55,9 +55,8 @@ class Owner(commands.Cog, name = "Owner"):
                 lt = st['lastDataLeft']
                 dias = lt['days']
                 hour = lt['hours']
-                minu = lt['minutes']
                 dt = datetime.now()
-                td = timedelta(days= dias, hours= hour, minutes= minu)
+                td = timedelta(days= dias)
                 planoend = dt + td
                 embed = disnake.Embed(title= 'Info do plano:', color= 0xffb354, description= f'Plano:{plano}\nTermina em `{dias}` dias e `{hour}` horas\nData:{planoend}')
                 await ctx.reply(embed = embed)
