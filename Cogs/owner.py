@@ -52,7 +52,8 @@ class Owner(commands.Cog, name = "Owner"):
             async with session.get("https://discloud.app/api/v2/user", headers={"api-token": token}) as res:
                 st = await res.json()
                 plano = st['plan']
-                last = str(st['days']['hours'])
+                lt = st['lastDataLeft']
+                last = lt['days']['hours']
                 planoend = st['planDataEnd']
                 embed = disnake.Embed(title= 'Status:', color= 0xffb354, description= f'{plano}\n{last}\n{planoend}')
                 await ctx.reply(embed = embed)
