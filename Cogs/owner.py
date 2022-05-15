@@ -41,7 +41,7 @@ class Owner(commands.Cog, name = "Owner"):
                 mem = st['memory']
                 restart = st['last_restart']
                 embed = disnake.Embed(title= 'Status do bot', color= 0xffb354, description= f'{cont}\n{cpu}\n{mem}\n{restart}')
-                embed.set_author(name= 'Pão Bot', icon_url= disnake.ClientUser.avatar)
+                embed.set_author(name= 'Pão Bot', icon_url= 'https://cdn.discordapp.com/avatars/850123093077917716/2fe303ab1bf685becf029d72834b0f16.png')
                 await ctx.reply(embed = embed)
             await session.close()
 
