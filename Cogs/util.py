@@ -30,7 +30,7 @@ class Util(commands.Cog, name = "Utility"):
     async def on_message(self, message):
         session = aiohttp.ClientSession()
         if message.content in ["Pão", "pão", "bread", "Bread", "Oãp","🍞"]:
-            if message.author == self.bot:
+            if message.author.bot:
                 return
             
             else:
