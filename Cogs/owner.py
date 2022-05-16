@@ -8,7 +8,7 @@ import os
 import aiohttp
 from datetime import datetime, timedelta
 
-token = 'wwfoQpGct2wHrth7S3eCQbI2wgOT6rv6BydbPn14WVEqTz1GmnOP9opHxP7TKK'
+token = 'fTJCSwgumZOR8q01IrHONqwIm0sZNxs7MifeLz64vT5z6esb8zOgZFJ8p8RNvG'
 
 class Owner(commands.Cog, name = "Owner"):
     def __init__(self, bot):
