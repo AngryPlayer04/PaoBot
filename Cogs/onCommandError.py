@@ -3,7 +3,7 @@ from disnake.ext.commands import MissingPermissions, CheckFailure, CommandNotFou
 
 
 class OnCommandErrorCog(commands.Cog, name="on command error"):
-	def __init__(self, bot:commands.Bot):
+	def __init__(self, bot):
 		self.bot = bot
         
 	@commands.Cog.listener()

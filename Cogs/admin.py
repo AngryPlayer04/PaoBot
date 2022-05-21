@@ -14,7 +14,7 @@ with open("configuration.json", "r") as config:
     
 
 class AdminOnly(commands.Cog, name = "Admin"):
-    def __init__(self, bot:commands.Bot):
+    def __init__(self, bot):
         self.bot = bot
 
     @commands.command(help = 'Limpa a quantidade indicada de mensagens do canal, sendo 5 por padrão', aliases = ['limpar', 'clean'])

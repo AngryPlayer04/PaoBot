@@ -8,7 +8,7 @@ import json
 
 
 class Util(commands.Cog, name = "Utility"):
-    def __init__(self, bot:commands.Bot):
+    def __init__(self, bot):
         self.bot = bot 
     @commands.command()
     async def flip(self, ctx):

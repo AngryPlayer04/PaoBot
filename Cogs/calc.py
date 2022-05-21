@@ -5,7 +5,7 @@ import numexpr as ne
 
 
 class Calculators(commands.Cog, name = "Calculators"):
-    def __init__(self, bot:commands.Bot):
+    def __init__(self, bot):
         self.bot = bot
 
     @commands.command(help = 'Calcula a expressão dada (Use `/` para divisão, `*` para multiplicação e `**`para potência)', 
