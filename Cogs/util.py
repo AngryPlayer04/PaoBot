@@ -85,7 +85,6 @@ class Util(commands.Cog, name = "Utility"):
                 await ctx.reply(tn)
 
 
-
     @commands.Cog.listener()
     async def on_ready(self):
         print ('Fun carregado!')
