@@ -1,7 +1,8 @@
 import decimal
+from currencyApi import CurrencyApi
 from disnake.ext import commands
 import numexpr as ne
-from google_currency import convert
+import asyncio
 
 class Calculators(commands.Cog, name = "Calculators"):
     def __init__(self, bot):
@@ -19,8 +20,9 @@ class Calculators(commands.Cog, name = "Calculators"):
     @commands.command(help = 'Diz a cotação do dólar', aliases = ['dol'])
     async def dolar(self, ctx):
         async with ctx.typing():
-            g = convert('USD', 'BRL', 1)
-            await ctx.reply(content = f'Um dólar equivale atualmente a {g}')
+            async with CurrencyApi() as session:
+                data = await session.convert('usd', 'brl')
+            await ctx.reply(content = f'Um dólar equivale atualmente a {data}')
 
     @commands.command(help = 'Ping do bot com a API do Discord', aliases = ['p'])
     async def ping(self, ctx):
