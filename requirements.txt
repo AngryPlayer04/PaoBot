@@ -2,4 +2,4 @@ disnake
 pytz
 numexpr
 translate
-git+https://github.com/abenassi/Google-Search-API
+Google-Search-API
