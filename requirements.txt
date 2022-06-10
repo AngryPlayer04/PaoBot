@@ -2,4 +2,4 @@ disnake
 pytz
 numexpr
 translate
-google-currency
+currency-api-py
