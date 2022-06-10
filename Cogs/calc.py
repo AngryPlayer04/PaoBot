@@ -1,7 +1,7 @@
 import decimal
 from disnake.ext import commands
 import numexpr as ne
-from moneyed import Money,BRL
+from moneyed import Money, BRL, USD
 
 
 class Calculators(commands.Cog, name = "Calculators"):
@@ -20,8 +20,8 @@ class Calculators(commands.Cog, name = "Calculators"):
     @commands.command(help = 'Diz a cotação do dólar', aliases = ['dol'])
     async def dolar(self, ctx):
         async with ctx.typing():
-            g = Money(1, BRL)
-            await ctx.reply(content = f'Um dólar equivale atualmente a R${g}')
+            g = Money(1, BRL, USD)
+            await ctx.reply(content = f'Um dólar equivale atualmente a {g}')
 
     @commands.command(help = 'Ping do bot com a API do Discord', aliases = ['p'])
     async def ping(self, ctx):
