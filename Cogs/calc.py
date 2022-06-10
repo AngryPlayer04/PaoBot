@@ -22,7 +22,7 @@ class Calculators(commands.Cog, name = "Calculators"):
         async with ctx.typing():
             async with CurrencyApi() as session:
                 data = await session.convert('usd', 'brl')
-                g = data.replace['.',',']
+                g = str(data.replace)['.',',']
                 await session.close_session()
             await ctx.reply(content = f'Um dólar equivale atualmente a R${g:.2f}')
 
