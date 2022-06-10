@@ -2,5 +2,5 @@ disnake
 pytz
 numexpr
 translate
-forx
+py-moneyed
 
