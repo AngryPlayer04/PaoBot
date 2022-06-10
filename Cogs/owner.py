@@ -10,7 +10,7 @@ from datetime import datetime, timedelta
 
 token = 's3UGc5HvsXtePkAEd1km278lttmqfS4oBX4VW74Qw2Tmpud0Ptyc74PdDU7T7'
 
-class Owner(commands.Cog, name = "Owner", help = 'Apenas o dono pode utilizar estes comandos'):
+class Owner(commands.Cog, name = "Owner"):
     def __init__(self, bot):
         self.bot = bot 
 
