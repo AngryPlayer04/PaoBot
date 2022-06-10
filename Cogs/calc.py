@@ -22,7 +22,7 @@ class Calculators(commands.Cog, name = "Calculators"):
         async with ctx.typing():
             async with CurrencyApi() as session:
                 data = await session.convert('usd', 'brl')
-                await session.close_session()
+                
             await ctx.reply(content = f'Um dólar equivale atualmente a R${data:.2f}')
 
     @commands.command(help = 'Ping do bot com a API do Discord', aliases = ['p'])
