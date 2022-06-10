@@ -1,4 +1,3 @@
-from forx import get_price
 import decimal
 from disnake.ext import commands
 import numexpr as ne
@@ -17,13 +16,6 @@ class Calculators(commands.Cog, name = "Calculators"):
         except (RuntimeError, OverflowError, ValueError, SyntaxError, NameError, TypeError, ZeroDivisionError):
             await ctx.reply(f"Desculpe, eu não posso calcular `{express}` ou ocorreu um erro desconhecido.")
 
-    @commands.command(help = 'Diz a cotação do dólar', aliases = ['dol'])
-    async def dolar(self, ctx):
-        async with ctx.typing():
-            g = str(get_price('USD', 'BRL', None)) 
-            val = decimal.Decimal(g).quantize(decimal.Decimal('0.01'))
-            vt = str(val).replace('.',",")
-            await ctx.reply(content = f'Um dólar equivale atualmente a R${vt}')
 
     @commands.command(help = 'Ping do bot com a API do Discord', aliases = ['p'])
     async def ping(self, ctx):
