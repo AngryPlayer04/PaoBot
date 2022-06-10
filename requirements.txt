@@ -1,6 +1,5 @@
 disnake
 pytz
 numexpr
-forx 
 translate
 
