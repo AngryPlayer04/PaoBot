@@ -19,7 +19,7 @@ class Calculators(commands.Cog, name = "Calculators"):
     @commands.command(help = 'Diz a cotação do dólar', aliases = ['dol'])
     async def dolar(self, ctx):
         async with ctx.typing():
-            g = convert('usd', 'brl', 1000)
+            g = convert('usd', 'brl', '1')
             await ctx.reply(content = f'Um dólar equivale atualmente a {g}')
 
     @commands.command(help = 'Ping do bot com a API do Discord', aliases = ['p'])
