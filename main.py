@@ -15,7 +15,7 @@ with open("configuration.json", "r") as config:
 
 
 # Intents
-intents = disnake.Intents.all()
+intents = disnake.Intents.default()
 # The bot
 bot = commands.Bot(prefix, intents = intents, case_insensitive = True)
 
