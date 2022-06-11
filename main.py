@@ -58,7 +58,7 @@ async def on_ready():
 async def status_task():
     while True:
         await bot.change_presence(activity=disnake.Activity(type=disnake.ActivityType.watching,
-                name=f'Digite {prefix}help | Estou em {len(bot.guilds)} servidores'),status=disnake.Status.online)
+                name=f'Digite {prefix}help | Estou em {len(bot.guilds)} servidores'),status=disnake.Status.do_not_disturb)
         await asyncio.sleep(1800)
 
 
