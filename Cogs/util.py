@@ -89,7 +89,7 @@ class Util(commands.Cog, name = "Utility"):
 
     @commands.command(help = 'Comando para abrir Tickets')
     async def ticket(self, ctx):
-        await Guild.create_text_channel(self, name = ctx.author, overwrites= ctx.author)
+        await disnake.Guild.create_text_channel(self, name = ctx.author, overwrites= ctx.author)
         await ctx.send(f'{User.mention}Envie aqui a sua dúvida ou sugestão')
         #await asyncio.sleep(80)
         #await chan.delete()
