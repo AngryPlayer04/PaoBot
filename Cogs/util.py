@@ -1,10 +1,12 @@
 import disnake
-from disnake.ext import commands 
+from disnake import Guild, User 
+from disnake.ext import commands
 from random import choice, randrange, randint
 import requests
 from translate import Translator
 import aiohttp
 import json
+import asyncio
 
 
 class Util(commands.Cog, name = "Utility"):
@@ -85,6 +87,12 @@ class Util(commands.Cog, name = "Utility"):
                 tn = tl.translate(origem)
                 await ctx.reply(tn)
 
+    @commands.command(help = 'Comando para abrir Tickets')
+    async def ticket(self, ctx):
+        chan = await Guild.create_text_channel(self, name = ctx.author, overwrites= ctx.author)
+        await ctx.send(f'{User.mention}Envie aqui a sua dúvida ou sugestão')
+        await asyncio.sleep(80)
+        await chan.delete()
 
     @commands.Cog.listener()
     async def on_ready(self):
