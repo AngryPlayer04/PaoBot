@@ -89,10 +89,10 @@ class Util(commands.Cog, name = "Utility"):
 
     @commands.command(help = 'Comando para abrir Tickets')
     async def ticket(self, ctx):
-        chan = await Guild.create_text_channel(self, name = ctx.author, overwrites= ctx.author)
+        await Guild.create_text_channel(self, name = ctx.author, overwrites= ctx.author)
         await ctx.send(f'{User.mention}Envie aqui a sua dúvida ou sugestão')
-        await asyncio.sleep(80)
-        await chan.delete()
+        #await asyncio.sleep(80)
+        #await chan.delete()
 
     @commands.Cog.listener()
     async def on_ready(self):
