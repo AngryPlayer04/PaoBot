@@ -1,3 +1,4 @@
+from disnake import Guild, User
 from disnake.ext import commands
 import json
 from datetime import datetime
@@ -22,6 +23,10 @@ class AdminOnly(commands.Cog, name = "Admin"):
     async def clear(self, ctx, amount = 5):
         await ctx.channel.purge(limit = amount + 1)
 
+    @commands.command(help = 'Comando para abrir Tickets')
+    async def ticket(self, ctx):
+        await Guild.create_text_channel(name = ctx.author, overwrites= ctx.author)
+        await ctx.send(f'{User.mention}Envie aqui a sua dúvida ou sugestão')
 
     @commands.Cog.listener()
     async def on_ready(self):
