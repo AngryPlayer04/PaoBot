@@ -106,13 +106,13 @@ class Util(commands.Cog, name = "Utility"):
         await chan.send(f'{ctx.author.mention} envie aqui a sua dúvida ou sugestão dentro de uma única mensagem')
         await asyncio.sleep(10) #mudar pra 30 ou mais após dar certo
         
-        #canal = 
+        canal = disnake.utils.get(ctx.guild.text_channels, name = 'ticket-logs')
         
-        if disnake.utils.get(ctx.guild.text_channels, name = 'ticket-logs'):
+        if canal:
             print('existe')
             mensagem = await chan.fetch_message(chan.last_message_id)
             print('pegou a msg')
-            await ctx.send(f'De {mensagem.author}: \n{mensagem.content}')
+            await canal.send(f'De {mensagem.author}: \n{mensagem.content}')
             print('enviou a msg')
             await chan.delete()
             print('apagou o canal')
