@@ -106,7 +106,7 @@ class Util(commands.Cog, name = "Utility"):
         await asyncio.sleep(20)
         
         canal = disnake.utils.get(ctx.guild.text_channels, name = 'Ticket-Logs')
-        if canal:
+        if canal is True:
             mensagem = await chan.fetch_message(chan.last_message_id)
             await canal.send(f'De {mensagem.author}: \n{mensagem.content}')
             await chan.delete()
