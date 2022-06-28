@@ -106,12 +106,12 @@ class Util(commands.Cog, name = "Utility"):
         await asyncio.sleep(20)
 
         canal = disnake.Guild.channels
-        if 'Ticket-Logs' in canal:
+        if 'Ticket Logs' in canal:
             await chan.delete()
 
         else:
 
-            lg = await disnake.Guild.create_text_channel(ctx.guild, name = 'Ticket-Logs', overwrites= permissao2)
+            lg = await disnake.Guild.create_text_channel(ctx.guild, name = 'Ticket Logs', overwrites= permissao2)
             mensagem = await chan.fetch_message(chan.last_message_id)
             await lg.send(f'De {mensagem.author}: \n{mensagem.content}')
             await chan.delete()
