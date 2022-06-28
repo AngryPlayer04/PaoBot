@@ -95,13 +95,12 @@ class Util(commands.Cog, name = "Utility"):
         ctx.author: disnake.PermissionOverwrite(read_messages = True)
         }
 
-        def check(m:disnake.Message):
-            return  m.author.id == ctx.author.id and m.channel.id == ctx.channel.id
+        
 
         chan = await disnake.Guild.create_text_channel(ctx.guild, name = f'{ctx.author}', overwrites= overwrites)
         await ctx.reply(f'Envie no {chan.mention} a sua dúvida ou sugestão')
         await chan.send(f'{ctx.author.mention} envie aqui a sua dúvida ou sugestão')
-        async with await self.bot.wait_for(event = 'message',check= check, timeout = 70.0):
+        async with await self.bot.wait_for(event = 'message', timeout= 70.0):
             await chan.delete()
 
 
