@@ -105,13 +105,17 @@ class Util(commands.Cog, name = "Utility"):
         await chan.send(f'{ctx.author.mention} envie aqui a sua dúvida ou sugestão dentro de uma única mensagem')
         await asyncio.sleep(20)
         
-        canal = disnake.utils.get(ctx.guild.text_channels, name = 'Ticket-Logs')
-        if canal is True:
+        #canal = 
+        if disnake.utils.get(ctx.guild.text_channels, name = 'Ticket-Logs'):
             mensagem = await chan.fetch_message(chan.last_message_id)
-            await canal.send(f'De {mensagem.author}: \n{mensagem.content}')
+            await ctx.send(f'De <@{mensagem.id}>: \n{mensagem.content}')
             await chan.delete()
 
-        
+        else:
+            lg = await disnake.Guild.create_text_channel(ctx.guild, name = 'Ticket-Logs', overwrites= permissao2)
+            mensagem = await chan.fetch_message(chan.last_message_id)
+            await lg.send(f'De <@{mensagem.id}>: \n{mensagem.content}')
+            await chan.delete()
 
 
     @commands.Cog.listener()
