@@ -89,19 +89,27 @@ class Util(commands.Cog, name = "Utility"):
 
     @commands.command(help = 'Comando para abrir Tickets')
     async def ticket(self, ctx):
-        overwrites = {
+        permissao1 = {
         ctx.guild.default_role: disnake.PermissionOverwrite(read_messages = False),
         ctx.guild.me: disnake.PermissionOverwrite(read_messages = True),
         ctx.author: disnake.PermissionOverwrite(read_messages = True)
         }
 
-        def check(msg):
-            return  msg.author.id == ctx.author.id and msg.channel.id == ctx.channel.id
+        permissao2 = {
+        ctx.guild.default_role: disnake.PermissionOverwrite(read_messages = False),
+        ctx.guild.me: disnake.PermissionOverwrite(read_messages = True),
+        }
 
-        chan = await disnake.Guild.create_text_channel(ctx.guild, name = f'{ctx.author}', overwrites= overwrites)
+        chan = await disnake.Guild.create_text_channel(ctx.guild, name = f'{ctx.author}', overwrites= permissao1)
         await ctx.reply(f'Envie no {chan.mention} a sua dúvida ou sugestão')
         await chan.send(f'{ctx.author.mention} envie aqui a sua dúvida ou sugestão')
-        async with await self.bot.wait_for(event = 'message', check = check):
+        await asyncio.sleep(20)
+        if 'Ticket-Logs' in disnake.Guild.text_channels:
+            await chan.delete()
+        else:
+            lg = await disnake.Guild.create_text_channel(ctx.guild, name = 'Ticket-Logs', overwrites= permissao2)
+            mensagem = await chan.history(limit=1)
+            await lg.send(mensagem)
             await chan.delete()
 
 
