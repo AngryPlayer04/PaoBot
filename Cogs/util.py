@@ -1,5 +1,4 @@
-import disnake
-from disnake import CategoryChannel, Guild, Member, User 
+import disnake 
 from disnake.ext import commands
 from random import choice, randrange, randint
 import requests
@@ -89,7 +88,7 @@ class Util(commands.Cog, name = "Utility"):
 
     @commands.command(help = 'Comando para abrir Tickets')
     async def ticket(self, ctx):
-        await CategoryChannel.create_text_channel(self, name = f'{ctx.author}', overwrites= ctx.author)
+        await disnake.CategoryChannel.create_text_channel(self, name = f'{ctx.author}', overwrites= ctx.author)
         await ctx.send(f'{ctx.author.mention}Envie aqui a sua dúvida ou sugestão')
         #await asyncio.sleep(80)
         #await chan.delete()
