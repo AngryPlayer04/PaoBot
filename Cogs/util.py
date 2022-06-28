@@ -111,8 +111,8 @@ class Util(commands.Cog, name = "Utility"):
         else:
 
             lg = await disnake.Guild.create_text_channel(ctx.guild, name = 'Ticket-Logs', overwrites= permissao2)
-            mensagem = chan.history(limit=1).flatten()
-            await lg.send(mensagem)
+            mensagem = await chan.fetch_message(chan.last_message_id)
+            await lg.send(mensagem.content)
             await chan.delete()
 
 
