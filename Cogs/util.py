@@ -89,7 +89,7 @@ class Util(commands.Cog, name = "Utility"):
     @commands.command(help = 'Comando para abrir Tickets')
     async def ticket(self, ctx):
         overwrites = {
-        ctx.guild.default_role: discord.PermissionOverwrite(read_messages=False),
+        ctx.guild.default_role: disnake.PermissionOverwrite(read_messages=False),
         ctx.guild.me: disnake.PermissionOverwrite(read_messages=True)
         }
         await disnake.Guild.create_text_channel(ctx.guild, name = f'{ctx.author}', overwrites= overwrites)
