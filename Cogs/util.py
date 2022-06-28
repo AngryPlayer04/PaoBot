@@ -104,9 +104,12 @@ class Util(commands.Cog, name = "Utility"):
         await ctx.reply(f'Envie no {chan.mention} a sua dúvida ou sugestão')
         await chan.send(f'{ctx.author.mention} envie aqui a sua dúvida ou sugestão')
         await asyncio.sleep(20)
-        if 'Ticket-Logs' in disnake.Guild.text_channels:
+
+        if disnake.TextChannel.name is 'Ticket-Logs': 
             await chan.delete()
+
         else:
+
             lg = await disnake.Guild.create_text_channel(ctx.guild, name = 'Ticket-Logs', overwrites= permissao2)
             mensagem = await chan.history(limit=1)
             await lg.send(mensagem)
