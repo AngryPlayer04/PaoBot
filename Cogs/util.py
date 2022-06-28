@@ -107,7 +107,7 @@ class Util(commands.Cog, name = "Utility"):
         
         #canal = 
         
-        if ctx.fetch_channels(name = 'Ticket-Logs'):
+        if disnake.utils.get(ctx.guild.text_channels, name = 'Ticket-Logs'):
             print('existe')
             mensagem = await chan.fetch_message(chan.last_message_id)
             print('pegou a msg')
