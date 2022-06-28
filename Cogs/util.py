@@ -87,7 +87,7 @@ class Util(commands.Cog, name = "Utility"):
                 tn = tl.translate(origem)
                 await ctx.reply(tn)
 
-    @commands.command(help = 'Comando para abrir Tickets')
+    @commands.command(help = 'Comando para abrir tickets(Para este comando funcionar, um canal de registro é criado com o nome `ticket-logs`)')
     async def ticket(self, ctx):
 
         permissao1 = {
