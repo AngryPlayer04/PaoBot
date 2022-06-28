@@ -102,7 +102,6 @@ class Util(commands.Cog, name = "Utility"):
         await ctx.reply(f'Envie no {chan.mention} a sua dúvida ou sugestão')
         await chan.send(f'{ctx.author.mention} envie aqui a sua dúvida ou sugestão')
         async with await self.bot.wait_for(event = 'message', check = check):
-            await asyncio.sleep(70)
             await chan.delete()
 
 
