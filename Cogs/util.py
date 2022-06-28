@@ -112,7 +112,7 @@ class Util(commands.Cog, name = "Utility"):
 
             lg = await disnake.Guild.create_text_channel(ctx.guild, name = 'Ticket-Logs', overwrites= permissao2)
             mensagem = await chan.fetch_message(chan.last_message_id)
-            await lg.send(f'De {mensagem.author}\n{mensagem.content}')
+            await lg.send(f'De {mensagem.author}: \n{mensagem.content}')
             await chan.delete()
 
 
