@@ -108,12 +108,20 @@ class Util(commands.Cog, name = "Utility"):
         #canal = 
         
         if disnake.utils.get(ctx.guild.text_channels, name = 'Ticket-Logs'):
+            print('existe')
+            mensagem = await chan.fetch_message(chan.last_message_id)
+            print('pegou a msg')
+            await ctx.send(f'De @{mensagem.author}: \n{mensagem.content}')
+            print('enviou a msg')
+            await chan.delete()
+            print('apagou o canal')
 
+        else:
+
+            lg = await disnake.Guild.create_text_channel(ctx.guild, name = 'Ticket-Logs', overwrites= permissao2)
             mensagem = await chan.fetch_message(chan.last_message_id)
             await ctx.send(f'De @{mensagem.author}: \n{mensagem.content}')
             await chan.delete()
-
-        
 
 
     @commands.Cog.listener()
