@@ -105,7 +105,7 @@ class Util(commands.Cog, name = "Utility"):
         await chan.send(f'{ctx.author.mention} envie aqui a sua dúvida ou sugestão')
         await asyncio.sleep(20)
 
-        canal = await disnake.Guild.channels
+        canal = disnake.Guild.channels
         if 'Ticket-Logs' in canal:
             await chan.delete()
 
