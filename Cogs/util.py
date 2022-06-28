@@ -89,13 +89,14 @@ class Util(commands.Cog, name = "Utility"):
     @commands.command(help = 'Comando para abrir Tickets')
     async def ticket(self, ctx):
         overwrites = {
-        ctx.guild.default_role: disnake.PermissionOverwrite(read_messages=False),
-        ctx.guild.me: disnake.PermissionOverwrite(read_messages=True)
+        ctx.guild.default_role: disnake.PermissionOverwrite(read_messages = False),
+        ctx.guild.me: disnake.PermissionOverwrite(read_messages = True),
+        ctx.author: disnake.PermissionOverwrite(read_messages = True)
         }
-        await disnake.Guild.create_text_channel(ctx.guild, name = f'{ctx.author}', overwrites= overwrites)
+        chan = await disnake.Guild.create_text_channel(ctx.guild, name = f'{ctx.author}', overwrites= overwrites)
         await ctx.send(f'{ctx.author.mention}Envie aqui a sua dúvida ou sugestão')
-        #await asyncio.sleep(80)
-        #await chan.delete()
+        await asyncio.sleep(80)
+        await chan.delete()
 
     @commands.Cog.listener()
     async def on_ready(self):
