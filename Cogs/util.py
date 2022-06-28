@@ -102,10 +102,10 @@ class Util(commands.Cog, name = "Utility"):
 
         chan = await disnake.Guild.create_text_channel(ctx.guild, name = f'{ctx.author}', overwrites= permissao1)
         await ctx.reply(f'Envie no {chan.mention} a sua dúvida ou sugestão')
-        await chan.send(f'{ctx.author.mention} envie aqui a sua dúvida ou sugestão')
+        await chan.send(f'{ctx.author.mention} envie aqui a sua dúvida ou sugestão dentro de uma única mensagem')
         await asyncio.sleep(20)
-        
-        if disnake.utils.get(disnake.Guild.text_channels, name = 'Ticket Logs'):
+        canal = disnake.utils.get(disnake.Guild.text_channels, name = 'Ticket Logs')
+        if canal:
             await chan.delete()
 
         else:
