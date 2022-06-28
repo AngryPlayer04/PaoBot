@@ -1,3 +1,4 @@
+from async_timeout import timeout
 import disnake 
 from disnake.ext import commands
 from random import choice, randrange, randint
@@ -97,7 +98,7 @@ class Util(commands.Cog, name = "Utility"):
         chan = await disnake.Guild.create_text_channel(ctx.guild, name = f'{ctx.author}', overwrites= overwrites)
         await ctx.reply(f'Envie no {chan.mention} a sua dúvida ou sugestão')
         await chan.send(f'{ctx.author.mention} envie aqui a sua dúvida ou sugestão')
-        async with self.bot.wait_for('sugestão'):
+        async with await self.bot.wait_for('sugestão', timeout(50)):
             await chan.delete()
 
 
