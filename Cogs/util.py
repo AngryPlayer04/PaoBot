@@ -108,7 +108,7 @@ class Util(commands.Cog, name = "Utility"):
         
         #canal = 
         
-        if disnake.utils.get(ctx.guild.text_channels, name = 'ticket-Logs'):
+        if disnake.utils.get(ctx.guild.text_channels, name = 'ticket-logs'):
             print('existe')
             mensagem = await chan.fetch_message(chan.last_message_id)
             print('pegou a msg')
@@ -119,7 +119,7 @@ class Util(commands.Cog, name = "Utility"):
 
         else:
 
-            lg = await disnake.Guild.create_text_channel(ctx.guild, name = 'ticket-Logs', overwrites= permissao2)
+            lg = await disnake.Guild.create_text_channel(ctx.guild, name = 'ticket-logs', overwrites= permissao2)
             print('passou pra ca')
             mensagem = await chan.fetch_message(chan.last_message_id)
             await lg.send(f'De {mensagem.author}: \n{mensagem.content}')
