@@ -92,14 +92,6 @@ class Owner(commands.Cog, name = "Owner"):
     async def on_ready(self):
         print('Owner carregado!')
 
-        self.bot.loop.create_task(tempo_task())
-
-        async def tempo_task():
-            tz_SP = pytz.timezone('America/Sao_Paulo') 
-            datetime_SP = datetime.now(tz_SP) 
-            tempo = datetime_SP.strftime("%H:%M")
-            if tempo == '21:25':
-                requests.post("https://discloud.app/api/v2/app/850123093077917716/restart", headers={"api-token": token}).json()
 
 
 def setup(bot):
