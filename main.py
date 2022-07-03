@@ -12,8 +12,7 @@ with open("configuration.json", "r") as config:
   data = json.load(config)
   token = data["token"]
   prefix = data["prefix"]
-  apitoken = data["api-token"]
-  
+
 
 
 # Intents
@@ -62,15 +61,5 @@ async def status_task():
         await bot.change_presence(activity=disnake.Activity(type=disnake.ActivityType.watching,
                 name=f'Digite {prefix}help | Estou em {len(bot.guilds)} servidores'),status=disnake.Status.do_not_disturb)
         await asyncio.sleep(1800)
-@bot.event
-async def on_ready():
-  bot.loop.create_task(tempo_task())
-
-async def tempo_task():
-            tz_SP = pytz.timezone('America/Sao_Paulo') 
-            datetime_SP = datetime.now(tz_SP) 
-            tempo = datetime_SP.strftime("%H:%M")
-            if tempo == '23:23':
-                requests.post("https://discloud.app/api/v2/app/850123093077917716/restart", headers={"api-token": apitoken}).json()
 
 bot.run(token)
