@@ -33,7 +33,7 @@ for filename in os.listdir('./Cogs'):
   if filename.endswith('.py'):
     bot.load_extension(f'Cogs.{filename[:-3]}')
 
-@bot.event()
+@bot.event
 async def on_ready():
 
 
