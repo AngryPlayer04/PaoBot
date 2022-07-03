@@ -67,7 +67,7 @@ async def tempo_task():
   tz_SP = pytz.timezone('America/Sao_Paulo') 
   datetime_SP = datetime.now(tz_SP) 
   tempo = datetime_SP.strftime("%H:%M")
-  if tempo == '12:55':
+  if tempo == '13:45':
     async with aiohttp.ClientSession() as session:
       await session.post("https://discloud.app/api/v2/app/850123093077917716/restart", headers={"api-token": apitoken})
 
