@@ -68,7 +68,7 @@ async def tempo_task():
   datetime_SP = datetime.now(tz_SP) 
   tempo = datetime_SP.strftime("%H:%M")
   session = aiohttp.ClientSession()
-  if tempo == '00:05':
+  if tempo == '00:07':
     po = await session.post("https://discloud.app/api/v2/app/850123093077917716/restart", headers={"api-token": apitoken})
 
   await session.close()
