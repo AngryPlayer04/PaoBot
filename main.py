@@ -48,11 +48,11 @@ async def on_ready():
   del bot.on_ready
 
 
-  user = [319963626108878848]
-  for id in user:
-    member = await bot.fetch_user(id)
+  guild = await bot.fetch_guild(991449832474554428)
+  for id in guild:
+    member = await guild.fetch_channel(992499815529316473)
     try:
-      await member.send(f'{member.mention} Acordei pra tomar café às {(datetime_BR.strftime("%H:%M"))}')
+      await member.send(f'Acordei pra tomar café às {(datetime_BR.strftime("%H:%M"))}')
     except:
       pass
 
@@ -65,7 +65,7 @@ async def status_task():
 @bot.event
 async def on_ready():
   bot.loop.create_task(tempo_task())
-  
+
 async def tempo_task():
             tz_SP = pytz.timezone('America/Sao_Paulo') 
             datetime_SP = datetime.now(tz_SP) 
