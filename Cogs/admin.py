@@ -24,7 +24,6 @@ class AdminOnly(commands.Cog, name = "Admin"):
     async def clear(self, ctx, amount = 5):
         await ctx.channel.purge(limit = amount + 1)
 
-    
 
     @commands.Cog.listener()
     async def on_ready(self):
