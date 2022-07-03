@@ -48,9 +48,8 @@ async def on_ready():
 
 
 
-  servidor = await bot.fetch_guilds(991449832474554428)
-  for id in servidor:
-    member = await servidor.fetch_channel(992499815529316473)
+  member = await bot.get_channel(992499815529316473)
+  for id in member:
     try:
       await member.send(f'Acordei pra tomar café às {(datetime_BR.strftime("%H:%M"))}')
     except:
