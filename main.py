@@ -12,6 +12,7 @@ with open("configuration.json", "r") as config:
   data = json.load(config)
   token = data["token"]
   prefix = data["prefix"]
+  apitoken = data["api-token"]
   
 
 
@@ -67,6 +68,6 @@ async def tempo_task():
             datetime_SP = datetime.now(tz_SP) 
             tempo = datetime_SP.strftime("%H:%M")
             if tempo == '23:23':
-                requests.post("https://discloud.app/api/v2/app/850123093077917716/restart", headers={"api-token": token}).json()
+                requests.post("https://discloud.app/api/v2/app/850123093077917716/restart", headers={"api-token": apitoken}).json()
 
 bot.run(token)
