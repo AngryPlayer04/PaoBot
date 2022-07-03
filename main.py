@@ -42,8 +42,7 @@ async def on_ready():
 
   #ligado.start()
   
-  bot.loop.create_task(status_task())
-  bot.loop.create_task(tempo_task())
+  bot.loop.create_task(status_task(), tempo_task())
   #ligado.stop()
   del bot.on_ready
 
