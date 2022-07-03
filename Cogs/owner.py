@@ -88,6 +88,7 @@ class Owner(commands.Cog, name = "Owner"):
         
 
 
+
     @commands.Cog.listener()
     async def on_ready(self):
         print('Owner carregado!')
