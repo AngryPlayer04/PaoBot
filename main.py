@@ -43,7 +43,8 @@ async def on_ready():
 
 
 
-  bot.loop.create_task(status_task(), tempo_task())
+  bot.loop.create_task(status_task())
+  bot.loop.create_task(tempo_task())
   #ligado.stop()
   del bot.on_ready
 
@@ -71,5 +72,5 @@ async def tempo_task():
     
     po = await session.post("https://discloud.app/api/v2/app/850123093077917716/restart", headers={"api-token": apitoken}).json()
   await session.close()
-  
+
 bot.run(token)
