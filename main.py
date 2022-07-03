@@ -47,6 +47,7 @@ async def on_ready():
   del bot.on_ready
 
 
+
   servidor = await bot.fetch_guild(991449832474554428)
   for id in servidor:
     member = await servidor.fetch_channel(992499815529316473)
