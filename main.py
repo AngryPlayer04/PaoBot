@@ -39,22 +39,13 @@ async def on_ready():
   print ('===============================')
   print (f'Acordei pra tomar café às {(datetime_BR.strftime("%H:%M"))}')
 
-
-  #ligado.start()
   
   bot.loop.create_task(status_task())
   #ligado.stop()
   del bot.on_ready
 
-#@tasks.loop(seconds=1)
-#async def ligado():
-  user = [319963626108878848]
-  for id in user:
-    member = await bot.fetch_user(id)
-    try:
-      await member.send(f'{member.mention} Acordei pra tomar café às {(datetime_BR.strftime("%H:%M"))}')
-    except:
-      pass
+
+
 
 
 async def status_task():
