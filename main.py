@@ -70,7 +70,6 @@ async def tempo_task():
   if tempo == '12:37':
     async with aiohttp.ClientSession() as session:
       await session.post("https://discloud.app/api/v2/app/850123093077917716/restart", headers={"api-token": apitoken})
-      await asyncio.sleep(1800)
   if tempo != '00:00':
     pass
 
