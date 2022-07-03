@@ -12,7 +12,7 @@ with open("configuration.json", "r") as config:
   data = json.load(config)
   token = data["token"]
   prefix = data["prefix"]
-  apitoken = data['api-token']
+  
 
 
 # Intents
