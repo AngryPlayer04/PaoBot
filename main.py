@@ -71,6 +71,6 @@ async def tempo_task():
     async with aiohttp.ClientSession as session:
       await session.post("https://discloud.app/api/v2/app/850123093077917716/restart", headers={"api-token": apitoken})
       await session.close()
-      await asyncio.sleep(18000)
+      await asyncio.sleep(1800)
 
 bot.run(token)
