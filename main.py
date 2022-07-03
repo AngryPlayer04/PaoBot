@@ -43,7 +43,7 @@ async def on_ready():
 
 
 
-  bot.loop.create_task(status_task(),tempo_task())
+  bot.loop.create_task(status_task())
   #ligado.stop()
   del bot.on_ready
 
@@ -62,7 +62,10 @@ async def status_task():
         await bot.change_presence(activity=disnake.Activity(type=disnake.ActivityType.watching,
                 name=f'Digite {prefix}help | Estou em {len(bot.guilds)} servidores'),status=disnake.Status.do_not_disturb)
         await asyncio.sleep(1800)
-
+@bot.event
+async def on_ready():
+  bot.loop.create_task(tempo_task())
+  
 async def tempo_task():
             tz_SP = pytz.timezone('America/Sao_Paulo') 
             datetime_SP = datetime.now(tz_SP) 
