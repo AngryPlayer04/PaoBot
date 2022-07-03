@@ -5,7 +5,7 @@ import os
 from datetime import datetime 
 import pytz
 import asyncio
-import requests
+
 
 # Get configuration.json
 with open("configuration.json", "r") as config: 
