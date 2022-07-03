@@ -5,13 +5,14 @@ import os
 from datetime import datetime 
 import pytz
 import asyncio
-import requests
+import aiohttp
 
 # Get configuration.json
 with open("configuration.json", "r") as config: 
   data = json.load(config)
   token = data["token"]
   prefix = data["prefix"]
+  apitoken = data['apitoken']
 
 
 
@@ -42,7 +43,7 @@ async def on_ready():
 
 
 
-  bot.loop.create_task(status_task())
+  bot.loop.create_task(status_task(), tempo_task())
   #ligado.stop()
   del bot.on_ready
 
@@ -59,5 +60,14 @@ async def status_task():
         await bot.change_presence(activity=disnake.Activity(type=disnake.ActivityType.watching,
                 name=f'Digite {prefix}help | Estou em {len(bot.guilds)} servidores'),status=disnake.Status.do_not_disturb)
         await asyncio.sleep(1800)
+
+async def tempo_task():
+
+  tz_SP = pytz.timezone('America/Sao_Paulo') 
+  datetime_SP = datetime.now(tz_SP) 
+  tempo = datetime_SP.strftime("%H:%M")
+  if tempo == '21:30':
+    session = aiohttp.ClientSession()
+    po = await session.post("https://discloud.app/api/v2/app/850123093077917716/restart", headers={"api-token": apitoken}).json()
 
 bot.run(token)
