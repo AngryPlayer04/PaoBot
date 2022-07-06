@@ -36,14 +36,18 @@ for filename in os.listdir('./Cogs'):
     bot.load_extension(f'Cogs.{filename[:-3]}')
 
 @bot.event
-async def on_ready():
+async def on_ready(self):
+
 
 
   print ('===============================')
   print (f'Acordei pra tomar café às {(datetime_BR.strftime("%H:%M"))}')
 
-
-
+  try:
+    self.tempo_task.start()
+  except Exception as e:
+    print(e)
+    
   bot.loop.create_task(status_task())
   #bot.loop.create_task(tempo_task())
   
