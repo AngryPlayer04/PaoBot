@@ -63,13 +63,13 @@ async def status_task():
                 name=f'Digite {prefix}help | Estou em {len(bot.guilds)} servidores'),status=disnake.Status.do_not_disturb)
         await asyncio.sleep(1800)
 
-@tasks.loop(seconds=3600)
+@tasks.loop(seconds=2)
 async def tempo_task():
 
   tz_SP = pytz.timezone('America/Sao_Paulo') 
   datetime_SP = datetime.now(tz_SP) 
   tempo = datetime_SP.strftime("%H:%M")
-  if tempo == '19:22':
+  if tempo == '19:25':
     print('o tempo bateu')
     async with aiohttp.ClientSession() as session:
       print("reiniciou?")
