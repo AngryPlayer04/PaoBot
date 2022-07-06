@@ -47,7 +47,7 @@ async def on_ready(self):
     self.tempo_task.start()
   except Exception as e:
     print(e)
-    
+
   bot.loop.create_task(status_task())
   #bot.loop.create_task(tempo_task())
   
@@ -73,7 +73,7 @@ async def tempo_task():
   tz_SP = pytz.timezone('America/Sao_Paulo') 
   datetime_SP = datetime.now(tz_SP) 
   tempo = datetime_SP.strftime("%H:%M")
-  if tempo == '19:25':
+  if tempo == '19:31':
     print('o tempo bateu')
     async with aiohttp.ClientSession() as session:
       print("reiniciou?")
