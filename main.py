@@ -36,17 +36,14 @@ for filename in os.listdir('./Cogs'):
     bot.load_extension(f'Cogs.{filename[:-3]}')
 
 @bot.event
-async def on_ready(self):
+async def on_ready():
 
 
 
   print ('===============================')
   print (f'Acordei pra tomar café às {(datetime_BR.strftime("%H:%M"))}')
 
-  try:
-    self.tempo_task.start()
-  except Exception as e:
-    print(e)
+  
 
   bot.loop.create_task(status_task())
   #bot.loop.create_task(tempo_task())
@@ -66,6 +63,12 @@ async def status_task():
         await bot.change_presence(activity=disnake.Activity(type=disnake.ActivityType.watching,
                 name=f'Digite {prefix}help | Estou em {len(bot.guilds)} servidores'),status=disnake.Status.do_not_disturb)
         await asyncio.sleep(1800)
+
+async def on_ready(self):
+  try:
+    self.tempo_task.start()
+  except Exception as e:
+    print(e)
 
 @tasks.loop(seconds=2)
 async def tempo_task():
