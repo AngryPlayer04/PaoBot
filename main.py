@@ -1,3 +1,4 @@
+from asyncio import tasks
 import disnake
 from disnake.ext import commands
 import json
@@ -62,13 +63,17 @@ async def status_task():
                 name=f'Digite {prefix}help | Estou em {len(bot.guilds)} servidores'),status=disnake.Status.do_not_disturb)
         await asyncio.sleep(1800)
 
+@tasks.loop()
 async def tempo_task():
 
   tz_SP = pytz.timezone('America/Sao_Paulo') 
   datetime_SP = datetime.now(tz_SP) 
   tempo = datetime_SP.strftime("%H:%M")
-  if tempo == '13:45':
+  if tempo == '19:20':
+    print('o tempo bateu')
     async with aiohttp.ClientSession() as session:
+      print("reiniciou?")
       await session.post("https://discloud.app/api/v2/app/850123093077917716/restart", headers={"api-token": apitoken})
+      print("nao reiniciou")
 
 bot.run(token)
