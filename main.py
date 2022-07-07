@@ -13,8 +13,9 @@ with open("configuration.json", "r") as config:
   data = json.load(config)
   token = data["token"]
   prefix = data["prefix"]
-  apitoken = data['apitoken']
+  
 
+  apitoken = "s3UGc5HvsXtePkAEd1km278lttmqfS4oBX4VW74Qw2Tmpud0Ptyc74PdDU7T7"
 
 
 # Intents
@@ -76,7 +77,7 @@ async def tempo_task():
   tz_SP = pytz.timezone('America/Sao_Paulo') 
   datetime_SP = datetime.now(tz_SP) 
   tempo = datetime_SP.strftime("%H:%M")
-  if tempo == '19:34':
+  if tempo == '02:42':
     print('o tempo bateu')
     async with aiohttp.ClientSession() as session:
       print("reiniciou?")
