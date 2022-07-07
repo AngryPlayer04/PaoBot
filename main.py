@@ -77,7 +77,7 @@ async def tempo_task():
   tz_SP = pytz.timezone('America/Sao_Paulo') 
   datetime_SP = datetime.now(tz_SP) 
   tempo = datetime_SP.strftime("%H:%M")
-  if tempo == '02:42':
+  if tempo == '00:00':
     print('o tempo bateu')
     async with aiohttp.ClientSession() as session:
       print("reiniciou?")
