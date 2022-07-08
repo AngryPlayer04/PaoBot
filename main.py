@@ -70,7 +70,7 @@ async def on_ready(self):
     print(e)
 
 @tasks.loop(seconds=15)
-async def tempo_task():
+async def tempo_task(self):
 
   tz_SP = pytz.timezone('America/Sao_Paulo') 
   datetime_SP = datetime.now(tz_SP) 
