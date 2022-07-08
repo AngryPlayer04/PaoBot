@@ -71,17 +71,14 @@ async def on_ready(self):
   except Exception as e:
     print(e)
 
-@tasks.loop(seconds=2)
+@tasks.loop(minutes=1)
 async def tempo_task():
 
   tz_SP = pytz.timezone('America/Sao_Paulo') 
   datetime_SP = datetime.now(tz_SP) 
   tempo = datetime_SP.strftime("%H:%M")
-  if tempo == '00:00':
+  if tempo == '18:03':
     print('o tempo bateu')
-    async with aiohttp.ClientSession() as session:
-      print("reiniciou?")
-      await session.post("https://discloud.app/api/v2/app/850123093077917716/restart", headers={"api-token": apitoken})
-      print("nao reiniciou")
+    
 
 bot.run(token)
