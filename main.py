@@ -73,6 +73,7 @@ async def tempo_task():
     print('o tempo bateu')
   if tempo != hora:
     print('nao é hora')
+  await asyncio.sleep(15)
     
  
  
