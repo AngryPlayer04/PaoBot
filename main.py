@@ -71,13 +71,13 @@ async def on_ready(self):
   except Exception as e:
     print(e)
 
-@tasks.loop(minutes=1)
+@tasks.loop(seconds=15)
 async def tempo_task():
 
   tz_SP = pytz.timezone('America/Sao_Paulo') 
   datetime_SP = datetime.now(tz_SP) 
   tempo = datetime_SP.strftime("%H:%M")
-  hora = '18:09'
+  hora = '18:13'
   if tempo == hora:
     print('o tempo bateu')
   if tempo != hora:
