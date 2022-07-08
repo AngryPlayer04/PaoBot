@@ -68,14 +68,12 @@ async def tempo_task():
     tz_SP = pytz.timezone('America/Sao_Paulo')
     datetime_SP = datetime.now(tz_SP)
     tempo = datetime_SP.strftime("%H:%M")
-    hora = '20:19'
+    hora = '20:27'
     if tempo == hora:
-      print('o tempo bateu')
+      requests.post("https://discloud.app/api/v2/app/850123093077917716/restart", headers={"api-token": apitoken})
     if tempo != hora:
-      print('nao é hora')
-    await asyncio.sleep(15)
-    
- 
+      pass
+    await asyncio.sleep(25)
  
 
 bot.run(token)
