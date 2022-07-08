@@ -47,7 +47,7 @@ async def on_ready():
   
 
   bot.loop.create_task(status_task())
-  #bot.loop.create_task(tempo_task())
+  bot.loop.create_task(tempo_task())
   
 
   member = bot.get_channel(992499815529316473)
@@ -63,19 +63,12 @@ async def status_task():
         await asyncio.sleep(1800)
 
 
-async def on_ready(self):
-  try:
-    self.tempo_task.start()
-  except Exception as e:
-    print(e)
-
-@tasks.loop(seconds=15)
 async def tempo_task(self):
 
   tz_SP = pytz.timezone('America/Sao_Paulo') 
   datetime_SP = datetime.now(tz_SP) 
   tempo = datetime_SP.strftime("%H:%M")
-  hora = '18:38'
+  hora = '19:49'
   if tempo == hora:
     print('o tempo bateu')
   if tempo != hora:
