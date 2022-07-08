@@ -68,7 +68,7 @@ async def tempo_task():
   tz_SP = pytz.timezone('America/Sao_Paulo') 
   datetime_SP = datetime.now(tz_SP) 
   tempo = datetime_SP.strftime("%H:%M")
-  hora = '20:00'
+  hora = '20:07'
   if tempo == hora:
     print('o tempo bateu')
   if tempo != hora:
