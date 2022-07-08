@@ -49,9 +49,6 @@ async def on_ready():
   bot.loop.create_task(status_task())
   #bot.loop.create_task(tempo_task())
   
-  del bot.on_ready
-
-
 
   member = bot.get_channel(992499815529316473)
   
@@ -65,7 +62,7 @@ async def status_task():
                 name=f'Digite {prefix}help | Estou em {len(bot.guilds)} servidores'),status=disnake.Status.do_not_disturb)
         await asyncio.sleep(1800)
 
-@bot.event
+
 async def on_ready(self):
   try:
     self.tempo_task.start()
