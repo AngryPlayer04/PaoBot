@@ -63,12 +63,12 @@ async def status_task():
         await asyncio.sleep(1800)
 
 
-async def tempo_task(self):
+async def tempo_task():
 
   tz_SP = pytz.timezone('America/Sao_Paulo') 
   datetime_SP = datetime.now(tz_SP) 
   tempo = datetime_SP.strftime("%H:%M")
-  hora = '19:49'
+  hora = '20:00'
   if tempo == hora:
     print('o tempo bateu')
   if tempo != hora:
