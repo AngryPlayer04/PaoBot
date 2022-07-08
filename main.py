@@ -64,16 +64,16 @@ async def status_task():
 
 
 async def tempo_task():
-
-  tz_SP = pytz.timezone('America/Sao_Paulo') 
-  datetime_SP = datetime.now(tz_SP) 
-  tempo = datetime_SP.strftime("%H:%M")
-  hora = '20:07'
-  if tempo == hora:
-    print('o tempo bateu')
-  if tempo != hora:
-    print('nao é hora')
-  await asyncio.sleep(15)
+  while True:
+    tz_SP = pytz.timezone('America/Sao_Paulo'
+    datetime_SP = datetime.now(tz_SP)
+    tempo = datetime_SP.strftime("%H:%M")
+    hora = '20:11'
+    if tempo == hora:
+      print('o tempo bateu')
+    if tempo != hora:
+      print('nao é hora')
+    await asyncio.sleep(15)
     
  
  
