@@ -6,7 +6,9 @@ class HelpCommand(commands.MinimalHelpCommand):
         destination = self.get_destination()
         for page in self.paginator.pages:
             emby = disnake.Embed(description=page, color = 0xffb354)
+            mes = 'Sabia que o bot agora tem um servidor? E um site também! \nServidor: https://discord.gg/ZECYSxMjSY \nSite: https://paobot.netfly.app'
             await destination.send(embed=emby)
+            await destination.send(mes)
 
 
     
