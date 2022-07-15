@@ -7,7 +7,6 @@ from datetime import datetime
 import pytz
 import asyncio
 import requests
-import aiohttp
 
 # Get configuration.json
 with open("configuration.json", "r") as config: 
@@ -69,11 +68,9 @@ async def tempo_task():
     tz_SP = pytz.timezone('America/Sao_Paulo')
     datetime_SP = datetime.now(tz_SP)
     tempo = datetime_SP.strftime("%H:%M")
-    hora = '13:15'
+    hora = '00:00'
     if tempo == hora:
-      async with aiohttp.ClientSession() as session:
-
-        await session.post("https://discloud.app/api/v2/app/850123093077917716/restart", headers={"api-token": apitoken})
+      requests.post("https://discloud.app/api/v2/app/850123093077917716/restart", headers={"api-token": apitoken})
     if tempo != hora:
       pass
     await asyncio.sleep(25)
