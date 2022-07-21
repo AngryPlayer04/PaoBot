@@ -27,7 +27,7 @@ class Calculators(commands.Cog, name = "Calculators"):
                     data = await res.json()
                     
                     #data = js['cotacaoCompra']
-                    await ctx.reply(f'Um dólar equivale atualmente a R${data}')
+                    await ctx.reply(f'Um dólar equivale atualmente a R${resadada}')
                 await session.close()
 
 
