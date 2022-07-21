@@ -1,8 +1,10 @@
-import decimal
-from currencyApi import CurrencyApi
 from disnake.ext import commands
 import numexpr as ne
-import asyncio
+from datetime import date
+import aiohttp
+
+dia = date.today()
+diacerto = dia.strftime('%m-%d-%y')
 
 class Calculators(commands.Cog, name = "Calculators"):
     def __init__(self, bot):
@@ -20,7 +22,12 @@ class Calculators(commands.Cog, name = "Calculators"):
     @commands.command(help = 'Diz a cotação do dólar', aliases = ['dol'])
     async def dolar(self, ctx):
         async with ctx.typing():
-            await ctx.reply(content = f'Um dólar equivale atualmente a R${data:.2f}')
+            async with aiohttp.ClientSession() as session:
+                async with session.get(f"https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/odata/CotacaoDolarDia(dataCotacao=@dataCotacao)?@dataCotacao='{diacerto}'&$top=100&$format=json&$select=cotacaoCompra") as res:
+                    js = await res.json()
+                    data = js['cotacaoCompra']
+                    await ctx.reply(f'Um dólar equivale atualmente a R${data:.2f}')
+                await session.close()
 
 
     @commands.command(help = 'Ping do bot com a API do Discord', aliases = ['p'])
