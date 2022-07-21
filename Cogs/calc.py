@@ -24,10 +24,10 @@ class Calculators(commands.Cog, name = "Calculators"):
         async with ctx.typing():
             async with aiohttp.ClientSession() as session:
                 async with session.get(f"https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/odata/CotacaoDolarDia(dataCotacao=@dataCotacao)?@dataCotacao='{diacerto}'&$top=100&$format=json&$select=cotacaoCompra") as res:
-                    js = await res.json()
-                    data = str(js)
+                    data = await res.json()
+                    
                     #data = js['cotacaoCompra']
-                    await ctx.reply(f'Um dólar equivale atualmente a R${data:.2f}')
+                    await ctx.reply(f'Um dólar equivale atualmente a R${data}')
                 await session.close()
 
 
