@@ -7,7 +7,7 @@ from translate import Translator
 import aiohttp
 import json
 import asyncio
-import easyocr
+
 
 class Util(commands.Cog, name = "Utility"):
     def __init__(self, bot):
