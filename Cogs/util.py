@@ -122,12 +122,14 @@ class Util(commands.Cog, name = "Utility"):
 
     @commands.command(help = 'OCR, lê imagens e transcreve o texto nelas contido')
     async def ocr(self, ctx):
-        img = disnake.message.Attachment.url
-        reader = easyocr.Reader(['pt','en','es'], gpu=False)
-        resultado = reader.readtext(f'{img}')
+        async with ctx.typing():
+            
+            img = disnake.message.Attachment.url
+            reader = easyocr.Reader(['pt','en','es']) #, gpu=False)
+            resultado = reader.readtext(f'{img}')
 
-        imgembed = disnake.Embed(title='OCR:', description=f'```{resultado}```')
-        await ctx.reply(embed= imgembed)
+            imgembed = disnake.Embed(title='OCR:', description=f'```{resultado}```')
+            await ctx.reply(embed= imgembed)
 
 
     @commands.Cog.listener()
