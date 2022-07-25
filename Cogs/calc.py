@@ -19,19 +19,6 @@ class Calculators(commands.Cog, name = "Calculators"):
         except (RuntimeError, OverflowError, ValueError, SyntaxError, NameError, TypeError, ZeroDivisionError):
             await ctx.reply(f"Desculpe, eu não posso calcular `{express}` ou ocorreu um erro desconhecido.")
 
-    #colocar um if response = 200: continue
-
-    #@commands.command(help = 'Diz a cotação do dólar', aliases = ['dol'])
-    #async def dolar(self, ctx):
-        #async with ctx.typing():
-            #async with aiohttp.ClientSession() as session:
-                #async with session.get(f"https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/odata/CotacaoDolarDia(dataCotacao=@dataCotacao)?@dataCotacao='{diacerto}'&$top=100&$format=json&$select=cotacaoCompra") as res:
-                    #data = await res.json()
-                    
-                    #data = js['cotacaoCompra']
-                    #await ctx.reply(f'Um dólar equivale atualmente a R${res}')
-                #await session.close()
-
 
     @commands.command(help = 'Ping do bot com a API do Discord', aliases = ['p'])
     async def ping(self, ctx):

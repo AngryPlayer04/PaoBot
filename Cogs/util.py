@@ -7,7 +7,7 @@ from translate import Translator
 import aiohttp
 import json
 import asyncio
-
+import easyocr
 
 class Util(commands.Cog, name = "Utility"):
     def __init__(self, bot):
@@ -118,6 +118,16 @@ class Util(commands.Cog, name = "Utility"):
             mensagem = await chan.fetch_message(chan.last_message_id)
             await lg.send(f'De {mensagem.author.id}({mensagem.author}): \n{mensagem.content}')
             await chan.delete()
+
+
+    @commands.command(help = 'OCR, lê imagens e transcreve o texto nelas contido')
+    async def ocr(self, ctx):
+        img = disnake.message.Attachment.url
+        reader = easyocr.Reader(['pt','en','es'], gpu=False)
+        resultado = reader.readtext(f'{img}')
+
+        imgembed = disnake.Embed(title='OCR:', description=f'```{resultado}```')
+        await ctx.reply(embed= imgembed)
 
 
     @commands.Cog.listener()
