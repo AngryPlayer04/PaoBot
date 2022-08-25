@@ -1,6 +1,5 @@
-from asyncio import tasks
 import discord
-from discord.ext import commands, tasks
+from discord.ext import commands
 import json
 import os 
 from datetime import datetime 
@@ -30,8 +29,6 @@ datetime_BR = datetime.now(tz_BR)
 
 @bot.event
 async def on_ready():
-  await bot.load_extension('cogs.')
-
   for filename in os.listdir('./Cogs'):
     if filename.endswith('.py'):
       await bot.load_extension(f'Cogs.{filename[:-3]}')
