@@ -30,16 +30,14 @@ datetime_BR = datetime.now(tz_BR)
 
 @bot.event
 async def on_ready():
-  bot.load_extension('cogs.')
+  await bot.load_extension('cogs.')
 
-for filename in os.listdir('./Cogs'):
-  if filename.endswith('.py'):
-    bot.load_extension(f'Cogs.{filename[:-3]}')
+  for filename in os.listdir('./Cogs'):
+    if filename.endswith('.py'):
+      await bot.load_extension(f'Cogs.{filename[:-3]}')
 
 @bot.event
 async def on_ready():
-
-
 
   print ('===============================')
   print (f'Acordei pra tomar café às {(datetime_BR.strftime("%H:%M"))}')
@@ -74,7 +72,7 @@ async def tempo_task():
     if tempo != hora:
       pass
     await asyncio.sleep(25)
- 
+
 
 
 bot.run(token)
