@@ -1,6 +1,6 @@
 from asyncio import tasks
-import disnake
-from disnake.ext import commands, tasks
+import discord
+from discord.ext import commands, tasks
 import json
 import os 
 from datetime import datetime 
@@ -19,7 +19,7 @@ with open("configuration.json", "r") as config:
 
 
 # Intents
-intents = disnake.Intents.default()
+intents = discord.Intents.default()
 intents.message_content = True
 
 # The bot
@@ -58,8 +58,8 @@ async def on_ready():
 
 async def status_task():
     while True:
-        await bot.change_presence(activity=disnake.Activity(type=disnake.ActivityType.watching,
-                name=f'Digite {prefix}help | Estou em {len(bot.guilds)} servidores'),status=disnake.Status.online)
+        await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.watching,
+                name=f'Digite {prefix}help | Estou em {len(bot.guilds)} servidores'),status=discord.Status.online)
         await asyncio.sleep(1800)
 
 

@@ -1,6 +1,6 @@
 import asyncio
-from disnake import Guild, User
-from disnake.ext import commands
+from discord import Guild, User
+from discord.ext import commands
 import json
 from datetime import datetime
 import pytz

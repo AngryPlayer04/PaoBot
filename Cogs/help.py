@@ -1,11 +1,11 @@
-import disnake
-from disnake.ext import commands
+import discord
+from discord.ext import commands
 
 class HelpCommand(commands.MinimalHelpCommand):
     async def send_pages(self):
         destination = self.get_destination()
         for page in self.paginator.pages:
-            emby = disnake.Embed(description=page, color = 0xffb354)
+            emby = discord.Embed(description=page, color = 0xffb354)
             mes = 'Sabia que o bot agora tem um servidor? E um site também! \nServidor: https://discord.gg/ZECYSxMjSY \nSite: https://paobot.netfly.app'
             await destination.send(embed=emby)
             await destination.send(mes)

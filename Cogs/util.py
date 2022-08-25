@@ -1,6 +1,6 @@
 from async_timeout import timeout
-import disnake 
-from disnake.ext import commands
+import discord
+from discord.ext import commands
 from random import choice, randrange, randint
 import requests
 from translate import Translator
@@ -41,7 +41,7 @@ class Util(commands.Cog, name = "Utility"):
                 gifch = randint(0, 49)
                 bread = (data['data'][gifch]['images']['original']['url'])
             
-                bembed = disnake.Embed(color=0xffb354)
+                bembed = discord.Embed(color=0xffb354)
                 bembed.set_image(bread)
                 bembed.set_author(name="Pão Bot", icon_url="https://images-ext-2.discordapp.net/external/lK0peJ7nECCGR6-5ND3L1ysNwT1Iq1DVkHJoF19Pwcg/%3Fsize%3D1024/https/cdn.discordapp.com/avatars/850123093077917716/2fe303ab1bf685becf029d72834b0f16.png")
                 bembed.set_footer(text='Powered by GIPHY', icon_url='https://giphy.com/static/img/about/stickers/logo-spin.gif')
@@ -50,12 +50,12 @@ class Util(commands.Cog, name = "Utility"):
         await session.close()
 
     @commands.hybrid_command(name='avatar', help = 'Envia o avatar de um usuário, podendo ser uma menção ou ID', aliases = ['pfp','icon', 'icone', 'ícone'])
-    async def avatar(self,ctx, *, usuario: disnake.Member = None):
+    async def avatar(self,ctx, *, usuario: discord.Member = None):
 
         if usuario is None:
             usuario = ctx.author
         memberAvatar = usuario.avatar.url
-        aEmbed = disnake.Embed(title = usuario.name, color=0xffb354, description= f'[Avatar:]({memberAvatar})')
+        aEmbed = discord.Embed(title = usuario.name, color=0xffb354, description= f'[Avatar:]({memberAvatar})')
         aEmbed.set_image(url=memberAvatar)
         await ctx.reply(embed = aEmbed)
         
@@ -69,7 +69,7 @@ class Util(commands.Cog, name = "Utility"):
             eti = str(d[0]['etymology'])
             ult = res.replace('[','**').replace(']',':**').replace("'","").replace('.,','.').replace('.', '.\n')
 
-            dEmbed = disnake.Embed(title = palavra.capitalize(), color = 0xffb354, description = gen.capitalize())
+            dEmbed = discord.Embed(title = palavra.capitalize(), color = 0xffb354, description = gen.capitalize())
             dEmbed.set_thumbnail(url = 'https://purepng.com/public/uploads/large/purepng.com-dictionary-icon-android-lollipopsymbolsiconsgooglegoogle-iconsandroid-lollipoplollipop-iconsandroid-50-721522597173cj5xd.png')
             dEmbed.add_field(name = 'Etimologia:', value = eti + "\n\u200b", inline = False)
             dEmbed.add_field(name = 'Significado:', value = ult, inline = False) 
@@ -91,22 +91,22 @@ class Util(commands.Cog, name = "Utility"):
     async def ticket(self, ctx):
 
         permissao1 = {
-        ctx.guild.default_role: disnake.PermissionOverwrite(read_messages = False),
-        ctx.guild.me: disnake.PermissionOverwrite(read_messages = True),
-        ctx.author: disnake.PermissionOverwrite(read_messages = True)
+        ctx.guild.default_role: discord.PermissionOverwrite(read_messages = False),
+        ctx.guild.me: discord.PermissionOverwrite(read_messages = True),
+        ctx.author: discord.PermissionOverwrite(read_messages = True)
         }
 
         permissao2 = {
-        ctx.guild.default_role: disnake.PermissionOverwrite(read_messages = False),
-        ctx.guild.me: disnake.PermissionOverwrite(read_messages = True),
+        ctx.guild.default_role: discord.PermissionOverwrite(read_messages = False),
+        ctx.guild.me: discord.PermissionOverwrite(read_messages = True),
         }
 
-        chan = await disnake.Guild.create_text_channel(ctx.guild, name = f'{ctx.author}', overwrites= permissao1)
+        chan = await discord.Guild.create_text_channel(ctx.guild, name = f'{ctx.author}', overwrites= permissao1)
         await ctx.reply(f'Envie no {chan.mention} a sua dúvida ou sugestão')
         await chan.send(f'{ctx.author.mention} envie aqui a sua dúvida ou sugestão dentro de uma única mensagem')
         await asyncio.sleep(30) #mudar pra 30 ou mais após dar certo
         
-        canal = disnake.utils.get(ctx.guild.text_channels, name = 'ticket-logs')
+        canal = discord.utils.get(ctx.guild.text_channels, name = 'ticket-logs')
         
         if canal:
             mensagem = await chan.fetch_message(chan.last_message_id)
@@ -114,7 +114,7 @@ class Util(commands.Cog, name = "Utility"):
             await chan.delete()
 
         else:
-            lg = await disnake.Guild.create_text_channel(ctx.guild, name = 'ticket-logs', overwrites= permissao2)
+            lg = await discord.Guild.create_text_channel(ctx.guild, name = 'ticket-logs', overwrites= permissao2)
             mensagem = await chan.fetch_message(chan.last_message_id)
             await lg.send(f'De {mensagem.author.id}({mensagem.author}): \n{mensagem.content}')
             await chan.delete()
@@ -127,6 +127,6 @@ class Util(commands.Cog, name = "Utility"):
 
 
 def setup(bot):
-    guild=disnake.Object(id=991449832474554428)
+    guild=discord.Object(id=991449832474554428)
     bot.add_cog(Util(bot), guild)
     bot.tree.copy_global_to(guild=guild)
