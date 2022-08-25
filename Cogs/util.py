@@ -20,6 +20,7 @@ class Util(commands.Cog, name = "Utility"):
         else:
             await ctx.reply(":crown: Coroa!")
 
+    @commands.guilds(discord.Object(id=991449832474554428))
     @commands.hybrid_command(name= 'receita')
     async def receita(self, ctx):
         lin = "https://www.tudogostoso.com.br/receita/72313-pao-caseiro-facil.html",\
@@ -127,6 +128,5 @@ class Util(commands.Cog, name = "Utility"):
 
 
 async def setup(bot):
-    guild=discord.Object(id=991449832474554428)
-    await bot.add_cog(Util(bot), guild)
-    await bot.tree.copy_global_to(guild=guild)
+    await bot.add_cog(Util(bot))
+    bot.tree.copy_global_to(guild=991449832474554428)
