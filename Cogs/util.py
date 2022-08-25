@@ -20,7 +20,7 @@ class Util(commands.Cog, name = "Utility"):
         else:
             await ctx.reply(":crown: Coroa!")
 
-    @commands.command()
+    @commands.hybrid_command(name= 'receita')
     async def receita(self, ctx):
         lin = "https://www.tudogostoso.com.br/receita/72313-pao-caseiro-facil.html",\
         "https://www.tudogostoso.com.br/receita/79996-pao-de-queijo-3-ingredientes.html", \
@@ -49,7 +49,7 @@ class Util(commands.Cog, name = "Utility"):
             
         await session.close()
 
-    @commands.command(help = 'Envia o avatar de um usuário, podendo ser uma menção ou ID', aliases = ['pfp','icon', 'icone', 'ícone'])
+    @commands.hybrid_command(name='avatar', help = 'Envia o avatar de um usuário, podendo ser uma menção ou ID', aliases = ['pfp','icon', 'icone', 'ícone'])
     async def avatar(self,ctx, *, usuario: disnake.Member = None):
 
         if usuario is None:
@@ -59,7 +59,7 @@ class Util(commands.Cog, name = "Utility"):
         aEmbed.set_image(url=memberAvatar)
         await ctx.reply(embed = aEmbed)
         
-    @commands.command(help = 'Busca pelo significado de uma palavra no dicionário.', aliases = ['dicionário', 'dicionario'])
+    @commands.hybrid_command(name='dicio', help = 'Busca pelo significado de uma palavra no dicionário.', aliases = ['dicionário', 'dicionario'])
     async def dicio(self, ctx, *, palavra):
         async with ctx.typing():
             d = requests.get(f'https://significado.herokuapp.com/v2/{palavra}').json()
@@ -76,7 +76,7 @@ class Util(commands.Cog, name = "Utility"):
 
             await ctx.reply(embed = dEmbed) 
 
-    @commands.command(help = 'Traduz do inglês para o português', aliases = ['translate', 'tl', 'tradutor'])
+    @commands.hybtid_command(name= 'traduzir',help = 'Traduz do inglês para o português', aliases = ['translate', 'tl', 'tradutor'])
     async def traduzir(self, ctx, *, origem):
         if '@everyone' in origem:
             await ctx.reply('Nada de mencionar todo mundo')
@@ -87,7 +87,7 @@ class Util(commands.Cog, name = "Utility"):
                 tn = tl.translate(origem)
                 await ctx.reply(tn)
 
-    @commands.command(help = 'Comando para abrir Tickets')
+    @commands.hybrid_command(name= 'ticket', help = 'Comando para abrir Tickets')
     async def ticket(self, ctx):
 
         permissao1 = {
@@ -127,4 +127,6 @@ class Util(commands.Cog, name = "Utility"):
 
 
 def setup(bot):
-    bot.add_cog(Util(bot))
+    guild=disnake.Object(id=991449832474554428)
+    bot.add_cog(Util(bot), guild)
+    bot.tree.copy_global_to(guild=guild)
