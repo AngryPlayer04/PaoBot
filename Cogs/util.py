@@ -1,5 +1,6 @@
 from async_timeout import timeout
 import discord
+from discord import app_commands
 from discord.ext import commands
 from random import choice, randrange, randint
 import requests
@@ -129,4 +130,4 @@ class Util(commands.Cog, name = "Utility"):
 
 async def setup(bot):
     await bot.add_cog(Util(bot))
-    bot.tree.copy_global_to(guild=991449832474554428)
+    await bot.tree.copy_global_to(guild=991449832474554428)
