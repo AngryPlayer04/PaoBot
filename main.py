@@ -29,7 +29,7 @@ datetime_BR = datetime.now(tz_BR)
 
 class PBot(commands.bot):
   async def setup_hook(self):
-    await bot.load_extension('cogs.')
+    await self.load_extension('cogs.')
 
 @bot.event
 async def on_ready():
