@@ -128,5 +128,5 @@ class Util(commands.Cog, name = "Utility"):
 
 async def setup(bot):
     guild=discord.Object(id=991449832474554428)
-    bot.add_cog(Util(bot), guild)
-    bot.tree.copy_global_to(guild=guild)
+    await bot.add_cog(Util(bot), guild)
+    await bot.tree.copy_global_to(guild=guild)
