@@ -30,10 +30,12 @@ datetime_BR = datetime.now(tz_BR)
 @bot.event
 async def on_ready():
   await bot.load_extension('cogs.')
-
+  print('ex')
   for filename in os.listdir('./Cogs'):
     if filename.endswith('.py'):
       await bot.load_extension(f'Cogs.{filename[:-3]}')
+      print('tensao carregaa')
+      
 
 @bot.event
 async def on_ready():
