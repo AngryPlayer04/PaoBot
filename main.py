@@ -27,13 +27,9 @@ bot = commands.Bot(prefix, intents = intents, case_insensitive = True)
 tz_BR = pytz.timezone('America/Sao_Paulo') 
 datetime_BR = datetime.now(tz_BR)
 
-@bot.event
-async def on_ready():
-  await bot.load_extension('cogs.')
-
-  for filename in os.listdir('./Cogs'):
-    if filename.endswith('.py'):
-      await bot.load_extension(f'Cogs.{filename[:-3]}')
+class PBot(commands.bot):
+  async def setup_hook(self):
+    await bot.load_extension('cogs.')
 
 @bot.event
 async def on_ready():
