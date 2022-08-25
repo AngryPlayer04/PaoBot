@@ -12,7 +12,7 @@ import asyncio
 class Util(commands.Cog, name = "Utility"):
     def __init__(self, bot):
         self.bot = bot 
-    @commands.command()
+    @commands.hybrid_command(name='flip')
     async def flip(self, ctx):
         moeda = randrange(1,3)
         if moeda == 1:
@@ -126,7 +126,7 @@ class Util(commands.Cog, name = "Utility"):
         print('===============================')
 
 
-def setup(bot):
+async def setup(bot):
     guild=discord.Object(id=991449832474554428)
     bot.add_cog(Util(bot), guild)
     bot.tree.copy_global_to(guild=guild)
