@@ -1,4 +1,4 @@
-discord.py
+disnake
 pytz
 numexpr
 translate
