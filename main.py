@@ -22,7 +22,7 @@ intents = discord.Intents.default()
 intents.message_content = True
 
 # The bot
-bot = commands.Bot(prefix, intents = intents, case_insensitive = True,test_guilds=[991449832474554428, 793633014662823993], sync_commands_debug=True)
+bot = commands.Bot(prefix, intents = intents, case_insensitive = True,test_guilds=[991449832474554428, 793633014662823993], sync_commands=True)
 
 tz_BR = pytz.timezone('America/Sao_Paulo') 
 datetime_BR = datetime.now(tz_BR)
