@@ -1,6 +1,6 @@
-import discord
-from discord.ext import commands
-from discord.utils import format_dt
+import disnake
+from disnake.ext import commands
+from disnake.utils import format_dt
 import requests
 import pathlib
 import zipfile
@@ -24,8 +24,8 @@ class Owner(commands.Cog, name = "Owner"):
             res = re['logs'][:1018]
             li = re['link']
 
-            oEmbed = discord.Embed(title = 'Log:', color = 0xffb354, description = f'[Link do log]({li})')
-            oEmbed.set_author(name = 'Pão Bot', icon_url = 'https://cdn.discordapp.com/avatars/850123093077917716/2fe303ab1bf685becf029d72834b0f16.png')
+            oEmbed = disnake.Embed(title = 'Log:', color = 0xffb354, description = f'[Link do log]({li})')
+            oEmbed.set_author(name = 'Pão Bot', icon_url = 'https://cdn.disnakeapp.com/avatars/850123093077917716/2fe303ab1bf685becf029d72834b0f16.png')
             oEmbed.add_field(name ='\u200b', value = f'```{res}```', inline=False)
             oEmbed.set_thumbnail(url = 'https://cdn-icons-png.flaticon.com/512/2125/2125009.png')
 
@@ -42,7 +42,7 @@ class Owner(commands.Cog, name = "Owner"):
                 cpu = st['cpu']
                 mem = st['memory']
                 restart = st['last_restart']
-                embed = discord.Embed(title= 'Status:', color= 0xffb354, description= f'{cont}\n{cpu}\n{mem}\n{restart}')
+                embed = disnake.Embed(title= 'Status:', color= 0xffb354, description= f'{cont}\n{cpu}\n{mem}\n{restart}')
                 await ctx.reply(embed = embed)
             await session.close()
 
@@ -62,7 +62,7 @@ class Owner(commands.Cog, name = "Owner"):
                 dt = datetime.now()
                 td = timedelta(days= dias, hours= hour, minutes= minutos, seconds= sec)
                 planoend = format_dt(dt + td, style='R')
-                embed = discord.Embed(title= 'Info do plano:', color= 0xffb354, description= f'Plano: {plano}\nTermina {planoend}')
+                embed = disnake.Embed(title= 'Info do plano:', color= 0xffb354, description= f'Plano: {plano}\nTermina {planoend}')
                 await ctx.reply(embed = embed)
             await session.close()
 
@@ -82,7 +82,7 @@ class Owner(commands.Cog, name = "Owner"):
         with zipfile.ZipFile('backup.zip', mode = 'w') as archive:
             for file_path in dire.rglob('*'):
                 archive.write(file_path, arcname=file_path.relative_to(dire))
-        await ctx.author.send(file = discord.File(r'backup.zip'))
+        await ctx.author.send(file = disnake.File(r'backup.zip'))
         os.remove('backup.zip')
         await ctx.message.add_reaction('✅')
         
