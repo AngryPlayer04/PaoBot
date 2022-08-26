@@ -26,7 +26,7 @@ bot = commands.Bot(prefix, intents = intents, case_insensitive = True,test_guild
 
 tz_BR = pytz.timezone('America/Sao_Paulo') 
 datetime_BR = datetime.now(tz_BR)
-     
+
 
 @bot.event
 async def on_ready():
@@ -65,9 +65,7 @@ async def tempo_task():
       pass
     await asyncio.sleep(25)
 
-@bot.slash_command(guild_ids=[991449832474554428, 793633014662823993])
-async def ping(inter):
-  await inter.response.send_message("Pong!")
+
 
 bot.load_extensions('./Cogs')
 
