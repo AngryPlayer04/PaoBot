@@ -11,11 +11,11 @@ import pytz
 
 token = 's3UGc5HvsXtePkAEd1km278lttmqfS4oBX4VW74Qw2Tmpud0Ptyc74PdDU7T7'
 
-class Owner(commands.Cog, name = "Owner"):
+class owner(commands.Cog, name = "Owner"):
     def __init__(self, bot):
         self.bot = bot 
 
-    @commands.command(help = 'Logs do bot', aliases = ['log'])
+    @commands.slash_command(help = 'Logs do bot', aliases = ['log'])
     @commands.is_owner()
     async def logs(self, inter):
         async with inter.typing():
@@ -32,7 +32,7 @@ class Owner(commands.Cog, name = "Owner"):
             await inter.response.send_message(embed = oEmbed)
 
 
-    @commands.command(help = 'Status do bot')
+    @commands.slash_command(help = 'Status do bot')
     @commands.is_owner()
     async def status(self, inter):
         async with aiohttp.ClientSession() as session:
@@ -47,7 +47,7 @@ class Owner(commands.Cog, name = "Owner"):
             await session.close()
 
 
-    @commands.command(help = 'Status do plano')
+    @commands.slash_command(help = 'Status do plano')
     @commands.is_owner()
     async def user(self, inter):
         async with aiohttp.ClientSession() as session:
@@ -67,14 +67,14 @@ class Owner(commands.Cog, name = "Owner"):
             await session.close()
 
 
-    @commands.command(help = 'Reinicia o bot(*Apenas o dono do bot pode utilizar este comando*)', aliases = ['reiniciar', 'r'])
+    @commands.slash_command(help = 'Reinicia o bot(*Apenas o dono do bot pode utilizar este comando*)', aliases = ['reiniciar', 'r'])
     @commands.is_owner()
     async def restart(self, inter):
         await inter.response.send_message('Reiniciando <a:digitando:931267989033082901>')
         result = requests.post("https://discloud.app/api/v2/app/850123093077917716/restart", headers={"api-token": token}).json()
 
 
-    @commands.command(help = 'Faz o backup do bot e envia em zip', aliases = ['b','bk'])
+    @commands.slash_command(help = 'Faz o backup do bot e envia em zip', aliases = ['b','bk'])
     @commands.is_owner()
     async def backup(self, inter):
 
@@ -96,4 +96,4 @@ class Owner(commands.Cog, name = "Owner"):
 
 
 def setup(bot):
-    bot.add_cog(Owner(bot))
+    bot.add_cog(owner(bot))
