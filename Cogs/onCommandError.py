@@ -1,5 +1,5 @@
-from discord.ext import commands
-from discord.ext.commands import MissingPermissions, CheckFailure, CommandNotFound, MemberNotFound, CommandInvokeError
+from disnake.ext import commands
+from disnake.ext.commands import MissingPermissions, CheckFailure, CommandNotFound, MemberNotFound, CommandInvokeError
 
 
 class OnCommandErrorCog(commands.Cog, name="on command error"):
