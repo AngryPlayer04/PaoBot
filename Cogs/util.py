@@ -52,7 +52,7 @@ class util(commands.Cog, name = "Utility"):
         await session.close()
 
     @commands.slash_command(name='avatar', help = 'Envia o avatar de um usuário, podendo ser uma menção ou ID', aliases = ['pfp','icon', 'icone', 'ícone'])
-    async def avatar(inter, *, usuario: disnake.Member = None):
+    async def avatar(inter, usuario: disnake.Member = None):
 
         if usuario is None:
             usuario = inter.author
@@ -62,7 +62,7 @@ class util(commands.Cog, name = "Utility"):
         await inter.response.send_message(embed = aEmbed)
         
     @commands.slash_command(name='dicio', help = 'Busca pelo significado de uma palavra no dicionário.', aliases = ['dicionário', 'dicionario'])
-    async def dicio( inter, *, palavra):
+    async def dicio( inter, palavra):
         async with inter.typing():
             d = requests.get(f'https://significado.herokuapp.com/v2/{palavra}').json()
 
@@ -79,7 +79,7 @@ class util(commands.Cog, name = "Utility"):
             await inter.response.send_message(embed = dEmbed) 
 
     @commands.slash_command(help = 'Traduz do inglês para o português', aliases = ['translate', 'tl', 'tradutor'])
-    async def traduzir( inter, *, origem):
+    async def traduzir( inter, origem):
         if '@everyone' in origem:
             await inter.response.send_message('Nada de mencionar todo mundo')
 
@@ -128,6 +128,6 @@ class util(commands.Cog, name = "Utility"):
         print('===============================')
 
 
-async def setup(bot):
-    await bot.add_cog(util(bot))
-    
+def setup(bot):
+    bot.add_cog(util(bot))
+
