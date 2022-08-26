@@ -22,8 +22,8 @@ class util(commands.Cog, name = "Utility"):
             await inter.response.send_message(":crown: Coroa!")
 
 
-    @commands.slash_command()
-    async def receita( inter):
+    @commands.slash_command(description='Envia receitas de pão')
+    async def receita(inter):
         lin = "https://www.tudogostoso.com.br/receita/72313-pao-caseiro-facil.html",\
         "https://www.tudogostoso.com.br/receita/79996-pao-de-queijo-3-ingredientes.html", \
         "https://www.tudogostoso.com.br/receita/83-pao-de-batata.html", \
@@ -51,7 +51,7 @@ class util(commands.Cog, name = "Utility"):
             
         await session.close()
 
-    @commands.slash_command(name='avatar', help = 'Envia o avatar de um usuário, podendo ser uma menção ou ID', aliases = ['pfp','icon', 'icone', 'ícone'])
+    @commands.slash_command('Envia o avatar de um usuário, podendo ser uma menção ou ID', aliases = ['pfp','icon', 'icone', 'ícone'])
     async def avatar(inter, usuario: disnake.Member = None):
 
         if usuario is None:
@@ -61,7 +61,7 @@ class util(commands.Cog, name = "Utility"):
         aEmbed.set_image(url=memberAvatar)
         await inter.response.send_message(embed = aEmbed)
         
-    @commands.slash_command(name='dicio', help = 'Busca pelo significado de uma palavra no dicionário.', aliases = ['dicionário', 'dicionario'])
+    @commands.slash_command(description = 'Busca pelo significado de uma palavra no dicionário.', aliases = ['dicionário', 'dicionario'])
     async def dicio( inter, palavra):
 
         d = requests.get(f'https://significado.herokuapp.com/v2/{palavra}').json()
@@ -78,7 +78,7 @@ class util(commands.Cog, name = "Utility"):
 
         await inter.response.send_message(embed = dEmbed) 
 
-    @commands.slash_command(help = 'Traduz do inglês para o português', aliases = ['translate', 'tl', 'tradutor'])
+    @commands.slash_command(description = 'Traduz do inglês para o português')
     async def traduzir( inter, origem):
         if '@everyone' in origem:
             await inter.response.send_message('Nada de mencionar todo mundo')
@@ -88,7 +88,7 @@ class util(commands.Cog, name = "Utility"):
             tn = tl.translate(origem)
             await inter.response.send_message(tn)
 
-    @commands.slash_command(name= 'ticket', help = 'Comando para abrir Tickets')
+    @commands.slash_command(description = 'Comando para abrir Tickets')
     async def ticket(inter):
 
         permissao1 = {
