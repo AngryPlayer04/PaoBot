@@ -13,7 +13,7 @@ import asyncio
 class util(commands.Cog, name = "Utility"):
     def __init__(self, bot):
         self.bot = bot 
-    @commands.slash_command()
+    @commands.slash_command(name='flip',description='Cara ou coroa')
     async def flip(inter):
         moeda = randrange(0,6)
         if moeda >= 3:
