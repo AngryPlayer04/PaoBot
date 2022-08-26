@@ -21,7 +21,7 @@ class util(commands.Cog, name = "Utility"):
         else:
             await ctx.reply(":crown: Coroa!")
 
-    @discord.app_commands.guilds(discord.Object(id=991449832474554428))
+
     @commands.hybrid_command(name= 'receita')
     async def receita(self, ctx):
         lin = "https://www.tudogostoso.com.br/receita/72313-pao-caseiro-facil.html",\
@@ -78,7 +78,7 @@ class util(commands.Cog, name = "Utility"):
 
             await ctx.reply(embed = dEmbed) 
 
-    @commands.hybtid_command(name= 'traduzir',help = 'Traduz do inglês para o português', aliases = ['translate', 'tl', 'tradutor'])
+    @commands.hybrid_command(name= 'traduzir',help = 'Traduz do inglês para o português', aliases = ['translate', 'tl', 'tradutor'])
     async def traduzir(self, ctx, *, origem):
         if '@everyone' in origem:
             await ctx.reply('Nada de mencionar todo mundo')
