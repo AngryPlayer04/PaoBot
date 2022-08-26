@@ -15,7 +15,7 @@ class util(commands.Cog, name = "Utility"):
         self.bot = bot 
     @commands.slash_command()
     async def flip(inter):
-        moeda = randrange(1,2)
+        moeda = randrange(0,2)
         if moeda == 1:
             await inter.response.send_message(":slight_smile: Cara!")
         if moeda == 2:
