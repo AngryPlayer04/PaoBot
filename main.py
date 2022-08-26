@@ -67,6 +67,10 @@ async def tempo_task():
       pass
     await asyncio.sleep(25)
 
+@bot.slash_command(name='ping')
+async def ping(inter):
+  await inter.response.send_message("Pong!")
+
 
 
 bot.run(token)
