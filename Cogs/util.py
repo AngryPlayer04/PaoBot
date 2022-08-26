@@ -10,7 +10,7 @@ import json
 import asyncio
 
 
-class Util(commands.Cog, name = "Utility"):
+class util(commands.Cog, name = "Utility"):
     def __init__(self, bot):
         self.bot = bot 
     @commands.hybrid_command(name='flip')
@@ -129,5 +129,5 @@ class Util(commands.Cog, name = "Utility"):
 
 
 async def setup(bot):
-    await bot.add_cog(Util(bot))
-    await bot.tree.copy_global_to(guild=991449832474554428)
+    await bot.add_cog(util(bot))
+    
