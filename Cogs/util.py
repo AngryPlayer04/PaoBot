@@ -63,20 +63,20 @@ class util(commands.Cog, name = "Utility"):
         
     @commands.slash_command(name='dicio', help = 'Busca pelo significado de uma palavra no dicionário.', aliases = ['dicionário', 'dicionario'])
     async def dicio( inter, palavra):
-        async with inter.typing():
-            d = requests.get(f'https://significado.herokuapp.com/v2/{palavra}').json()
 
-            res = str(d[0]['meanings'])[1:-1]
-            gen = str(d[0]['partOfSpeech'])
-            eti = str(d[0]['etymology'])
-            ult = res.replace('[','**').replace(']',':**').replace("'","").replace('.,','.').replace('.', '.\n')
+        d = requests.get(f'https://significado.herokuapp.com/v2/{palavra}').json()
 
-            dEmbed = disnake.Embed(title = palavra.capitalize(), color = 0xffb354, description = gen.capitalize())
-            dEmbed.set_thumbnail(url = 'https://purepng.com/public/uploads/large/purepng.com-dictionary-icon-android-lollipopsymbolsiconsgooglegoogle-iconsandroid-lollipoplollipop-iconsandroid-50-721522597173cj5xd.png')
-            dEmbed.add_field(name = 'Etimologia:', value = eti + "\n\u200b", inline = False)
-            dEmbed.add_field(name = 'Significado:', value = ult, inline = False) 
+        res = str(d[0]['meanings'])[1:-1]
+        gen = str(d[0]['partOfSpeech'])
+        eti = str(d[0]['etymology'])
+        ult = res.replace('[','**').replace(']',':**').replace("'","").replace('.,','.').replace('.', '.\n')
 
-            await inter.response.send_message(embed = dEmbed) 
+        dEmbed = disnake.Embed(title = palavra.capitalize(), color = 0xffb354, description = gen.capitalize())
+        dEmbed.set_thumbnail(url = 'https://purepng.com/public/uploads/large/purepng.com-dictionary-icon-android-lollipopsymbolsiconsgooglegoogle-iconsandroid-lollipoplollipop-iconsandroid-50-721522597173cj5xd.png')
+        dEmbed.add_field(name = 'Etimologia:', value = eti + "\n\u200b", inline = False)
+        dEmbed.add_field(name = 'Significado:', value = ult, inline = False) 
+
+        await inter.response.send_message(embed = dEmbed) 
 
     @commands.slash_command(help = 'Traduz do inglês para o português', aliases = ['translate', 'tl', 'tradutor'])
     async def traduzir( inter, origem):
@@ -89,7 +89,7 @@ class util(commands.Cog, name = "Utility"):
             await inter.response.send_message(tn)
 
     @commands.slash_command(name= 'ticket', help = 'Comando para abrir Tickets')
-    async def ticket( inter):
+    async def ticket(inter):
 
         permissao1 = {
         inter.guild.default_role: disnake.PermissionOverwrite(read_messages = False),

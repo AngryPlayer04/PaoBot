@@ -12,18 +12,18 @@ class Calculators(commands.Cog, name = "Calculators"):
 
     @commands.command(help = 'Calcula a expressão dada (Use `/` para divisão, `*` para multiplicação e `**`para potência)', 
     aliases = ['calculadora', 'calcular'])
-    async def calc(self, ctx, *, express):
+    async def calc(self, inter, express):
         try:
             soma = ne.evaluate(express)
-            await ctx.reply(f":abacus: **|** O resultado é:`{soma}`")
+            await inter.response.send_message(f":abacus: **|** O resultado é:`{soma}`")
         except (RuntimeError, OverflowError, ValueError, SyntaxError, NameError, TypeError, ZeroDivisionError):
-            await ctx.reply(f"Desculpe, eu não posso calcular `{express}` ou ocorreu um erro desconhecido.")
+            await inter.response.send_message(f"Desculpe, eu não posso calcular `{express}` ou ocorreu um erro desconhecido.")
 
 
     @commands.command(help = 'Ping do bot com a API do disnake', aliases = ['p'])
-    async def ping(self, ctx):
+    async def ping(self, inter):
         latency = round(self.bot.latency * 1000)
-        await ctx.reply(f'Pong! <a:paopula:858815343072903178> `{latency}ms` ')
+        await inter.response.send_message(f'Pong! <a:paopula:858815343072903178> `{latency}ms` ')
 
     @commands.Cog.listener()
     async def on_ready(self):

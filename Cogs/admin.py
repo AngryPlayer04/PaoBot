@@ -1,19 +1,5 @@
-import asyncio
-from disnake import Guild, User
 from disnake.ext import commands
-import json
-from datetime import datetime
-import pytz
 
-
-current_time = datetime.now()
-tz_BR = pytz.timezone('America/Sao_Paulo') 
-datetime_BR = datetime.now(tz_BR)
-
-with open("configuration.json", "r") as config: 
-	data = json.load(config)
-	prefix = data["prefix"]
-    
 
 class AdminOnly(commands.Cog, name = "Admin"):
     def __init__(self, bot):
@@ -21,8 +7,8 @@ class AdminOnly(commands.Cog, name = "Admin"):
 
     @commands.command(help = 'Limpa a quantidade indicada de mensagens do canal, sendo 5 por padrão', aliases = ['limpar', 'clean'])
     @commands.has_guild_permissions(manage_messages = True)
-    async def clear(self, ctx, amount = 5):
-        await ctx.channel.purge(limit = amount + 1)
+    async def clear(self, inter, amount = 5):
+        await inter.channel.purge(limit = amount + 1)
 
 
     @commands.Cog.listener()

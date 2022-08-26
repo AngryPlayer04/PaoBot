@@ -17,8 +17,8 @@ class Owner(commands.Cog, name = "Owner"):
 
     @commands.command(help = 'Logs do bot', aliases = ['log'])
     @commands.is_owner()
-    async def logs(self, ctx):
-        async with ctx.typing():
+    async def logs(self, inter):
+        async with inter.typing():
             
             re = requests.get("https://discloud.app/api/v2/app/850123093077917716/logs", headers={"api-token": token}).json()
             res = re['logs'][:1018]
@@ -29,12 +29,12 @@ class Owner(commands.Cog, name = "Owner"):
             oEmbed.add_field(name ='\u200b', value = f'```{res}```', inline=False)
             oEmbed.set_thumbnail(url = 'https://cdn-icons-png.flaticon.com/512/2125/2125009.png')
 
-            await ctx.reply(embed = oEmbed)
+            await inter.response.send_message(embed = oEmbed)
 
 
     @commands.command(help = 'Status do bot')
     @commands.is_owner()
-    async def status(self, ctx):
+    async def status(self, inter):
         async with aiohttp.ClientSession() as session:
             async with session.get("https://discloud.app/api/v2/app/850123093077917716", headers={"api-token": token}) as res:
                 st = await res.json()
@@ -43,13 +43,13 @@ class Owner(commands.Cog, name = "Owner"):
                 mem = st['memory']
                 restart = st['last_restart']
                 embed = disnake.Embed(title= 'Status:', color= 0xffb354, description= f'{cont}\n{cpu}\n{mem}\n{restart}')
-                await ctx.reply(embed = embed)
+                await inter.response.send_message(embed = embed)
             await session.close()
 
 
     @commands.command(help = 'Status do plano')
     @commands.is_owner()
-    async def user(self, ctx):
+    async def user(self, inter):
         async with aiohttp.ClientSession() as session:
             async with session.get("https://discloud.app/api/v2/user", headers={"api-token": token}) as res:
                 st = await res.json()
@@ -63,28 +63,28 @@ class Owner(commands.Cog, name = "Owner"):
                 td = timedelta(days= dias, hours= hour, minutes= minutos, seconds= sec)
                 planoend = format_dt(dt + td, style='R')
                 embed = disnake.Embed(title= 'Info do plano:', color= 0xffb354, description= f'Plano: {plano}\nTermina {planoend}')
-                await ctx.reply(embed = embed)
+                await inter.response.send_message(embed = embed)
             await session.close()
 
 
     @commands.command(help = 'Reinicia o bot(*Apenas o dono do bot pode utilizar este comando*)', aliases = ['reiniciar', 'r'])
     @commands.is_owner()
-    async def restart(self, ctx):
-        await ctx.reply('Reiniciando <a:digitando:931267989033082901>')
+    async def restart(self, inter):
+        await inter.response.send_message('Reiniciando <a:digitando:931267989033082901>')
         result = requests.post("https://discloud.app/api/v2/app/850123093077917716/restart", headers={"api-token": token}).json()
 
 
     @commands.command(help = 'Faz o backup do bot e envia em zip', aliases = ['b','bk'])
     @commands.is_owner()
-    async def backup(self, ctx):
+    async def backup(self, inter):
 
         dire = pathlib.Path('./')
         with zipfile.ZipFile('backup.zip', mode = 'w') as archive:
             for file_path in dire.rglob('*'):
                 archive.write(file_path, arcname=file_path.relative_to(dire))
-        await ctx.author.send(file = disnake.File(r'backup.zip'))
+        await inter.author.send(file = disnake.File(r'backup.zip'))
         os.remove('backup.zip')
-        await ctx.message.add_reaction('✅')
+        await inter.message.add_reaction('✅')
         
 
 
