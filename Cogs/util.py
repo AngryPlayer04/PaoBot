@@ -15,10 +15,10 @@ class util(commands.Cog, name = "Utility"):
         self.bot = bot 
     @commands.slash_command()
     async def flip(inter):
-        moeda = randrange(0,2)
-        if moeda == 1:
+        moeda = randrange(0,6)
+        if moeda => 3:
             await inter.response.send_message(":slight_smile: Cara!")
-        if moeda == 2:
+        if moeda =< 3:
             await inter.response.send_message(":crown: Coroa!")
 
 
