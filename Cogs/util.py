@@ -18,7 +18,7 @@ class util(commands.Cog, name = "Utility"):
         moeda = randrange(0,6)
         if moeda => 3:
             await inter.response.send_message(":slight_smile: Cara!")
-        if moeda =< 3:
+        if moeda < 3:
             await inter.response.send_message(":crown: Coroa!")
 
 
