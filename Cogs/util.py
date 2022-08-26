@@ -84,10 +84,9 @@ class util(commands.Cog, name = "Utility"):
             await inter.response.send_message('Nada de mencionar todo mundo')
 
         else:
-            async with inter.typing():
-                tl = Translator(to_lang = 'pt-br')
-                tn = tl.translate(origem)
-                await inter.response.send_message(tn)
+            tl = Translator(to_lang = 'pt-br')
+            tn = tl.translate(origem)
+            await inter.response.send_message(tn)
 
     @commands.slash_command(name= 'ticket', help = 'Comando para abrir Tickets')
     async def ticket( inter):
