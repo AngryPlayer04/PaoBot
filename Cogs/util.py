@@ -13,8 +13,8 @@ import asyncio
 class util(commands.Cog, name = "Utility"):
     def __init__(self, bot):
         self.bot = bot 
-    @commands.slash_command(name='flip')
-    async def flip(self, inter):
+    @commands.slash_command()
+    async def flip(inter):
         moeda = randrange(1,3)
         if moeda == 1:
             await inter.response.send_message(":slight_smile: Cara!")
@@ -22,8 +22,8 @@ class util(commands.Cog, name = "Utility"):
             await inter.response.send_message(":crown: Coroa!")
 
 
-    @commands.slash_command(name= 'receita')
-    async def receita(self, inter):
+    @commands.slash_command()
+    async def receita( inter):
         lin = "https://www.tudogostoso.com.br/receita/72313-pao-caseiro-facil.html",\
         "https://www.tudogostoso.com.br/receita/79996-pao-de-queijo-3-ingredientes.html", \
         "https://www.tudogostoso.com.br/receita/83-pao-de-batata.html", \
@@ -31,7 +31,7 @@ class util(commands.Cog, name = "Utility"):
         await inter.response.send_message(choice(lin))
 
     @commands.Cog.listener()
-    async def on_message(self, message):
+    async def on_message( message):
         session = aiohttp.ClientSession()
         if message.content in ["Pão", "pão", "bread", "Bread", "Oãp","🍞"]:
             if message.author.bot:
@@ -52,7 +52,7 @@ class util(commands.Cog, name = "Utility"):
         await session.close()
 
     @commands.slash_command(name='avatar', help = 'Envia o avatar de um usuário, podendo ser uma menção ou ID', aliases = ['pfp','icon', 'icone', 'ícone'])
-    async def avatar(self,inter, *, usuario: disnake.Member = None):
+    async def avatar(inter, *, usuario: disnake.Member = None):
 
         if usuario is None:
             usuario = inter.author
@@ -62,7 +62,7 @@ class util(commands.Cog, name = "Utility"):
         await inter.response.send_message(embed = aEmbed)
         
     @commands.slash_command(name='dicio', help = 'Busca pelo significado de uma palavra no dicionário.', aliases = ['dicionário', 'dicionario'])
-    async def dicio(self, inter, *, palavra):
+    async def dicio( inter, *, palavra):
         async with inter.typing():
             d = requests.get(f'https://significado.herokuapp.com/v2/{palavra}').json()
 
@@ -78,8 +78,8 @@ class util(commands.Cog, name = "Utility"):
 
             await inter.response.send_message(embed = dEmbed) 
 
-    @commands.slash_command(name= 'traduzir',help = 'Traduz do inglês para o português', aliases = ['translate', 'tl', 'tradutor'])
-    async def traduzir(self, inter, *, origem):
+    @commands.slash_command(help = 'Traduz do inglês para o português', aliases = ['translate', 'tl', 'tradutor'])
+    async def traduzir( inter, *, origem):
         if '@everyone' in origem:
             await inter.response.send_message('Nada de mencionar todo mundo')
 
@@ -90,7 +90,7 @@ class util(commands.Cog, name = "Utility"):
                 await inter.response.send_message(tn)
 
     @commands.slash_command(name= 'ticket', help = 'Comando para abrir Tickets')
-    async def ticket(self, inter):
+    async def ticket( inter):
 
         permissao1 = {
         inter.guild.default_role: disnake.PermissionOverwrite(read_messages = False),
