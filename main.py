@@ -26,8 +26,6 @@ bot = commands.Bot(prefix, intents = intents, case_insensitive = True,test_guild
 
 tz_BR = pytz.timezone('America/Sao_Paulo') 
 datetime_BR = datetime.now(tz_BR)
-
-bot.load_extension('Cogs.util')
      
 
 @bot.event
@@ -71,6 +69,6 @@ async def tempo_task():
 async def ping(inter):
   await inter.response.send_message("Pong!")
 
-
+bot.load_extensions('./Cogs')
 
 bot.run(token)
