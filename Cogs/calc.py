@@ -10,7 +10,7 @@ class Calculators(commands.Cog, name = "Calculators"):
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.slash_command(name='Calculadora',description = 'Calcula a expressão dada (Use `/` para divisão, `*` para multiplicação e `**`para potência)')
+    @commands.slash_command(name='calculadora',description = 'Calcula a expressão dada (Use `/` para divisão, `*` para multiplicação e `**`para potência)')
     async def calc(self, inter, express):
         try:
             soma = ne.evaluate(express)
@@ -19,7 +19,7 @@ class Calculators(commands.Cog, name = "Calculators"):
             await inter.response.send_message(f"Desculpe, eu não posso calcular `{express}` ou ocorreu um erro desconhecido.")
 
 
-    @commands.slash_command(name='Ping',description = 'Ping do bot com a API do Discord')
+    @commands.slash_command(name='ping',description = 'Ping do bot com a API do Discord')
     async def ping(self, inter):
         latency = round(self.bot.latency * 1000)
         await inter.response.send_message(f'Pong! <a:paopula:858815343072903178> `{latency}ms` ')
