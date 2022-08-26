@@ -15,7 +15,7 @@ class owner(commands.Cog, name = "Owner"):
     def __init__(self, bot):
         self.bot = bot 
 
-    @commands.slash_command(description = 'Logs do bot', aliases = ['log'])
+    @commands.slash_command(name='Logs',description = 'Logs do bot')
     @commands.is_owner()
     async def logs(self, inter):
         async with inter.typing():
@@ -32,7 +32,7 @@ class owner(commands.Cog, name = "Owner"):
             await inter.response.send_message(embed = oEmbed)
 
 
-    @commands.slash_command(description = 'Status do bot')
+    @commands.slash_command(name='Status',description = 'Status do bot')
     @commands.is_owner()
     async def status(self, inter):
         async with aiohttp.ClientSession() as session:
@@ -47,7 +47,7 @@ class owner(commands.Cog, name = "Owner"):
             await session.close()
 
 
-    @commands.slash_command(description = 'Status do plano')
+    @commands.slash_command(name='Usuário',description = 'Status do plano')
     @commands.is_owner()
     async def user(self, inter):
         async with aiohttp.ClientSession() as session:
@@ -67,14 +67,14 @@ class owner(commands.Cog, name = "Owner"):
             await session.close()
 
 
-    @commands.slash_command(description = 'Reinicia o bot(*Apenas o dono do bot pode utilizar este comando*)', aliases = ['reiniciar', 'r'])
+    @commands.slash_command(name='Restart',description = 'Reinicia o bot(*Apenas o dono do bot pode utilizar este comando*)')
     @commands.is_owner()
     async def restart(self, inter):
         await inter.response.send_message('Reiniciando <a:digitando:931267989033082901>')
         result = requests.post("https://discloud.app/api/v2/app/850123093077917716/restart", headers={"api-token": token}).json()
 
 
-    @commands.slash_command(description = 'Faz o backup do bot e envia em zip', aliases = ['b','bk'])
+    @commands.slash_command(name='Backup',description = 'Faz o backup do bot e envia em zip', aliases = ['b','bk'])
     @commands.is_owner()
     async def backup(self, inter):
 
