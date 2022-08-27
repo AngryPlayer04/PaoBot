@@ -22,7 +22,7 @@ intents = disnake.Intents.default()
 intents.message_content = True
 
 # The bot
-bot = commands.Bot(prefix, intents = intents, case_insensitive = True, sync_commands_debug= True, sync_commands=False, test_guilds= None)
+bot = commands.Bot(prefix, intents = intents, case_insensitive = True, sync_commands_debug= True, sync_commands=True)
 
 tz_BR = pytz.timezone('America/Sao_Paulo') 
 datetime_BR = datetime.now(tz_BR)
