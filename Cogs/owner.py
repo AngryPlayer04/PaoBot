@@ -22,7 +22,7 @@ class owner(commands.Cog, name = "Owner"):
         ret = re['apps']
         rei = ret['terminal']
         res = rei['small'][:1018]
-        li = re['url']
+        li = rei['url']
 
         oEmbed = disnake.Embed(title = 'Log:', color = 0xffb354, description = f'[Link do log]({li})')
         oEmbed.set_author(name = 'Pão Bot', icon_url = 'https://cdn.disnakeapp.com/avatars/850123093077917716/2fe303ab1bf685becf029d72834b0f16.png')
