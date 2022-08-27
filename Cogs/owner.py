@@ -24,7 +24,7 @@ class owner(commands.Cog, name = "Owner"):
 
         oEmbed = disnake.Embed(title = 'Log:', color = 0xffb354, description = f'[Link do log]()')
         oEmbed.set_author(name = 'Pão Bot', icon_url = 'https://cdn.disnakeapp.com/avatars/850123093077917716/2fe303ab1bf685becf029d72834b0f16.png')
-        oEmbed.add_field(name ='\u200b', value = f'```{re#}```', inline=False)
+        oEmbed.add_field(name ='\u200b', value = f'```{re}```', inline=False)
         oEmbed.set_thumbnail(url = 'https://cdn-icons-png.flaticon.com/512/2125/2125009.png')
 
         await inter.response.send_message(embed = oEmbed)
