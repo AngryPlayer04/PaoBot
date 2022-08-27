@@ -26,7 +26,7 @@ class owner(commands.Cog, name = "Owner"):
         #oEmbed.add_field(name ='\u200b', value = f'```{res}```', inline=False)
         #oEmbed.set_thumbnail(url = 'https://cdn-icons-png.flaticon.com/512/2125/2125009.png')
 
-        await inter.response.send_message(re)
+        await inter.response.send_message(f'{re:2000}')
 
 
     @commands.slash_command(name='status',description = 'Status do bot')
