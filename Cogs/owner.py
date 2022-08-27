@@ -19,14 +19,17 @@ class owner(commands.Cog, name = "Owner"):
     @commands.is_owner()
     async def logs(self, inter):
         re = requests.get("https://api.discloud.app/v2/app/850123093077917716/logs", headers={"api-token": token}).json()
-        #res = re[:1018]
+        ret = re['apps']
+        rei = ret['terminal']
+        res = rei['small'][:1018]
+        li = re['url']
 
-        #oEmbed = disnake.Embed(title = 'Log:', color = 0xffb354, description = f'[Link do log]()')
-        #oEmbed.set_author(name = 'Pão Bot', icon_url = 'https://cdn.disnakeapp.com/avatars/850123093077917716/2fe303ab1bf685becf029d72834b0f16.png')
-        #oEmbed.add_field(name ='\u200b', value = f'```{res}```', inline=False)
-        #oEmbed.set_thumbnail(url = 'https://cdn-icons-png.flaticon.com/512/2125/2125009.png')
+        oEmbed = disnake.Embed(title = 'Log:', color = 0xffb354, description = f'[Link do log]({li})')
+        oEmbed.set_author(name = 'Pão Bot', icon_url = 'https://cdn.disnakeapp.com/avatars/850123093077917716/2fe303ab1bf685becf029d72834b0f16.png')
+        oEmbed.add_field(name ='\u200b', value = f'```{res}```', inline=False)
+        oEmbed.set_thumbnail(url = 'https://cdn-icons-png.flaticon.com/512/2125/2125009.png')
 
-        await inter.response.send_message(f'{re:2000}')
+        await inter.response.send_message(embed = oEmbed)
 
 
     @commands.slash_command(name='status',description = 'Status do bot')
@@ -34,12 +37,13 @@ class owner(commands.Cog, name = "Owner"):
     async def status(self, inter):
         async with aiohttp.ClientSession() as session:
             async with session.get("https://api.discloud.app/v2/app/850123093077917716", headers={"api-token": token}) as res:
-                st = await res.json()
-                #cont = st['container']
-                #cpu = st['cpu']
-                #mem = st['memory']
-                #restart = st['last_restart']
-                embed = disnake.Embed(title= 'Status:', color= 0xffb354, description= f'{st}')
+                r = await res.json()
+                st = r['apps']
+                cont = st['container']
+                cpu = st['cpu']
+                mem = st['memory']
+                restart = r['last_restart']
+                embed = disnake.Embed(title= 'Status:', color= 0xffb354, description= f'{cont}\n{cpu}\n{mem}\n{restart}')
                 await inter.response.send_message(embed = embed)
             await session.close()
 
@@ -50,16 +54,16 @@ class owner(commands.Cog, name = "Owner"):
         async with aiohttp.ClientSession() as session:
             async with session.get("https://api.discloud.app/v2/user", headers={"api-token": token}) as res:
                 st = await res.json()
-                #plano = st['plan']
-                #lt = st['lastDataLeft']
-                #dias = lt['days']
-                #hour = lt['hours']
-                #minutos = lt['minutes']
-                #sec = lt['seconds']
-                #dt = datetime.now()
-                #td = timedelta(days= dias, hours= hour, minutes= minutos, seconds= sec)
-                #planoend = format_dt(dt + td, style='R')
-                embed = disnake.Embed(title= 'Info do plano:', color= 0xffb354, description= f'Plano: {st}')
+                plano = st['plan']
+                lt = st['lastDataLeft']
+                dias = lt['days']
+                hour = lt['hours']
+                minutos = lt['minutes']
+                sec = lt['seconds']
+                dt = datetime.now()
+                td = timedelta(days= dias, hours= hour, minutes= minutos, seconds= sec)
+                planoend = format_dt(dt + td, style='R')
+                embed = disnake.Embed(title= 'Info do plano:', color= 0xffb354, description= f'Plano: {plano}\nTermina {planoend}')
                 await inter.response.send_message(embed = embed)
             await session.close()
 
