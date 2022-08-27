@@ -39,11 +39,11 @@ class owner(commands.Cog, name = "Owner"):
             async with session.get("https://api.discloud.app/v2/app/850123093077917716", headers={"api-token": token}) as res:
                 r = await res.json()
                 st = r['apps']
-                cont = st['container']
+                #cont = st['container']
                 cpu = st['cpu']
                 mem = st['memory']
                 restart = r['last_restart']
-                embed = disnake.Embed(title= 'Status:', color= 0xffb354, description= f'{cont}\n{cpu}\n{mem}\n{restart}')
+                embed = disnake.Embed(title= 'Status:', color= 0xffb354, description= f'{cpu}\n{mem}\n{restart}')
                 await inter.response.send_message(embed = embed)
             await session.close()
 
