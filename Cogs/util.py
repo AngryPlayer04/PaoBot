@@ -111,7 +111,7 @@ class util(commands.Cog, name = "Utility"):
         
         if canal:
             mensagem = await chan.fetch_message(chan.last_message_id)
-            if message.author == self.id:
+            if chan.author == self.bot:
                 await chan.delete()
             else:
                 await canal.send(f'De {mensagem.author.id}({mensagem.author}): \n{mensagem.content}')
