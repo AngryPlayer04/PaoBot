@@ -1,6 +1,6 @@
 from async_timeout import timeout
 import disnake
-from disnake import app_commands
+from disnake import app_commands, message
 from disnake.ext import commands
 from random import choice, randrange, randint
 import requests
@@ -111,7 +111,10 @@ class util(commands.Cog, name = "Utility"):
         
         if canal:
             mensagem = await chan.fetch_message(chan.last_message_id)
-            await canal.send(f'De {mensagem.author.id}({mensagem.author}): \n{mensagem.content}')
+            if message.bot:
+                return
+            else:
+                await canal.send(f'De {mensagem.author.id}({mensagem.author}): \n{mensagem.content}')
             await chan.delete()
 
         else:
