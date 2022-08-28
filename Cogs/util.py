@@ -89,7 +89,7 @@ class util(commands.Cog, name = "Utility"):
             await inter.response.send_message(tn)
 
     @commands.slash_command(name='ticket',description = 'Comando para abrir Tickets')
-    async def ticket(inter):
+    async def ticket(self, inter):
 
         permissao1 = {
         inter.guild.default_role: disnake.PermissionOverwrite(read_messages = False),
@@ -111,7 +111,7 @@ class util(commands.Cog, name = "Utility"):
         
         if canal:
             mensagem = await chan.fetch_message(chan.last_message_id)
-            if message.bot:
+            if message.author == self.id:
                 await chan.delete()
             else:
                 await canal.send(f'De {mensagem.author.id}({mensagem.author}): \n{mensagem.content}')
