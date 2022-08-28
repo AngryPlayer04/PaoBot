@@ -112,10 +112,10 @@ class util(commands.Cog, name = "Utility"):
         if canal:
             mensagem = await chan.fetch_message(chan.last_message_id)
             if message.bot:
-                return
+                await chan.delete()
             else:
                 await canal.send(f'De {mensagem.author.id}({mensagem.author}): \n{mensagem.content}')
-            await chan.delete()
+                await chan.delete()
 
         else:
             lg = await disnake.Guild.create_text_channel(inter.guild, name = 'ticket-logs', overwrites= permissao2)
