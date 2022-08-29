@@ -8,8 +8,8 @@ import os
 
 client = discloud.Client('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMxOTk2MzYyNjEwODg3ODg0OCIsImtleSI6InM2STVhbXoydiJ9.KDsWoIwx9sAZUlj9AONK8ArHENl0TQTb68Pf5_wau8Y')
 token= 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMxOTk2MzYyNjEwODg3ODg0OCIsImtleSI6InM2STVhbXoydiJ9.KDsWoIwx9sAZUlj9AONK8ArHENl0TQTb68Pf5_wau8Y'
-app = client.app_info('850123093077917716')
-user = client.user_info()
+
+
 
 
 class owner(commands.Cog, name = "Owner"):
@@ -36,6 +36,7 @@ class owner(commands.Cog, name = "Owner"):
     @commands.slash_command(name='status',description = 'Status do bot')
     @commands.is_owner()
     async def status(self, inter):
+        app = await client.app_info('850123093077917716')
         cont = app.status
         cpu = app.cpu
         mem = app.memory
@@ -48,7 +49,7 @@ class owner(commands.Cog, name = "Owner"):
     @commands.slash_command(name='usuário',description = 'Status do plano')
     @commands.is_owner()
     async def user(self, inter):
-
+        user = await client.user_info()
         plano = user.plan
         dias = plano.expire_date
         planoend = plano.expires_in
