@@ -46,7 +46,7 @@ class owner(commands.Cog, name = "Owner"):
             
 
 
-    @commands.slash_command(name='usuário',description = 'Status do plano')
+    @commands.slash_command(name='usuario',description = 'Status do plano')
     @commands.is_owner()
     async def user(self, inter):
         user = await client.user_info()
