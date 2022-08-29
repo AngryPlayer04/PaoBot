@@ -1,4 +1,5 @@
 import disnake
+import discloud
 from disnake.ext import commands
 from disnake.utils import format_dt
 import requests
@@ -9,7 +10,10 @@ import aiohttp
 from datetime import datetime, timedelta
 import pytz
 
-token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMxOTk2MzYyNjEwODg3ODg0OCIsImtleSI6InM2STVhbXoydiJ9.KDsWoIwx9sAZUlj9AONK8ArHENl0TQTb68Pf5_wau8Y'
+client = discloud.Client('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMxOTk2MzYyNjEwODg3ODg0OCIsImtleSI6InM2STVhbXoydiJ9.KDsWoIwx9sAZUlj9AONK8ArHENl0TQTb68Pf5_wau8Y')
+token= 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMxOTk2MzYyNjEwODg3ODg0OCIsImtleSI6InM2STVhbXoydiJ9.KDsWoIwx9sAZUlj9AONK8ArHENl0TQTb68Pf5_wau8Y'
+app = client.app_info(app_id='850123093077917716')
+user = client.user_info()
 
 class owner(commands.Cog, name = "Owner"):
     def __init__(self, bot):
@@ -35,37 +39,24 @@ class owner(commands.Cog, name = "Owner"):
     @commands.slash_command(name='status',description = 'Status do bot')
     @commands.is_owner()
     async def status(self, inter):
-        async with aiohttp.ClientSession() as session:
-            async with session.get("https://api.discloud.app/v2/app/850123093077917716", headers={"api-token": token}) as res:
-                r = await res.json()
-                st = r['apps']
-                cont = st['apps']['container']
-                cpu = st['apps']['cpu']
-                mem = st['apps']['memory']
-                restart = r['last_restart']
-                embed = disnake.Embed(title= 'Status:', color= 0xffb354, description= f'{cont}\n{cpu}\n{mem}\n{restart}')
-                await inter.response.send_message(embed = embed)
-            await session.close()
+        cont = app.status
+        cpu = app.cpu
+        mem = app.memory
+        restart = app.last_restart
+        embed = disnake.Embed(title= 'Status:', color= 0xffb354, description= f'{cont}\n{cpu}\n{mem}\n{restart}')
+        await inter.response.send_message(embed = embed)
+            
 
 
     @commands.slash_command(name='usuário',description = 'Status do plano')
     @commands.is_owner()
     async def user(self, inter):
-        async with aiohttp.ClientSession() as session:
-            async with session.get("https://api.discloud.app/v2/user", headers={"api-token": token}) as res:
-                st = await res.json()
-                plano = st['plan']
-                lt = st['lastDataLeft']
-                dias = lt['days']
-                hour = lt['hours']
-                minutos = lt['minutes']
-                sec = lt['seconds']
-                dt = datetime.now()
-                td = timedelta(days= dias, hours= hour, minutes= minutos, seconds= sec)
-                planoend = format_dt(dt + td, style='R')
-                embed = disnake.Embed(title= 'Info do plano:', color= 0xffb354, description= f'Plano: {plano}\nTermina {planoend}')
-                await inter.response.send_message(embed = embed)
-            await session.close()
+
+        plano = user.plan
+        dias = plano.expire_date
+        planoend = plano.expires_in
+        embed = disnake.Embed(title= 'Info do plano:', color= 0xffb354, description= f'Plano: {plano}\nTermina {planoend}')
+        await inter.response.send_message(embed = embed)
 
 
     @commands.slash_command(name='restart',description = 'Reinicia o bot(*Apenas o dono do bot pode utilizar este comando*)')
