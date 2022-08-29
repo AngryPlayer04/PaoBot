@@ -1,5 +1,5 @@
 disnake
-discloud
+git+https://github.com/discloud/python-discloud-status@master
 pytz
 numexpr
 translate
