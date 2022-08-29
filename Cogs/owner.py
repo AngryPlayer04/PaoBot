@@ -11,6 +11,7 @@ token= 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMxOTk2MzYyNjEwODg3ODg0OCI
 app = client.app_info(app_id='850123093077917716')
 user = client.user_info()
 
+
 class owner(commands.Cog, name = "Owner"):
     def __init__(self, bot):
         self.bot = bot 
