@@ -1,5 +1,5 @@
 import disnake
-import discloud
+import discloud.discloud
 from disnake.ext import commands
 from disnake.utils import format_dt
 import requests
