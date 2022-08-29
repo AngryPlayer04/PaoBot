@@ -38,8 +38,8 @@ class owner(commands.Cog, name = "Owner"):
         async with aiohttp.ClientSession() as session:
             async with session.get("https://api.discloud.app/v2/app/850123093077917716", headers={"api-token": token}) as res:
                 r = await res.json()
-                st = r['apps']
-                #cont = st['container']
+                st = r[0]['apps']
+                cont = st['container']
                 cpu = st['cpu']
                 mem = st['memory']
                 restart = r['last_restart']
