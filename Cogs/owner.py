@@ -30,7 +30,7 @@ class owner(commands.Cog, name = "Owner"):
         oEmbed.add_field(name ='\u200b', value = f'```{res}```', inline=False)
         oEmbed.set_thumbnail(url = 'https://cdn-icons-png.flaticon.com/512/2125/2125009.png')
 
-        await inter.response.send_message(embed = oEmbed)
+        await inter.response.send_message(embed = oEmbed, ephemeral = True)
 
 
     @commands.slash_command(name='status',description = 'Status do bot')
@@ -54,7 +54,7 @@ class owner(commands.Cog, name = "Owner"):
         dias = plano.expire_date
         planoend = plano.expires_in
         embed = disnake.Embed(title= 'Info do plano:', color= 0xffb354, description= f'Plano: {plano}\nTermina {planoend}')
-        await inter.response.send_message(embed = embed)
+        await inter.response.send_message(embed = embed, ephemeral = True)
 
 
     @commands.slash_command(name='restart',description = 'Reinicia o bot(*Apenas o dono do bot pode utilizar este comando*)')
