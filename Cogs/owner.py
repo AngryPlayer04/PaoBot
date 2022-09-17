@@ -1,5 +1,5 @@
 import disnake
-import discloud.discloud
+import discloud
 from disnake.ext import commands
 import requests
 import pathlib
@@ -60,8 +60,7 @@ class owner(commands.Cog, name = "Owner"):
     @commands.slash_command(name='restart',description = 'Reinicia o bot(*Apenas o dono do bot pode utilizar este comando*)')
     @commands.is_owner()
     async def restart(self, inter):
-        await inter.response.send_message('Reiniciando <a:digitando:931267989033082901>')
-        result = requests.post("https://api.discloud.app/v2/app/850123093077917716/restart", headers={"api-token": token}).json()
+        await client.restart_app('850123093077917716')
 
 
     @commands.slash_command(name='backup',description = 'Faz o backup do bot e envia em zip', aliases = ['b','bk'])
