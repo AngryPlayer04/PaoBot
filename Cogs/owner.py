@@ -1,5 +1,5 @@
 import disnake
-import discloud
+import discloud.discloud
 from disnake.ext import commands
 import requests
 import pathlib
