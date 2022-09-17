@@ -60,7 +60,7 @@ class owner(commands.Cog, name = "Owner"):
     @commands.slash_command(name='restart',description = 'Reinicia o bot(*Apenas o dono do bot pode utilizar este comando*)')
     @commands.is_owner()
     async def restart(self, inter):
-        await client.restart_app('850123093077917716')
+        await client.restart('850123093077917716')
 
 
     @commands.slash_command(name='backup',description = 'Faz o backup do bot e envia em zip', aliases = ['b','bk'])

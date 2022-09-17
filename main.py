@@ -61,7 +61,7 @@ async def tempo_task():
     tempo = datetime_SP.strftime("%H:%M")
     hora = '00:00'
     if tempo == hora:
-      await client.restart_app('850123093077917716')
+      await client.restart('850123093077917716')
     if tempo != hora:
       pass
     await asyncio.sleep(25)
