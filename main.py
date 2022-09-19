@@ -64,7 +64,7 @@ async def tempo_task():
       await client.restart('850123093077917716')
     if tempo != hora:
       pass
-    await asyncio.sleep(59)
+    await asyncio.sleep(80)
 
 
 
