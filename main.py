@@ -12,7 +12,6 @@ import requests
 with open("configuration.json", "r") as config: 
   data = json.load(config)
   token = data["token"]
-  prefix = data["prefix"]
   
 
   token = ('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMxOTk2MzYyNjEwODg3ODg0OCIsImtleSI6InM2STVhbXoydiJ9.KDsWoIwx9sAZUlj9AONK8ArHENl0TQTb68Pf5_wau8Y')
@@ -23,7 +22,7 @@ intents = disnake.Intents.default()
 intents.message_content = True
 
 # The bot
-bot = commands.Bot(prefix, intents = intents, case_insensitive = True, sync_commands_debug= True)
+bot = commands.Bot(intents = intents, case_insensitive = True, sync_commands_debug= True)
 
 tz_BR = pytz.timezone('America/Sao_Paulo') 
 datetime_BR = datetime.now(tz_BR)
