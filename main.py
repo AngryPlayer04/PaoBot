@@ -14,7 +14,7 @@ with open("configuration.json", "r") as config:
   token = data["token"]
   
 
-  token = ('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMxOTk2MzYyNjEwODg3ODg0OCIsImtleSI6InM2STVhbXoydiJ9.KDsWoIwx9sAZUlj9AONK8ArHENl0TQTb68Pf5_wau8Y')
+  apitoken = ('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMxOTk2MzYyNjEwODg3ODg0OCIsImtleSI6InM2STVhbXoydiJ9.KDsWoIwx9sAZUlj9AONK8ArHENl0TQTb68Pf5_wau8Y')
 
 
 # Intents
@@ -60,7 +60,7 @@ async def tempo_task():
     tempo = datetime_SP.strftime("%H:%M")
     hora = '00:00'
     if tempo == hora:
-      requests.put("https://api.discloud.app/v2/app/850123093077917716/restart", headers={"api-token":token})
+      requests.put("https://api.discloud.app/v2/app/850123093077917716/restart", headers={"api-token":apitoken})
     if tempo != hora:
       pass
     await asyncio.sleep(80)
