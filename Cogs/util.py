@@ -32,6 +32,7 @@ class util(commands.Cog, name = "Utility"):
 
     @commands.Cog.listener()
     async def on_message(message):
+        print(message)
         session = aiohttp.ClientSession()
         if message.content in ["Pão", "pão", "bread", "Bread", "Oãp","🍞"]:
             if message.author.bot:
