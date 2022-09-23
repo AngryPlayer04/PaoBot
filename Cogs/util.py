@@ -47,7 +47,7 @@ class util(commands.Cog, name = "Utility"):
                 bembed.set_image(bread)
                 bembed.set_author(name="Pão Bot", icon_url="https://images-ext-2.disnakeapp.net/external/lK0peJ7nECCGR6-5ND3L1ysNwT1Iq1DVkHJoF19Pwcg/%3Fsize%3D1024/https/cdn.disnakeapp.com/avatars/850123093077917716/2fe303ab1bf685becf029d72834b0f16.png")
                 bembed.set_footer(text='Powered by GIPHY', icon_url='https://giphy.com/static/img/about/stickers/logo-spin.gif')
-                await message.response.send_message(embed = bembed)
+                await message.send(embed = bembed)
             
         await session.close()
 
