@@ -31,8 +31,7 @@ class util(commands.Cog, name = "Utility"):
         await inter.response.send_message(choice(lin))
 
     @commands.Cog.listener()
-    async def on_message(message):
-        print(message)
+    async def on_message(self, message):
         session = aiohttp.ClientSession()
         if message.content in ["Pão", "pão", "bread", "Bread", "Oãp","🍞"]:
             if message.author.bot:
