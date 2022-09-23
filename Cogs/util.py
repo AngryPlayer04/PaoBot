@@ -49,7 +49,7 @@ class util(commands.Cog, name = "Utility"):
                 bembed.set_footer(text='Powered by GIPHY', icon_url='https://giphy.com/static/img/about/stickers/logo-spin.gif')
                 await message.response.send_message(embed = bembed)
             
-        #await session.close()
+        await session.close()
 
     @commands.slash_command(name='avatar',description='Envia o avatar de um usuário, podendo ser uma menção ou ID')
     async def avatar(inter, usuario: disnake.Member = None):
