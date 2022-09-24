@@ -66,12 +66,13 @@ class owner(commands.Cog, name = "Owner"):
     @commands.slash_command(name='backup',description = 'Faz o backup do bot e envia em zip')
     @commands.is_owner()
     async def backup(self, inter):
+        await inter.response.defer(with_message = True, ephemeral = True)
 
         dire = pathlib.Path('./')
         with zipfile.ZipFile('backup.zip', mode = 'w') as archive:
             for file_path in dire.rglob('*'):
                 archive.write(file_path, arcname=file_path.relative_to(dire))
-        await inter.response.send_message(file = disnake.File(rb'backup.zip'), ephemeral = True)
+        await inter.edit_original_message(file = disnake.File(rb'backup.zip'), ephemeral = True)
         os.remove('backup.zip')
         
 
