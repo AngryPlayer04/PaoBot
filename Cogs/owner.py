@@ -71,7 +71,7 @@ class owner(commands.Cog, name = "Owner"):
         with zipfile.ZipFile('backup.zip', mode = 'w') as archive:
             for file_path in dire.rglob('*'):
                 archive.write(file_path, arcname=file_path.relative_to(dire))
-        await inter.response.send_message(file = disnake.File(r'backup.zip'), ephemeral = True)
+        await inter.response.send_message(file = disnake.File(rb'backup.zip'), ephemeral = True)
         os.remove('backup.zip')
         
 
