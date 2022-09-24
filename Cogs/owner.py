@@ -63,7 +63,7 @@ class owner(commands.Cog, name = "Owner"):
         await client.restart('850123093077917716')
 
 
-    @commands.slash_command(name='backup',description = 'Faz o backup do bot e envia em zip', aliases = ['b','bk'])
+    @commands.slash_command(name='backup',description = 'Faz o backup do bot e envia em zip')
     @commands.is_owner()
     async def backup(self, inter):
 
@@ -71,11 +71,9 @@ class owner(commands.Cog, name = "Owner"):
         with zipfile.ZipFile('backup.zip', mode = 'w') as archive:
             for file_path in dire.rglob('*'):
                 archive.write(file_path, arcname=file_path.relative_to(dire))
-        await inter.author.send(file = disnake.File(r'backup.zip'))
+        await inter.response.send_message(file = disnake.File(r'backup.zip'), ephemeral = True)
         os.remove('backup.zip')
-        await inter.message.add_reaction('✅')
         
-
 
 
     @commands.Cog.listener()

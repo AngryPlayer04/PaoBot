@@ -1,8 +1,6 @@
 import disnake
 from disnake.ext import commands
 import json
-import discloud
-import os 
 from datetime import datetime 
 import pytz
 import asyncio
@@ -63,7 +61,7 @@ async def tempo_task():
       requests.put("https://api.discloud.app/v2/app/850123093077917716/restart", headers={"api-token":apitoken})
     if tempo != hora:
       pass
-    await asyncio.sleep(80)
+    await asyncio.sleep(55)
 
 
 

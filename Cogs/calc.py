@@ -1,7 +1,7 @@
 from disnake.ext import commands
 import numexpr as ne
 from datetime import date
-import aiohttp
+
 
 dia = date.today()
 diacerto = dia.strftime('%m-%d-%y')

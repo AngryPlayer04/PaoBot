@@ -11,8 +11,6 @@ class HelpCommand(commands.MinimalHelpCommand):
             await destination.send(mes)
 
 
-    
-
 class HelpCog(commands.Cog, name = 'Help'):
     '''Mostra os comandos e suas funções'''
 
