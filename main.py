@@ -68,7 +68,6 @@ async def tempo_task():
       
       requests.put("https://api.discloud.app/v2/app/850123093077917716/restart", headers={"api-token":apitoken})
     if tempo != hora:
-      print(bot.last_restart)
       pass
     await asyncio.sleep(58)
 
