@@ -1,10 +1,14 @@
 import disnake
 from disnake.ext import commands
+import discloud.discloud
 import json
 from datetime import datetime 
 import pytz
 import asyncio
 import requests
+
+
+client = discloud.Client('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMxOTk2MzYyNjEwODg3ODg0OCIsImtleSI6InM2STVhbXoydiJ9.KDsWoIwx9sAZUlj9AONK8ArHENl0TQTb68Pf5_wau8Y')
 
 # Get configuration.json
 with open("configuration.json", "r") as config: 
@@ -52,12 +56,16 @@ async def status_task():
 
 
 async def tempo_task():
+
+  bot = await client.app_info('850123093077917716')
+
   while True:
     tz_SP = pytz.timezone('America/Sao_Paulo')
     datetime_SP = datetime.now(tz_SP)
     tempo = datetime_SP.strftime("%H:%M")
     hora = '00:00'
     if tempo == hora:
+      print(bot.last_restart)
       requests.put("https://api.discloud.app/v2/app/850123093077917716/restart", headers={"api-token":apitoken})
     if tempo != hora:
       pass
