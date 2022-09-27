@@ -65,8 +65,13 @@ async def tempo_task():
     tempo = datetime_SP.strftime("%H:%M")
     hora = '00:00'
     if tempo == hora:
-      
-      requests.put("https://api.discloud.app/v2/app/850123093077917716/restart", headers={"api-token":apitoken})
+      reinicio = bot.last_restart
+      num = ''
+      for i in reinicio:
+        if i.isdigit():
+          num = num + i
+          if num >= 10:
+            requests.put("https://api.discloud.app/v2/app/850123093077917716/restart", headers={"api-token":apitoken})
     if tempo != hora:
       pass
     await asyncio.sleep(58)
