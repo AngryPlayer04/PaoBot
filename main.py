@@ -70,8 +70,10 @@ async def tempo_task():
       for i in reinicio:
         if i.isdigit():
           num = num + i
-          if num >= 10:
+          if num <= 5:
             requests.put("https://api.discloud.app/v2/app/850123093077917716/restart", headers={"api-token":apitoken})
+          if num >= 5:
+            pass
     if tempo != hora:
       pass
     await asyncio.sleep(58)
