@@ -20,14 +20,16 @@ with open("configuration.json", "r") as config:
 intents = disnake.Intents.default()
 intents.message_content = True
 
-# The InteractionBot
-InteractionInteractionBot = commands.InteractionBot(intents = intents, sync_commands_debug= True)
+# The bot
+InteractionBot = commands.Bot(intents = intents, sync_commands_debug= True)
+
+bot = InteractionBot
 
 tz_BR = pytz.timezone('America/Sao_Paulo') 
 datetime_BR = datetime.now(tz_BR)
 
 
-@InteractionInteractionBot.event
+@bot.event
 async def on_ready():
 
   print ('===============================')
@@ -35,11 +37,11 @@ async def on_ready():
 
   
 
-  InteractionBot.loop.create_task(status_task())
-  InteractionBot.loop.create_task(tempo_task())
-  del InteractionBot.on_ready
+  bot.loop.create_task(status_task())
+  bot.loop.create_task(tempo_task())
+  del bot.on_ready
 
-  member = InteractionBot.get_channel(992499815529316473)
+  member = bot.get_channel(992499815529316473)
   
   await member.send(f'Acordei pra tomar café às {(datetime_BR.strftime("%H:%M"))}')
 
@@ -47,8 +49,8 @@ async def on_ready():
 
 async def status_task():
     while True:
-        await InteractionBot.change_presence(activity=disnake.Activity(type=disnake.ActivityType.watching,
-                name=f'/ | Estou em {len(InteractionBot.guilds)} servidores'),status=disnake.Status.online)
+        await bot.change_presence(activity=disnake.Activity(type=disnake.ActivityType.watching,
+                name=f'/ | Estou em {len(bot.guilds)} servidores'),status=disnake.Status.online)
         await asyncio.sleep(1800)
 
 
@@ -68,6 +70,6 @@ async def tempo_task():
 
 
 
-InteractionBot.load_extensions('./Cogs')
+bot.load_extensions('./Cogs')
 
-InteractionBot.run(token)
+bot.run(token)
