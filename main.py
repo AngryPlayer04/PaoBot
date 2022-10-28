@@ -8,8 +8,6 @@ import asyncio
 import requests
 
 
-client = discloud.Client('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMxOTk2MzYyNjEwODg3ODg0OCIsImtleSI6InM2STVhbXoydiJ9.KDsWoIwx9sAZUlj9AONK8ArHENl0TQTb68Pf5_wau8Y')
-
 # Get configuration.json
 with open("configuration.json", "r") as config: 
   data = json.load(config)
@@ -24,7 +22,9 @@ intents = disnake.Intents.default()
 intents.message_content = True
 
 # The bot
-bot = commands.Bot(intents = intents, case_insensitive = True, sync_commands_debug= True)
+InteractionBot = commands.Bot(intents = intents, sync_commands_debug= True)
+
+bot = InteractionBot
 
 tz_BR = pytz.timezone('America/Sao_Paulo') 
 datetime_BR = datetime.now(tz_BR)
@@ -57,24 +57,17 @@ async def status_task():
 
 async def tempo_task():
 
-  bot = await client.app_info('850123093077917716')
-
   while True:
     tz_SP = pytz.timezone('America/Sao_Paulo')
     datetime_SP = datetime.now(tz_SP)
     tempo = datetime_SP.strftime("%H:%M")
     hora = '00:00'
     if tempo == hora:
-      reinicio = bot.last_restart
-      num = ''
-      for i in reinicio:
-        if i.isdigit():
-          num = num + i
-          if num >= 10:
-            requests.put("https://api.discloud.app/v2/app/850123093077917716/restart", headers={"api-token":apitoken})
+      await asyncio.sleep(60)
+      requests.put("https://api.discloud.app/v2/app/850123093077917716/restart", headers={"api-token":apitoken})
     if tempo != hora:
       pass
-    await asyncio.sleep(58)
+    await asyncio.sleep(25)
 
 
 
