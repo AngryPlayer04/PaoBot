@@ -1,6 +1,6 @@
 import disnake
 from disnake.ext import commands
-import discloud.discloud
+import discloud
 import json
 from datetime import datetime 
 import pytz
