@@ -42,7 +42,7 @@ class owner(commands.Cog, name = "Owner"):
         cont = app.status
         cpu = app.cpu
         mem = app.memory
-        restart = app.restarted_at
+        restart = app.start_date
         embed = disnake.Embed(title= 'Status:', color= 0xffb354, description= f'{cont}\n{cpu}\n{mem}\n{restart}')
         await inter.response.send_message(embed = embed)
             
