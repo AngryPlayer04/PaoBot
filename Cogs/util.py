@@ -123,7 +123,7 @@ class util(commands.Cog, name = "Utility"):
             await chan.delete()
     
 
-    @commands.add_slash_command(name='clima', description='Mostra o clima da cidade que o usuário pedir')
+    @commands.slash_command(name='clima', description='Mostra o clima da cidade que o usuário pedir')
     async def clima(inter, cidade: None):
         if cidade is None:
             await inter.response.send_message('Você precisa colocar uma cidade!')
