@@ -121,7 +121,18 @@ class util(commands.Cog, name = "Utility"):
             mensagem = await chan.fetch_message(chan.last_message_id)
             await lg.send(f'De {mensagem.author.id}({mensagem.author}): \n```{mensagem.content}```')
             await chan.delete()
+    
 
+    @commands.add_slash_command(name='clima', description='Mostra o clima da cidade que o usuário pedir')
+    async def clima(inter, cidade: None):
+        if cidade is None:
+            await inter.response.send_message('Você precisa colocar uma cidade!')
+
+        else:
+            cembed = disnake.Embed(title = f"Clima em {cidade}", color = 0xffb354, description = f'[Resultado completo](https://wttr.in/{cidade})')
+            cembed.set_image(url=f"https://wttr.in/{cidade}_0pq_transparency=300_lang=pt.png")
+            await inter.response.send_message(embed = cembed)
+        
 
     @commands.Cog.listener()
     async def on_ready(self):
