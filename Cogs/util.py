@@ -124,14 +124,11 @@ class util(commands.Cog, name = "Utility"):
     
 
     @commands.slash_command(name='clima', description='Mostra o clima da cidade que o usuário pedir')
-    async def clima(inter, cidade: None):
-        if cidade is None:
-            await inter.response.send_message('Você precisa colocar uma cidade!')
-
-        else:
-            cembed = disnake.Embed(title = f"Clima em {cidade}", color = 0xffb354, description = f'[Resultado completo](https://wttr.in/{cidade})')
-            cembed.set_image(url=f"https://wttr.in/{cidade}_0pq_transparency=300_lang=pt.png")
-            await inter.response.send_message(embed = cembed)
+    async def clima(inter, cidade):
+        
+        cembed = disnake.Embed(title = f"Clima em {cidade}", color = 0xffb354, description = f'[Resultado completo](https://wttr.in/{cidade})')
+        cembed.set_image(url=f"https://wttr.in/{cidade}_0pq_transparency=300_lang=pt.png")
+        await inter.response.send_message(embed = cembed)
         
 
     @commands.Cog.listener()
