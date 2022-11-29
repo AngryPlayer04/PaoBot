@@ -127,7 +127,8 @@ class util(commands.Cog, name = "Utility"):
     async def clima(inter, cidade):
         
         cembed = disnake.Embed(title = f"Clima em {cidade}", color = 0xffb354, description = f'[Resultado completo](https://wttr.in/{cidade})')
-        cembed.set_image(url=f"https://wttr.in/{cidade}_M_0pq_transparency=250_lang=pt.png")
+        city = cidade.replace(" ","%20")
+        cembed.set_image(url=f"https://wttr.in/{city}_M_0pq_transparency=250_lang=pt.png")
         await inter.response.send_message(embed = cembed)
         
 
