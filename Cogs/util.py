@@ -125,7 +125,7 @@ class util(commands.Cog, name = "Utility"):
 
     @commands.slash_command(name='clima', description='Mostra o clima da cidade que o usuário pedir')
     async def clima(inter, cidade):
-        city = cidade.replace(" ","+")
+        city = cidade.replace(" ","%20")
 
         cembed = disnake.Embed(title = f"Clima em {cidade}", color = 0xffb354, description = f'[Resultado completo](https://wttr.in/{city})')
         cembed.set_image(url=f"https://wttr.in/{city}_M_0pq_transparency=300_lang=pt.png")
