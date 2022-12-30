@@ -2,14 +2,8 @@ import disnake
 import discloud
 from disnake.ext import commands
 import requests
-import pathlib
-import zipfile
-import os
-import json
-import tweepy as twitter
-import time
-import datetime
 import asyncio
+import aiohttp
 
 client = discloud.Client('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMxOTk2MzYyNjEwODg3ODg0OCIsImtleSI6ImgwNzZIVTNsaTJSIn0.dAbllqTlgGyhxJZdJBXPYZcVPULtPNmNBbK0E8Cx39c')
 token= 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMxOTk2MzYyNjEwODg3ODg0OCIsImtleSI6ImgwNzZIVTNsaTJSIn0.dAbllqTlgGyhxJZdJBXPYZcVPULtPNmNBbK0E8Cx39c'
@@ -62,10 +56,23 @@ class owner(commands.Cog, name = "Owner"):
     @commands.slash_command(name='restart',description = 'Reinicia o bot(*Apenas o dono do bot pode utilizar este comando*)')
     @commands.is_owner()
     async def restart(self, inter):
+        await inter.response.defer(ephemeral= True)
+        await inter.response.send_message('Reiniciando', ephemeral =True)
         await client.restart('850123093077917716')
 
 
-    
+    @commands.slash_command(name='backup',description = 'Faz o backup do bot e envia em zip')
+    @commands.is_owner()
+    async def backup(self, inter):
+
+        session = aiohttp.ClientSession()
+        resposta = await session.get('https://api.discloud.app/v2/app/850123093077917716/backup').json()
+
+        bac = (resposta['backups'])
+        link = bac['url']
+        await inter.response.send_message(f'Aqui está o backup:\n{link}', ephemeral = True)
+
+        
         
     
 
