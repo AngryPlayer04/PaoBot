@@ -71,6 +71,7 @@ class owner(commands.Cog, name = "Owner"):
         bac = (resposta['backups'])
         link = bac['url']
         await inter.response.send_message(f'Aqui está o backup:\n{link}', ephemeral = True)
+        await session.close()
 
         
         
