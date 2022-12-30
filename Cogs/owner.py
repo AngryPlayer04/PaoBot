@@ -58,7 +58,7 @@ class owner(commands.Cog, name = "Owner"):
     @commands.is_owner()
     async def restart(self, inter):
         await inter.response.defer(ephemeral= True)
-        await inter.response.send_message('Reiniciando', ephemeral =True)
+        await inter.response.edit_original_response('Reiniciando', ephemeral =True)
         await client.restart('850123093077917716')
 
 
