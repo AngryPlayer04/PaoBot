@@ -65,66 +65,9 @@ class owner(commands.Cog, name = "Owner"):
         await client.restart('850123093077917716')
 
 
-    @commands.slash_command(name='backup',description = 'Faz o backup do bot e envia em zip')
-    @commands.is_owner()
-    async def backup(self, inter):
-        await inter.response.defer(with_message = True, ephemeral = True)
-
-        dire = pathlib.Path('./')
-        with zipfile.ZipFile('backup.zip', mode = 'w') as archive:
-            for file_path in dire.rglob('*'):
-                archive.write(file_path, arcname=file_path.relative_to(dire))
-        await inter.edit_original_message(file = disnake.File(rb'backup.zip'))
-        os.remove('backup.zip')
+    
         
-    @commands.Cog.listener()
-    async def on_time():
-
-        #Autenticação do bot
-
-        aute = twitter.OauthHandler('f2pBkuQmLbPnkxTiQKDRQ3tDo','DWTU0wDbVhBPO0AlwsvLE4kXb7Qmko0Sadzxlr6WOhgmOj6m0C') 
-        aute.set_access_token('1437949410990858244-Od2zyTfIwnrUoUBrqoalIxkmJGJ28n', 'LruNOhJq8000CqVRt1RMRJAh4zaXtHXYKJOL4CYd9WQwO')
-        api = twitter.API(aute)
-
-        try: 
-            api.verify_credentials()
-            print ("Autenticado!")
-
-        except:
-            print("Não autenticado!")
-
-        #Criação do objeto da API
-
-        api = twitter.API(aute, wait_on_rate_limit = True, wait_on_rate_limit_notify = True)
-
-        #Retweet
-
-        hashtag = '#ForzaHorizon5', '#XboxShare'
-
-        def twitter_bot(hashtag):
-            while True:
-                tz_SP = pytz.timezone('America/Sao_Paulo')
-                datetime_SP = datetime.now(tz_SP)
-                tempo = datetime_SP.strftime("%H:%M")
-                hora = '19:00'
-                print(tempo)
-                if tempo == hora:
-                    for tweet in twitter.Cursor(api.search, q=hashtag, rpp=20,).items(2):
-                        try:
-
-                            tweet_id = dict(tweet._json)['id']
-                            tweet_text = dict(tweet._json)['text']
-                            api.retweet(tweet_id)
-                        except twitter.TweepError as error:
-                            print(error.reason)
-            twitter_bot(hashtag)
-            asyncio.sleep(50)
-
-    @commands.Cog.listener()
-    async def on_ready(self):
-        print('Owner carregado!')
-
-
+    
 
 def setup(bot):
     bot.add_cog(owner(bot))
