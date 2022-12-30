@@ -68,9 +68,8 @@ class owner(commands.Cog, name = "Owner"):
 
         session = aiohttp.ClientSession()
         resposta = await session.get('https://api.discloud.app/v2/app/850123093077917716/backup', headers={"api-token": token})
-        data = json.loads(await resposta.text())
 
-        bac = (data['backups'])
+        bac = (resposta['backups'])
         link = bac['url']
         await inter.response.send_message(f'Aqui está o backup:\n{link}', ephemeral = True)
         await session.close()
