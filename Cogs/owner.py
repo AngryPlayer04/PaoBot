@@ -4,6 +4,7 @@ from disnake.ext import commands
 import requests
 import asyncio
 import aiohttp
+import json
 
 client = discloud.Client('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMxOTk2MzYyNjEwODg3ODg0OCIsImtleSI6ImgwNzZIVTNsaTJSIn0.dAbllqTlgGyhxJZdJBXPYZcVPULtPNmNBbK0E8Cx39c')
 token= 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMxOTk2MzYyNjEwODg3ODg0OCIsImtleSI6ImgwNzZIVTNsaTJSIn0.dAbllqTlgGyhxJZdJBXPYZcVPULtPNmNBbK0E8Cx39c'
@@ -66,9 +67,10 @@ class owner(commands.Cog, name = "Owner"):
     async def backup(self, inter):
 
         session = aiohttp.ClientSession()
-        resposta = await session.get('https://api.discloud.app/v2/app/850123093077917716/backup').json()
+        resposta = await session.get('https://api.discloud.app/v2/app/850123093077917716/backup', headers={"api-token": token})
+        data = json.loads(await resposta.text())
 
-        bac = (resposta['backups'])
+        bac = (data['backups'])
         link = bac['url']
         await inter.response.send_message(f'Aqui está o backup:\n{link}', ephemeral = True)
         await session.close()
