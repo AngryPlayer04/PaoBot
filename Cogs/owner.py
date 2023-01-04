@@ -66,7 +66,7 @@ class owner(commands.Cog, name = "Owner"):
     @commands.is_owner()
     async def backup(self, inter):
       backup = await client.backup(target="850123093077917716")
-        await inter.response.send_message(f'Aqui está o backup:\n{backup.url}', ephemeral = True)
+      await inter.response.send_message(f'Aqui está o backup:\n{backup.url}', ephemeral = True)
 
         
         
