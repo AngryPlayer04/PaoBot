@@ -57,16 +57,15 @@ class owner(commands.Cog, name = "Owner"):
     @commands.slash_command(name='restart',description = 'Reinicia o bot(*Apenas o dono do bot pode utilizar este comando*)')
     @commands.is_owner()
     async def restart(self, inter):
-        await inter.response.defer(ephemeral= True)
-        await inter.response.edit_original_response('Reiniciando', ephemeral =True)
+        await inter.response.send_response('Reiniciando', ephemeral =True)
         await client.restart('850123093077917716')
 
 
     @commands.slash_command(name='backup',description = 'Faz o backup do bot e envia em zip')
     @commands.is_owner()
     async def backup(self, inter):
-      backup = await client.backup(target="850123093077917716")
-      await inter.response.send_message(f'Aqui está o backup:\n{backup.url}', ephemeral = True)
+        backup = await client.backup(target="850123093077917716")
+        await inter.response.send_message(f'Aqui está o backup:\n{backup.url}', ephemeral = True)
 
         
         
