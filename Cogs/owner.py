@@ -57,7 +57,7 @@ class owner(commands.Cog, name = "Owner"):
     @commands.slash_command(name='restart',description = 'Reinicia o bot(*Apenas o dono do bot pode utilizar este comando*)')
     @commands.is_owner()
     async def restart(self, inter):
-        await inter.response.send_response('Reiniciando', ephemeral =True)
+        await inter.response.send_message('Reiniciando', ephemeral =True)
         await client.restart('850123093077917716')
 
 
