@@ -65,14 +65,8 @@ class owner(commands.Cog, name = "Owner"):
     @commands.slash_command(name='backup',description = 'Faz o backup do bot e envia em zip')
     @commands.is_owner()
     async def backup(self, inter):
-
-        session = aiohttp.ClientSession()
-        resposta = await session.get('https://api.discloud.app/v2/app/850123093077917716/backup', headers={"api-token": token})
-
-        bac = (resposta['backups'])
-        link = bac['url']
-        await inter.response.send_message(f'Aqui está o backup:\n{link}', ephemeral = True)
-        await session.close()
+      backup = await client.backup(target="850123093077917716")
+        await inter.response.send_message(f'Aqui está o backup:\n{backup.url}', ephemeral = True)
 
         
         
