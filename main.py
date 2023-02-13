@@ -38,7 +38,8 @@ async def on_ready():
 
   bot.loop.create_task(status_task())
   bot.loop.create_task(tempo_task())
-  del bot.on_ready
+  
+  
 
   member = bot.get_channel(992499815529316473)
   
