@@ -36,8 +36,6 @@ async def on_ready():
   print ('===============================')
   print (f'Acordei pra tomar café às {(datetime_BR.strftime("%H:%M"))}')
 
-  
-
   bot.loop.create_task(status_task())
   bot.loop.create_task(tempo_task())
   del bot.on_ready
