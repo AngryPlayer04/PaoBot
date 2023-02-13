@@ -1,5 +1,5 @@
 import disnake
-from disnake.ext import commands
+from disnake.ext import commands, CommandSyncFlags
 import discloud
 import json
 from datetime import datetime 
