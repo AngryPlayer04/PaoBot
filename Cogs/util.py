@@ -10,6 +10,11 @@ import json
 import asyncio
 
 
+with open("/configuration.json", "r") as config: 
+    data = json.load(config)
+    giphykey = data["giphykey"]
+
+
 class util(commands.Cog, name = "Utility"):
     def __init__(self, bot):
         self.bot = bot 
@@ -38,7 +43,7 @@ class util(commands.Cog, name = "Utility"):
                 return
             
             else:
-                response = await session.get('http://api.giphy.com/v1/gifs/search?q=bread&api_key=GiIoyyWzwxGb4h8VOw62xA3mqano25E9&limit=50')
+                response = await session.get(f'http://api.giphy.com/v1/gifs/search?q=bread&api_key={giphykey}&limit=50')
                 data = json.loads(await response.text())
                 gifch = randint(0, 49)
                 bread = (data['data'][gifch]['images']['original']['url'])

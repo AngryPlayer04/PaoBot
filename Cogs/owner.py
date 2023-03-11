@@ -6,8 +6,12 @@ import asyncio
 import aiohttp
 import json
 
-client = discloud.Client('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMxOTk2MzYyNjEwODg3ODg0OCIsImtleSI6ImgwNzZIVTNsaTJSIn0.dAbllqTlgGyhxJZdJBXPYZcVPULtPNmNBbK0E8Cx39c')
-token= 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMxOTk2MzYyNjEwODg3ODg0OCIsImtleSI6ImgwNzZIVTNsaTJSIn0.dAbllqTlgGyhxJZdJBXPYZcVPULtPNmNBbK0E8Cx39c'
+with open("/configuration.json", "r") as config: 
+    data = json.load(config)
+    token = data["discloudtoken"]
+
+
+client = discloud.Client(token)
 
 class owner(commands.Cog, name = "Owner"):
     def __init__(self, bot):
@@ -23,7 +27,7 @@ class owner(commands.Cog, name = "Owner"):
         li = rei['url']
 
         oEmbed = disnake.Embed(title = 'Log:', color = 0xffb354, description = f'[Link do log]({li})')
-        oEmbed.set_author(name = 'Pão Bot', icon_url = 'https://cdn.disnakeapp.com/avatars/850123093077917716/2fe303ab1bf685becf029d72834b0f16.png')
+        oEmbed.set_author(name = 'Pão Bot', icon_url = 'https://cdn.discordapp.com/avatars/850123093077917716/2fe303ab1bf685becf029d72834b0f16.png')
         oEmbed.add_field(name ='\u200b', value = f'```{res}```', inline=False)
         oEmbed.set_thumbnail(url = 'https://cdn-icons-png.flaticon.com/512/2125/2125009.png')
 

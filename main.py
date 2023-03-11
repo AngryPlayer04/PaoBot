@@ -12,9 +12,7 @@ import requests
 with open("configuration.json", "r") as config: 
   data = json.load(config)
   token = data["token"]
-  
-
-  apitoken = ('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMxOTk2MzYyNjEwODg3ODg0OCIsImtleSI6ImgwNzZIVTNsaTJSIn0.dAbllqTlgGyhxJZdJBXPYZcVPULtPNmNBbK0E8Cx39c')
+  apitoken = data["discloudtoken"]
 
 
 # Intents
