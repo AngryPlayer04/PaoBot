@@ -10,7 +10,7 @@ import json
 import asyncio
 
 
-with open("/configuration.json", "r") as config: 
+with open("configuration.json", "r") as config: 
     data = json.load(config)
     giphykey = data["giphykey"]
 

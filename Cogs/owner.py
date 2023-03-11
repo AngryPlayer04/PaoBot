@@ -6,7 +6,7 @@ import asyncio
 import aiohttp
 import json
 
-with open("/configuration.json", "r") as config: 
+with open("configuration.json", "r") as config: 
     data = json.load(config)
     token = data["discloudtoken"]
 
