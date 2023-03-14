@@ -17,7 +17,5 @@ class AdminOnly(commands.Cog, name = "Admin"):
         print('Admin carregado!')
 
 
-
-
 def setup(bot):
     bot.add_cog(AdminOnly(bot))
