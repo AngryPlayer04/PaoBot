@@ -14,7 +14,7 @@ with open("configuration.json", "r") as config:
     data = json.load(config)
     giphykey = data["giphykey"]
 
-
+#teste
 class util(commands.Cog, name = "Utility"):
     def __init__(self, bot):
         self.bot = bot 
