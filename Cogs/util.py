@@ -8,6 +8,8 @@ from translate import Translator
 import aiohttp
 import json
 import asyncio
+from mongomain import get_database
+from random import randint
 
 
 with open("configuration.json", "r") as config: 
@@ -27,13 +29,18 @@ class util(commands.Cog, name = "Utility"):
             await inter.response.send_message(":crown: Coroa!")
 
 
-    @commands.slash_command(name='receita',description='Envia receitas de pão')
-    async def receita(inter):
-        lin = "https://www.tudogostoso.com.br/receita/72313-pao-caseiro-facil.html",\
-        "https://www.tudogostoso.com.br/receita/79996-pao-de-queijo-3-ingredientes.html", \
-        "https://www.tudogostoso.com.br/receita/83-pao-de-batata.html", \
-        "https://www.tudogostoso.com.br/receita/105067-pao-recheado.html"
-        await inter.response.send_message(choice(lin))
+    @commands.slash_command(name='receitas',description='Envia receitas de pão')
+    async def receitas(inter):
+
+        minhadb = get_database()
+        collecion_name = minhadb['receitas_links']
+        count = collecion_name.count_documents({})
+        random_index = randint(0, count -1)
+        aleatorio = collecion_name.find().limit(1).skip(random_index)
+        resultado = aleatorio[0]
+        link = resultado['link']
+
+        await inter.response.send_message(link)
 
     @commands.Cog.listener()
     async def on_message(self, message):
