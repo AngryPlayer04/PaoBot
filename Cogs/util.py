@@ -8,7 +8,7 @@ from translate import Translator
 import aiohttp
 import json
 import asyncio
-from mongomain import get_database
+from mongo.mongomain import get_database
 from random import randint
 
 

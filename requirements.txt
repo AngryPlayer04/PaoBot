@@ -4,5 +4,4 @@ pytz
 numexpr
 translate
 python-dateutil
-tweepy
 pymongo
