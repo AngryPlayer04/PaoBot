@@ -5,3 +5,4 @@ numexpr
 translate
 python-dateutil
 tweepy
+pymongo
