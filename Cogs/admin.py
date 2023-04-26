@@ -8,7 +8,7 @@ class AdminOnly(commands.Cog, name = "Admin"):
     @commands.slash_command(name='clear', description = 'Limpa a quantidade indicada de mensagens do canal, sendo 1 por padrão')
     @commands.has_guild_permissions(manage_messages = True)
     async def clear(self, inter, amount = 1):
-        await inter.channel.purge(limit = amount + 1)
+        await inter.channel.purge(limit = int(amount) + 1)
         await inter.response.send_message(f'Foram excluídas {amount} mensagens!', ephemeral = True)
 
 
