@@ -21,7 +21,7 @@ class owner(commands.Cog, name = "Owner"):
     @commands.is_owner()
     async def logs(self, inter):
         re = requests.get("https://api.discloud.app/v2/app/850123093077917716/logs", headers={"api-token": token}).json()
-        ret = re['apps']
+        ret = re['app']
         rei = ret['terminal']
         res = rei['small'][:1018]
         li = rei['url']
