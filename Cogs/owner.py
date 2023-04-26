@@ -20,7 +20,7 @@ class owner(commands.Cog, name = "Owner"):
     @commands.slash_command(name='logs',description = 'Logs do bot')
     @commands.is_owner()
     async def logs(self, inter):
-        re = requests.get("https://api.discloud.app/v2/app/850123093077917716/logs", headers={"api-token": token}).json()
+        re = requests.get("https://api.discloud.app/v2/app/850123093077917716/logs", headers={"accept": "*/*","api-token": token}).json()
         ret = re['app']
         rei = ret['terminal']
         res = rei['small'][:1018]
