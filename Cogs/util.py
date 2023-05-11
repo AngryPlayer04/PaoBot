@@ -136,12 +136,17 @@ class util(commands.Cog, name = "Utility"):
     
 
     @commands.slash_command(name='clima', description='Mostra o clima da cidade que o usuário pedir')
-    async def clima(inter, cidade):
-        city = cidade.replace(" ","%20")
+    async def clima(inter):#, cidade, estado):
+        
+        #colocar todas as opções dos estados seguindo a documentação do climatempo
+        #colocar também ratelimit no comando
 
-        cembed = disnake.Embed(title = f"Clima em {cidade}", color = 0xffb354, description = f'[Resultado completo](https://wttr.in/{city})')
-        cembed.set_image(url=f"https://wttr.in/{city}_m_0pq_transparency=300_lang=pt.png")
-        await inter.response.send_message(embed = cembed)
+        #city = cidade.casefold()
+        #cembed = disnake.Embed(title = f"Clima em {cidade}", color = 0xffb354, description = f'[Resultado completo](https://wttr.in/{city})')
+        #cembed.set_image(url=f"https://wttr.in/{city}_m_0pq_transparency=300_lang=pt.png")
+        #await inter.response.send_message(embed = cembed)
+        
+        await inter.response.send_message("Comando em manutenção!!")
         
 
     @commands.Cog.listener()
