@@ -140,7 +140,7 @@ class util(commands.Cog, name = "Utility"):
         city = cidade.replace(" ","%20")
 
         cembed = disnake.Embed(title = f"Clima em {cidade}", color = 0xffb354, description = f'[Resultado completo](https://wttr.in/{city})')
-        cembed.set_image(url=f"https://wttr.in/{city}_M_0pq_transparency=300_lang=pt.png&nonce=$RANDOM")
+        cembed.set_image(url=f"https://wttr.in/{city}&nonce=$RANDOM_M_0pq_transparency=300_lang=pt.png")
         await inter.response.send_message(embed = cembed)
         
 
