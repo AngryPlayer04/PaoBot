@@ -23,3 +23,7 @@ O bot também conta com um sistema de ticket simples, com o objetivo de receber 
 - [Python](https://python.org)
 - [Disnake](https://docs.disnake.dev)
 - [Discord](https://discord.com)
+
+
+## Licença
+Esse projeto está sobre a licença GNU GPL3
