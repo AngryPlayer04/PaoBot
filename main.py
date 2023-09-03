@@ -20,7 +20,7 @@ intents = disnake.Intents.default()
 intents.message_content = True
 
 # The bot
-InteractionBot = commands.Bot(intents = intents, command_sync_flags=commands.CommandSyncFlags.all(), command_prefix='p.')
+InteractionBot = commands.Bot(intents = intents, command_sync_flags=commands.CommandSyncFlags.sync_commands_debug(true), command_prefix='p.')
 
 bot = InteractionBot
 

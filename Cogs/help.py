@@ -6,7 +6,7 @@ class help(commands.Cog, name = "Help"):
         self.bot = bot
 
     @commands.slash_command(name='help',description='Ajuda')
-    async def help(inter):
+    async def ajuda(inter):
         embed = disnake.Embed(color=0xffb354)
         embed.set_author(name="Pão Bot", icon_url="https://images-ext-2.disnakeapp.net/external/lK0peJ7nECCGR6-5ND3L1ysNwT1Iq1DVkHJoF19Pwcg/%3Fsize%3D1024/https/cdn.disnakeapp.com/avatars/850123093077917716/2fe303ab1bf685becf029d72834b0f16.png")
         embed.set_field(name= 'Ajuda',value="Servidor do bot: https://discord.gg/ZECYSxMjSY \nSite: https://paobot.discloud.app/")
