@@ -1,7 +1,7 @@
 import disnake
 from disnake.ext import commands
 
-class HelpCommand(commands.Cog, name = "Help"):
+class help(commands.Cog, name = "Help"):
     def __init__(self, bot):
         self.bot = bot
 
