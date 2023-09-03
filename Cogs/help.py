@@ -1,28 +1,25 @@
 import disnake
 from disnake.ext import commands
 
-class HelpCommand(commands.MinimalHelpCommand):
-    async def send_pages(self):
-        destination = self.get_destination()
-        for page in self.paginator.pages:
-            emby = disnake.Embed(description=page, color = 0xffb354)
-            mes = 'Sabia que o bot agora tem um servidor? E um site também! \nServidor: https://disnake.gg/ZECYSxMjSY \nSite: https://paobot.netfly.app'
-            await destination.send(embed=emby)
-            await destination.send(mes)
-
-
-class HelpCog(commands.Cog, name = 'Help'):
-    '''Mostra os comandos e suas funções'''
-
+class HelpCommand(commands.Cog, name = "Help"):
     def __init__(self, bot):
-        self._original_help_command = bot.help_command
-        bot.help_command = HelpCommand()
-        bot.help_command.cog = self
-        
-    def cog_unload(self):
-        self.bot.help_command = self._original_help_command
+        self.bot = bot
+
+    @commands.slash_command(name='help',description='Ajuda')
+    async def help(inter):
+        embed = disnake.Embed(color=0xffb354)
+        embed.set_author(name="Pão Bot", icon_url="https://images-ext-2.disnakeapp.net/external/lK0peJ7nECCGR6-5ND3L1ysNwT1Iq1DVkHJoF19Pwcg/%3Fsize%3D1024/https/cdn.disnakeapp.com/avatars/850123093077917716/2fe303ab1bf685becf029d72834b0f16.png")
+        embed.set_field(name= 'Ajuda',value="Servidor do bot: https://discord.gg/ZECYSxMjSY \nSite: https://paobot.discloud.app/")
+        embed.set_footer(text="*Comando em desenvolvimento",icon_url="https://discord.com/assets/289673858e06dfa2e0e3a7ee610c3a30.svg")
+        await inter.response.send_message(embed=embed) 
 
 
 
 def setup(bot):
-    bot.add_cog(HelpCog(bot))
+    bot.add_cog(help(bot))
+
+
+
+
+
+
