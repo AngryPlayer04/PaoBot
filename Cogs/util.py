@@ -69,6 +69,7 @@ class util(commands.Cog, name = "Utility"):
         if usuario is None:
             usuario = inter.author
         memberAvatar = usuario.avatar.url
+        print(usuario)
         aEmbed = disnake.Embed(title = usuario.name, color=0xffb354, description= f'[Avatar:]({memberAvatar})')
         aEmbed.set_image(url=memberAvatar)
         await inter.response.send_message(embed = aEmbed)
