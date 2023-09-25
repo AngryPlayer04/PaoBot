@@ -20,7 +20,7 @@ intents = disnake.Intents.default()
 intents.message_content = True
 
 # The bot
-InteractionBot = commands.Bot(intents = intents, command_sync_flags=commands.CommandSyncFlags.all(), command_prefix='p.')
+InteractionBot = commands.Bot(intents = intents, command_sync_flags=commands.CommandSyncFlags.all(), command_prefix=disnake.ext.commands.when_mentioned)
 
 bot = InteractionBot
 
@@ -62,8 +62,6 @@ async def tempo_task():
     if tempo == hora:
       await asyncio.sleep(60)
       requests.put("https://api.discloud.app/v2/app/850123093077917716/restart", headers={"api-token":apitoken})
-    if tempo != hora:
-      pass
     await asyncio.sleep(25)
 
 
