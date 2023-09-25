@@ -49,18 +49,17 @@ class util(commands.Cog, name = "Utility"):
         if message.content in ["Pão", "pão", "bread", "Bread", "Oãp","🍞"]:
             if message.author.bot:
                 return
-            
-            else:
-                response = await session.get(f'http://api.giphy.com/v1/gifs/search?q=bread&api_key={giphykey}&limit=50')
-                data = json.loads(await response.text())
-                gifch = randint(0, 49)
-                bread = (data['data'][gifch]['images']['original']['url'])
-            
-                bembed = disnake.Embed(color=0xffb354)
-                bembed.set_image(bread)
-                bembed.set_author(name="Pão Bot", icon_url="https://images-ext-2.disnakeapp.net/external/lK0peJ7nECCGR6-5ND3L1ysNwT1Iq1DVkHJoF19Pwcg/%3Fsize%3D1024/https/cdn.disnakeapp.com/avatars/850123093077917716/2fe303ab1bf685becf029d72834b0f16.png")
-                bembed.set_footer(text='Powered by GIPHY', icon_url='https://giphy.com/static/img/about/stickers/logo-spin.gif')
-                await message.reply(embed = bembed)
+
+            response = await session.get(f'http://api.giphy.com/v1/gifs/search?q=bread&api_key={giphykey}&limit=50')
+            data = json.loads(await response.text())
+            gifch = randint(0, 49)
+            bread = (data['data'][gifch]['images']['original']['url'])
+
+            bembed = disnake.Embed(color=0xffb354)
+            bembed.set_image(bread)
+            bembed.set_author(name="Pão Bot", icon_url="https://images-ext-2.disnakeapp.net/external/lK0peJ7nECCGR6-5ND3L1ysNwT1Iq1DVkHJoF19Pwcg/%3Fsize%3D1024/https/cdn.disnakeapp.com/avatars/850123093077917716/2fe303ab1bf685becf029d72834b0f16.png")
+            bembed.set_footer(text='Powered by GIPHY', icon_url='https://giphy.com/static/img/about/stickers/logo-spin.gif')
+            await message.reply(embed = bembed)
         await session.close()
 
     @commands.slash_command(name='avatar',description='Envia o avatar de um usuário, podendo ser uma menção ou ID')
@@ -119,22 +118,19 @@ class util(commands.Cog, name = "Utility"):
         await inter.response.send_message(f'Envie no {chan.mention} a sua dúvida ou sugestão')
         await chan.send(f'{inter.author.mention} envie aqui a sua dúvida ou sugestão dentro de uma única mensagem')
         await asyncio.sleep(30) #mudar pra 30 ou mais após dar certo
-        
-        canal = disnake.utils.get(inter.guild.text_channels, name = 'ticket-logs')
-        
-        if canal:
-            mensagem = await chan.fetch_message(chan.last_message_id)
-            if mensagem.author.bot:
-                await chan.delete()
-            else:
-                await canal.send(f'De {mensagem.author.id}({mensagem.author}): \n{mensagem.content}')
-                await chan.delete()
 
+        if canal := disnake.utils.get(
+            inter.guild.text_channels, name='ticket-logs'
+        ):
+            mensagem = await chan.fetch_message(chan.last_message_id)
+            if not mensagem.author.bot:
+                await canal.send(f'De {mensagem.author.id}({mensagem.author}): \n{mensagem.content}')
         else:
             lg = await disnake.Guild.create_text_channel(inter.guild, name = 'ticket-logs', overwrites= permissao2)
             mensagem = await chan.fetch_message(chan.last_message_id)
             await lg.send(f'De {mensagem.author.id}({mensagem.author}): \n```{mensagem.content}```')
-            await chan.delete()
+
+        await chan.delete()
     
 
     @commands.slash_command(name='clima', description='Mostra o clima da cidade que o usuário pedir')
