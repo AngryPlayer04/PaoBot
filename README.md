@@ -17,7 +17,7 @@ O bot também conta com um sistema de ticket simples, com o objetivo de receber 
 
 ## Suporte
 
-- [Site]([https://paobot.netlify.com](https://angryplayer04.github.io/PaoBotS))
+- [Site](https://angryplayer04.github.io/PaoBotS)
 
 ## Referências
 
