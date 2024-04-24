@@ -3,6 +3,7 @@
 <img src="boticon.png" alt="Logo" width="200"/>
 
 Meu primeiro projeto em Python, um bot para Discord feito com a biblioteca Disnake.
+Por motivos pessoais, resolvi cessar o desenvolvimento do bot.
 
 ## Comandos
 
