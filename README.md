@@ -7,10 +7,12 @@ Meu primeiro projeto em Python, um bot para Discord feito com a biblioteca Disna
 ## Comandos
 
 - Avatar
-- Dicionário
 - Receitas (de pães)
 - Calculadora
 - Cara ou Coroa
+
+ <img src="paobotcomandos.gif" alt="Comandos" width="500"/>
+
 O bot também conta com um sistema de ticket simples, com o objetivo de receber sugestões e reclamações.
 
 ## Suporte
