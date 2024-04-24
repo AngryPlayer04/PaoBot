@@ -1,6 +1,6 @@
 # Pão Bot
 
-![Logo](https://cdn.discordapp.com/avatars/850123093077917716/2fe303ab1bf685becf029d72834b0f16.png)
+<img src="boticon.png" alt="Logo" width="200"/>
 
 Meu primeiro projeto em Python, um bot para Discord feito com a biblioteca Disnake.
 
